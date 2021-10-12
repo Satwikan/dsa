@@ -39,4 +39,5 @@
 - number of combinations generated will equal to 2^n
 - loop i through 2^n and print any digit only if its corresponding bit in i is 1
 
-## 
+## find unique number in an array where all numbers except one, are present twice
+-
