@@ -12,6 +12,9 @@
 
 <hr/>
 
+## to checkfor right most setbit
+- [refer this program for more info](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
+
 ## to check for a particular bit at some position if it is 1 or not for any number
 - (1 << pos) left shifts 1 pos times
 - take ((1 << pos) & n) 
@@ -56,3 +59,4 @@
 - repeat [this](https://github.com/Satwikan/dsa/blob/master/bit/readme.md#find-unique-number-in-an-array-where-all-numbers-except-one-are-present-twice) again
 - but instead of whole array select only number which has 1 at that position, you will get one of the unique number (take it as a)
 - now (a ^ b = x) therefore (x ^ a = b) thus we get b
+- [refer this program for more info](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
