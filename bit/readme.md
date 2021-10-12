@@ -18,6 +18,8 @@
 
 ## no of ones in a binary number
 - (n & n-1) has same bits as n except right most set bit
-- take continous (n & n-1) until you reach 0
-- number of times you took to reach zero is no of ones in binary
-
+- take (n & n-1)
+- make n = (n & n-1)
+- repeat above steps until you reach 0
+- number of times it took to reach zero is no of ones in binary
+- 
