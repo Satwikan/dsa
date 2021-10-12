@@ -4,6 +4,7 @@
 - (1 << pos) left shifts 1 pos times
 - a & b: applies AND operation to every pair-bit in a and b
 - a | b: applies OR operation to every pair-bit in a and b
+- a ^ b: XOR: same 0, different 1
 - (n & n - 1) has same bits as n except the rightmost set bit
 
 <hr/>
@@ -37,3 +38,5 @@
 ```
 - number of combinations generated will equal to 2^n
 - loop i through 2^n and print any digit only if its corresponding bit in i is 1
+
+## 
