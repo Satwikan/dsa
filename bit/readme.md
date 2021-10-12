@@ -1,4 +1,4 @@
-# Bit Maniluplations
+# Bit Manipulations
 
 # Properties:
 - (1 << pos) left shifts 1 pos times
@@ -9,7 +9,7 @@
 
 <hr/>
 
-## to check for a particular bit at some postion if it is 1 or not for any number
+## to check for a particular bit at some position if it is 1 or not for any number
 - (1 << pos) left shifts 1 pos times
 - take ((1 << pos) & n) 
 
