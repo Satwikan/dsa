@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+// selection sort selects each element, compares with
+// first element for unsorted array and swaps if element is
+// small, unsorted array moves forward and sorted array expands.
+
 void printArray(int arr[], int start, int end){
     for (int i = start; i < end; i++)
         cout << arr[i] << " ";
@@ -31,6 +35,7 @@ int main()
 {
     // Input numbers
     int n;
+    cout<<"Number of elements: ";
     cin >> n;
     int arr[n];
     for (int i = 0; i < n; i++)
