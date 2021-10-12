@@ -5,6 +5,7 @@
 - a & b: applies AND operation to every pair-bit in a and b
 - a | b: applies OR operation to every pair-bit in a and b
 - a ^ b: XOR: same 0, different 1
+- XOR only returns 0 if both numbers are same, and returns a for a ^ 0
 - (n & n - 1) has same bits as n except the rightmost set bit
 
 <hr/>
@@ -40,4 +41,10 @@
 - loop i through 2^n and print any digit only if its corresponding bit in i is 1
 
 ## find unique number in an array where all numbers except one, are present twice
--
+- use XOR operation between all elements in the array
+- XOR only return 0 if both numbers are same, and returns a for a ^ 0
+- therefor only 1 number would remain that would be unique
+- [refer this program for more info](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
+
+## find 2 unique numbers in an array where all numbers except two, are present twice
+- 
