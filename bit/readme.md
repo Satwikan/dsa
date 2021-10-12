@@ -5,7 +5,9 @@
 - a & b: applies AND operation to every pair-bit in a and b
 - a | b: applies OR operation to every pair-bit in a and b
 - a ^ b: XOR: same 0, different 1
-- XOR only returns 0 if both numbers are same, and returns a for a ^ 0
+- a ^ a = 0
+- a ^ 0 = a
+- a ^ b = x, therefore x ^ a = b
 - (n & n - 1) has same bits as n except the rightmost set bit
 
 <hr/>
@@ -47,4 +49,10 @@
 - [refer this program for more info](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
 
 ## find 2 unique numbers in an array where all numbers except two, are present twice
-- 
+- [same as this](https://github.com/Satwikan/dsa/blob/master/bit/readme.md#find-unique-number-in-an-array-where-all-numbers-except-one-are-present-twice)
+- but when we reach at end with XOR of those 2 unique numbers (let's take it as x)
+- check position of rightmost set bit of x,
+- one of those 2 unique number would have 1 at that postion and other won't
+- repeat [this](https://github.com/Satwikan/dsa/blob/master/bit/readme.md#find-unique-number-in-an-array-where-all-numbers-except-one-are-present-twice) again
+- but instead of whole array select only number which has 1 at that position, you will get one of the unique number (take it as a)
+- now (a ^ b = x) therefore (x ^ a = b) thus we get b
