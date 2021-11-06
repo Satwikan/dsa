@@ -45,7 +45,7 @@
 - number of combinations generated will equal to 2^n
 - loop i through 2^n and print any digit only if its corresponding bit in i is 1
 
-## find unique number in an array where all numbers except one, are present twice
+## find a unique number in an array where all numbers except one, are present twice
 - use XOR operation between all elements in the array
 - XOR only return 0 if both numbers are same, and returns a for a ^ 0
 - therefor only 1 number would remain that would be unique
@@ -60,3 +60,12 @@
 - but instead of whole array select only number which has 1 at that position, you will get one of the unique number (take it as a)
 - now (a ^ b = x) therefore (x ^ a = b) thus we get b
 - [refer this program for more info](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
+
+## find a unique number in an array where all numbers except one, are present thrice
+- given array arr
+- make an int array of size 64, loop through it (i),
+- store sum of no. of times 1 appears in arr in i<sup>th</sup> position
+- sum at each position must be divisible of 3
+- if it's not then our unique number has 1 in that position
+- thus form a digit by that
+- [refer this program for code](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
