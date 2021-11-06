@@ -12,7 +12,7 @@
 
 <hr/>
 
-## to checkfor right most setbit
+## to check for right most setbit
 - [refer this program for more info](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
 
 ## to check for a particular bit at some position if it is 1 or not for any number
