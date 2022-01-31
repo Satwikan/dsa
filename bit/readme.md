@@ -2,6 +2,7 @@
 
 # Properties:
 - (1 << pos) left shifts 1 pos times
+- (x << y) = x*2^y
 - a & b: applies AND operation to every pair-bit in a and b
 - a | b: applies OR operation to every pair-bit in a and b
 - a ^ b: XOR: same 0, different 1
