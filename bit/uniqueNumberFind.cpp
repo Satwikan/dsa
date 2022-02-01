@@ -11,7 +11,7 @@ int unique(int arr[], int n) {
 }
 
 /**
- * @return {bool} if at given position "pos" in n it it "1" or not
+ * @return {bool} if at given position "pos" in n is "1" or not
 */
 bool getBit(int n, int pos) {
     return ((1 << pos) & n) != 0;
