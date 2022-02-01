@@ -1,8 +1,9 @@
 # Bit Manipulations
 
 # Properties:
-- (1 << pos) left shifts 1 pos times
-- (x << y) = x*2^y
+- (x << pos) left shifts "x" pos times
+- (x >> pos) right shifts "x" pos times
+- (x << y) = x * 2<sup>y</sup>
 - a & b: applies AND operation to every pair-bit in a and b
 - a | b: applies OR operation to every pair-bit in a and b
 - a ^ b: XOR: same 0, different 1
@@ -12,6 +13,15 @@
 - (n & n - 1) has same bits as n except the rightmost set bit
 
 <hr/>
+
+## (>>>) unsigned right shift
+- (>>) adds 1 to left after shifting for negative numbers thus maintaing the sign
+- (>>>) unsigned right shift, adds 0 to left after shifting
+- negative numbers become positive after this shift
+- for positive numbers it works same as (>>) right shift
+- (-2 >> 2) = -1
+- (-2 >> x) = -1 , (x be any integer)
+- (-2 >>> 2) = 2<sup>30</sup> - 1
 
 ## to check for right most setbit
 - [refer this program for more info](https://github.com/Satwikan/dsa/blob/master/bit/uniqueNumberFind.cpp)
