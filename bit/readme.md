@@ -30,9 +30,12 @@
 - (1 << pos) left shifts 1 pos times
 - take ((1 << pos) & n) 
 
-## check for division of 2 for any number
+## check for power of 2 for any number
 - (n & n - 1) has same bits as n except the rightmost set bit
 - to check for division for 2 therefore for any number take (n & n - 1) it will be zero
+```
+(n != 0) && (n & (n-1)) == 0
+```
 
 ## no of ones in a binary number
 - (n & n-1) has same bits as n except right most set bit
