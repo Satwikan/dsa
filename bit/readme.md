@@ -11,6 +11,7 @@
 - a ^ 0 = a
 - a ^ b = x, therefore x ^ a = b
 - (n & n - 1) has same bits as n except the rightmost set bit
+- x ~ (x-1) = right most set bit
 
 <hr/>
 
