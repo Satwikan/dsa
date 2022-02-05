@@ -1,5 +1,5 @@
 ## tail recursion
-- a function is tail recursive when parent call has nothing to do after calling child
+-  A recursive function is said to be following Tail Recursion if it invokes itself at the end of the function. That is, if all of the statements are executed before the function invokes itself then it is said to be following Tail Recursion.
 - tail recursion uses less time than no-tail recursion on modern compilers
 - because modern compilers do tail elimination thus doesn't have to save state for every recursive call
 - quick sort is tail recursive, while merge sort is not
