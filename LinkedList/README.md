@@ -44,6 +44,11 @@ printNode(head);
 ```
 - output will be ``` 10 10 ```
 
+## Double Linked List
+### Advantages:
+- can be traversed in both direction
+- 
+
 ### Tortoise Hare Example
 ```
 // Tortoise Hare example but you get the point
