@@ -3,3 +3,4 @@
 - insertion or deleteion on beggenning is costly
 
 ### [ListNode](https://github.com/Satwikan/dsa/blob/master/linked%20list/ListNode.cpp)
+- ListNode is a self refrence data structure
