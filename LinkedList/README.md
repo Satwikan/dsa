@@ -21,6 +21,7 @@
 };
 ```
 ### Delete a node
+- In Java memory is atomatically deallocated, in Cpp we have to handle it
 ```
 Node *delNode(Node *head){
   if (head == NULL) return NULL;
