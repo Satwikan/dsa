@@ -25,5 +25,11 @@ public:
             if (tortoise == hare) return true;
         }
         return false;
+        // if you want to create new nodes
+        // for 20->30->10
+        // Node == ListNode
+        Node *head = new Node(20);
+        head->next = new Node(30);
+        head->next->next = new Node(10);
     }
 };
