@@ -47,7 +47,11 @@ printNode(head);
 ## Double Linked List
 ### Advantages:
 - can be traversed in both direction
-- 
+- deletion of any given node in in O(1) time
+- insertion of at any node is in O(1) time
+### Disadvantages
+- extra memory is needed
+- code is complex
 
 ### Tortoise Hare Example
 ```
