@@ -53,6 +53,12 @@ printNode(head);
 - extra memory is needed
 - code is complex
 
+## Circular Linked List
+### Advantages
+- can traverse whole list from any node
+- Round Robin Algorithm implementation
+### Disadvantages
+- implementation of operations becomes complex
 ### Tortoise Hare Example
 ```
 // Tortoise Hare example but you get the point
