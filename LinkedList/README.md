@@ -59,6 +59,13 @@ printNode(head);
 - Round Robin Algorithm implementation
 ### Disadvantages
 - implementation of operations becomes complex
+
+## Find Middle/nth position of end of LInkded List1
+- use 2 pointers instead of counting entire LL and then traversing
+- for middle make Speed<sub>fast pointer</sub> = 2xSpeed<sub>slow pointer</sub>
+- when fast reaches end slow will reach middle
+- for nth pos from last place fast pointer n pos's ahead of slow and move at same speed
+
 ### Tortoise Hare Example
 ```
 // Tortoise Hare example but you get the point
