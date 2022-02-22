@@ -68,9 +68,11 @@ printNode(head);
 
 ### Recursive reverse LL
 ```
+// x1->[x2(rest_tail) <- x3 <- x4 <- x4 ... <- xn(rest_head)]
 Node *recRevl(Node *head){
-  // x1->[x2(rest_tail) <- x3 <- x4 <- x4 ... <- xn(rest_head)]
+  // Base Case
   if (head == NULL || head->next == NULL) return head;
+  
   Node *rest_head = recRevl(head->next);
   Node *rest_tail = head->next;
   rest_tail->next = head;
