@@ -66,6 +66,19 @@ printNode(head);
 - when fast reaches end slow will reach middle
 - for nth pos from last place fast pointer n pos's ahead of slow and move at same speed
 
+### Recursive reverse LL
+```
+Node *recRevl(Node *head){
+  // x1->[x2(rest_tail) <- x3 <- x4 <- x4 ... <- xn(rest_head)]
+  if (head == NULL || head->next == NULL) return head;
+  Node *rest_head = recRevl(head->next);
+  Node *rest_tail = head->next;
+  rest_tail->next = head;
+  head->next = NULL;
+  return rest_head;
+}
+```
+
 ### Tortoise Hare Example
 ```
 // Tortoise Hare example but you get the point
