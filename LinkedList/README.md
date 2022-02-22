@@ -66,7 +66,8 @@ printNode(head);
 - when fast reaches end slow will reach middle
 - for nth pos from last place fast pointer n pos's ahead of slow and move at same speed
 
-### Recursive reverse LL
+## Recursive reverse Linked List
+### Method 1
 ```
 // x1->[x2(rest_tail) <- x3 <- x4 <- x4 ... <- xn(rest_head)]
 Node *recRevl(Node *head){
@@ -78,6 +79,18 @@ Node *recRevl(Node *head){
   rest_tail->next = head;
   head->next = NULL;
   return rest_head;
+}
+```
+### Method 2 (tail recursion)
+```
+// [x1 <- x2 <- x3 <- x4 <- x4 ...] -> xn
+Node *recRevl(Node *curr, Node *prev = NULL){
+  // Base Case
+  if (curr == NULL) return prev;
+  
+  Node* next = curr->next;
+  curr->next = prev;
+  return recRevl(next, curr);
 }
 ```
 
