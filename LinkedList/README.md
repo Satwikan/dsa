@@ -66,6 +66,13 @@ printNode(head);
 - when fast reaches end slow will reach middle
 - for nth pos from last place fast pointer n pos's ahead of slow and move at same speed
 
+## Detect Loop in LL
+### Method 1
+- make a dummy node
+- start traversing given LL and point every node in it to the made dummy node
+- if you find a node in given LL already pointing towards dummy node then loop is present
+- O(1) space, O(n) speed but LL is manipulated
+
 ## Recursive reverse Linked List
 ### Method 1
 ```
