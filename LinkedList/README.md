@@ -71,7 +71,11 @@ printNode(head);
 - make a dummy node
 - start traversing given LL and point every node in it to the made dummy node
 - if you find a node in given LL already pointing towards dummy node then loop is present
-- O(1) space, O(n) speed but LL is manipulated
+- O(1) space, O(n) speed but given LL is modified
+### Method 2
+- use hashmap
+- uses O(n) space
+- given LL is not modified
 
 ## Recursive reverse Linked List
 ### Method 1
