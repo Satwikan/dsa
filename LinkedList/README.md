@@ -105,7 +105,7 @@ Node *recRevl(Node *curr, Node *prev = NULL){
 }
 ```
 
-### Tortoise Hare Example
+### Tortoise Hare Example (Floyd Algorithm)
 ```
 // Tortoise Hare example but you get the point
 /**
@@ -137,3 +137,7 @@ public:
     }
 };
 ```
+### Detech and remove cycle from LL
+- detect cycle by floyd's algorithm
+- move "slow p" to the beginning of LL and keep "fast p" at the meeting point
+- now one by one move slow and fast (at same speed), the point where they meet now is the first node of the loop
