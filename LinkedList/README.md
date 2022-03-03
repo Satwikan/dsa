@@ -1,9 +1,9 @@
-### Problems with array
-- size is fixed or prealocated or worst case insertion at end is o(n)
-- insertion or deleteion on beggenning is costly
+### Problems with an array
+- size is fixed or preallocated or worst case insertion at the end is o(n)
+- insertion or deletion on the beginning is costly
 
 ## Cpp Node Implemention
-- ListNode is a self refrence data structure
+- ListNode is a self-reference data structure
 ```
 /**
  * Definition for singly-linked list.
@@ -21,7 +21,7 @@
 };
 ```
 ### Delete a node
-- In Java memory is atomatically deallocated, in Cpp we have to handle it
+- In Java memory is automatically deallocated, in Cpp we have to handle it
 ```
 Node *delNode(Node *head){
   if (head == NULL) return NULL;
@@ -47,7 +47,7 @@ printNode(head);
 ## Double Linked List
 ### Advantages:
 - can be traversed in both direction
-- deletion of any given node in in O(1) time
+- deletion of any given node in O(1) time
 - insertion of at any node is in O(1) time
 ### Disadvantages
 - extra memory is needed
@@ -55,22 +55,22 @@ printNode(head);
 
 ## Circular Linked List
 ### Advantages
-- can traverse whole list from any node
+- can traverse the whole list from any node
 - Round Robin Algorithm implementation
 ### Disadvantages
 - implementation of operations becomes complex
 
-## Find Middle/nth position of end of LInkded List1
-- use 2 pointers instead of counting entire LL and then traversing
+## Find Middle/nth position of the end of linked List1
+- use 2 pointers instead of counting the entire LL and then traversing
 - for middle make Speed<sub>fast pointer</sub> = 2xSpeed<sub>slow pointer</sub>
-- when fast reaches end slow will reach middle
-- for nth pos from last place fast pointer n pos's ahead of slow and move at same speed
+- when fast reaches end slowly will reach middle
+- for nth pos from last place fast pointer n pos's ahead of slow and move at the same speed
 
 ## Detect Loop in LL
 ### Method 1
 - make a dummy node
 - start traversing given LL and point every node in it to the made dummy node
-- if you find a node in given LL already pointing towards dummy node then loop is present
+- if you find a node in given LL already pointing towards the dummy node then the loop is present
 - O(1) space, O(n) speed but given LL is modified
 ### Method 2
 - use hashmap
