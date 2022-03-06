@@ -140,7 +140,7 @@ public:
 ## Clone LL with random pointer
 - [Reference Video](https://www.youtube.com/watch?v=8XgCpA7OjQA&list=PL0SWhLkCGuU-7wyb8jswrv0MoKN0qXM8X&index=47)
 ### Method 1
-- use hashmap to store addresses for coressponding nodes
+- use hashmap to store addresses for corresponding nodes
 - Time: O(n), Space: O(n)
 ### Method 2
 - Step 1: create a copy node for every node and place it in between of the original nodes
@@ -152,7 +152,7 @@ Original: [1]->[2]->[3]
 Step 1: [1]->[1c]->[2]->[2c]->[3]->[3c]
 ```
 
-### Detech and remove cycle from LL
+### Detect and remove cycle from LL
 - detect cycle by floyd's algorithm
 - move "slow p" to the beginning of LL and keep "fast p" at the meeting point
 - now one by one move slow and fast (at same speed), the point where they meet now is the first node of the loop
@@ -164,3 +164,8 @@ while (slow->next != fast->next) {
 }
 fast->next = NULL; // removing cycle
 ```
+### Check if given LL is Palindrome or not
+- [Reference Video](https://www.youtube.com/watch?v=yowT3YWOxEI&list=PL0SWhLkCGuU-7wyb8jswrv0MoKN0qXM8X&index=48)
+- find middle of the LL
+- reverse remaining LL starting from middle
+- compare every element from starting to start from middle 
