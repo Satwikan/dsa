@@ -143,8 +143,14 @@ public:
 - use hashmap to store addresses for coressponding nodes
 - Time: O(n), Space: O(n)
 ### Method 2
-- create a copy node for every node in front of it
+- Step 1: create a copy node for every node and place it in between of the original nodes
+- Step 2: traverse through LL and assign random to every clone node though given original nodes
+- Step 3: traverse though LL assign next for every clone node and restore original LL
 - Time: O(n), Space: O(1)
+```
+Original: [1]->[2]->[3]
+Step 1: [1]->[1c]->[2]->[2c]->[3]->[3c]
+```
 
 ### Detech and remove cycle from LL
 - detect cycle by floyd's algorithm
