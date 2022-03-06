@@ -137,6 +137,16 @@ public:
     }
 };
 ```
+## Clone LL with random pointer
+### Method 1
+- use hashmap to store addresses for coressponding nodes
+- Time: O(n), Space: O(n)
+### Method 2
+create 
+
+```
+
+```
 ### Detech and remove cycle from LL
 - detect cycle by floyd's algorithm
 - move "slow p" to the beginning of LL and keep "fast p" at the meeting point
