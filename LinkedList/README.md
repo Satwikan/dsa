@@ -138,15 +138,14 @@ public:
 };
 ```
 ## Clone LL with random pointer
+- [Reference Video](https://www.youtube.com/watch?v=8XgCpA7OjQA&list=PL0SWhLkCGuU-7wyb8jswrv0MoKN0qXM8X&index=47)
 ### Method 1
 - use hashmap to store addresses for coressponding nodes
 - Time: O(n), Space: O(n)
 ### Method 2
-create 
+- create a copy node for every node in front of it
+- Time: O(n), Space: O(1)
 
-```
-
-```
 ### Detech and remove cycle from LL
 - detect cycle by floyd's algorithm
 - move "slow p" to the beginning of LL and keep "fast p" at the meeting point
