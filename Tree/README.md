@@ -1,3 +1,4 @@
+# Tree
 ## Use Cases
 ### To represent hierarchical data
 - Organization Structure
@@ -55,7 +56,7 @@ void printInorder(node *root) {
 }
 ```
 - Time Complexity: O(n)
-- Auxilary Space: O(n) [n+1 recursive calls]
+- Auxilary Space: O(h) [h +1 recursive calls]
 
 #### Preorder
 ```
@@ -67,4 +68,54 @@ void printInorder(node *root) {
 }
 ```
 - Time Complexity: O(n)
-- Auxilary Space: O(n) [n+1 recursive calls]
+- Auxilary Space: O(h) [h+1 calls at a time in stack]
+#### Postorder
+```
+void printInorder(node *root) {
+  if (root == NULL) return;
+  printInorder(root->left);
+  printInorder(root->right);
+  cout << root->key << " ";
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h) [h+1 calls at a time in stack]
+#### Height of binary tree
+```
+int height(node *root) {
+  if (root == NULL) return 0;
+  return max(height(root->left), height(right)) + 1;
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h) [h+1 calls at a time in stack]
+#### Print Nodes at distance K
+```
+void printKDist(node *root, int k) {
+  if (root == NULL) return;
+  if (k == 0) cout << root->key << " ";
+  else {
+    printKDist(root->left, k-1);
+    printKDist(root->right, k-1);
+  }
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h)
+### Level Order Traversal
+- use queue here, recursion is not recomended
+```
+void LOT(node *root) {
+  Queue<node *> q;
+  q.push(root);
+  node *temp = NULL;
+  while(!q.empty()) {
+    q.pop() = temp; 
+    cout << temp.key << " ";
+    if (temp->left != NULL) q.push(temp->left);
+    if (temp->right != NULL) q.push(temp->right);
+  }
+}
+```
+- Time Complexity: 0(n) [theta]
+- Auxilary Space: 0(w) (width of binary tree)
