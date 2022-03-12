@@ -147,7 +147,7 @@ public:
 - Step 2: traverse through LL and assign random to every clone node though given original nodes
 - Step 3: traverse though LL assign next for every clone node and restore original LL
 - Time: O(n), Space: O(1)
-- ![image](https://user-images.githubusercontent.com/69719072/158004975-9de357bc-6f7c-4105-8706-5f2651e59b2d.png)
+- ![msg960201314-2602](https://user-images.githubusercontent.com/69719072/158005025-dadf7fa7-b829-4339-bc8f-aeae3f441f64.jpg)
 
 ```
 Original: [1]->[2]->[3]
