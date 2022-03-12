@@ -50,7 +50,21 @@ int main () {
 void printInorder(node *root) {
   if (root == NULL) return;
   printInorder(root->left);
-  cout << root->key;
+  cout << root->key << " ";
   printInorder(root->right);
 }
 ```
+- Time Complexity: O(n)
+- Auxilary Space: O(n) [n+1 recursive calls]
+
+#### Preorder
+```
+void printInorder(node *root) {
+  if (root == NULL) return;
+  cout << root->key << " ";
+  printInorder(root->left);
+  printInorder(root->right);
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(n) [n+1 recursive calls]
