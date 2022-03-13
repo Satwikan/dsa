@@ -119,3 +119,19 @@ void LOT(node *root) {
 ```
 - Time Complexity: 0(n) [theta]
 - Auxilary Space: 0(w) (width of binary tree)
+### Level Order Traversal Line by Line
+- ![image](https://user-images.githubusercontent.com/69719072/158051286-cae0b61a-30fb-4ffd-be1f-ab2db1b5ccee.png)
+```
+void LOT(node *root) {
+  Queue<node *> q;
+  q.push(root);
+  node *temp = NULL;
+  while(!q.empty()) {
+    q.pop() = temp;
+    cout << temp.key << " ";
+    if ()
+    if (temp->left != NULL) q.push(temp->left);
+    if (temp->right != NULL) q.push(temp->right);
+  }
+}
+```
