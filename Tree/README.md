@@ -121,17 +121,45 @@ void LOT(node *root) {
 - Auxilary Space: 0(w) (width of binary tree)
 ### Level Order Traversal Line by Line
 - ![image](https://user-images.githubusercontent.com/69719072/158051286-cae0b61a-30fb-4ffd-be1f-ab2db1b5ccee.png)
+- Method 1
+- If we encounter a NULL that means we reached at end of line
 ```
 void LOT(node *root) {
   Queue<node *> q;
   q.push(root);
+  q.push(NULL);
   node *temp = NULL;
   while(!q.empty()) {
     q.pop() = temp;
+    if (temp == NULL) {
+      q.push(NULL);
+      cout << "\n":
+      q.pop() = temp;
+    }
     cout << temp.key << " ";
-    if ()
     if (temp->left != NULL) q.push(temp->left);
     if (temp->right != NULL) q.push(temp->right);
+  }
+}
+```
+- Time Complexity: 0(n) [theta]
+- Auxilary Space: 0(w) (width of binary tree)
+- Method 2
+- run 2 loops
+ ```
+ void LOT(node *root) {
+  Queue<node *> q;
+  q.push(root);
+  node *temp = NULL;
+  while(!q.empty()) {
+    int count = q.size();
+    for (int i = 0; i < count; i++) {
+      q.pop() = temp;
+      cout << temp.key << " ";
+      if (temp->left != NULL) q.push(temp->left);
+      if (temp->right != NULL) q.push(temp->right);
+    }
+    cout << "\n";
   }
 }
 ```
