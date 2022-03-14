@@ -121,7 +121,7 @@ void LOT(node *root) {
 - Auxilary Space: 0(w) (width of binary tree)
 ### Level Order Traversal Line by Line
 - ![image](https://user-images.githubusercontent.com/69719072/158051286-cae0b61a-30fb-4ffd-be1f-ab2db1b5ccee.png)
-- Method 1
+#### Method 1
 - If we encounter a NULL that means we reached at end of line
 ```
 void LOT(node *root) {
@@ -144,7 +144,7 @@ void LOT(node *root) {
 ```
 - Time Complexity: 0(n) [theta]
 - Auxilary Space: 0(w) (width of binary tree)
-- Method 2
+#### Method 2
 - run 2 loops
  ```
  void LOT(node *root) {
