@@ -88,7 +88,7 @@ int height(node *root) {
 }
 ```
 - Time Complexity: O(n)
-- Auxilary Space: O(h) [h+1 calls at a time in stack]
+- Auxilary Space: O(h) [max h+1 calls at a time in stack]
 #### Print Nodes at distance K
 ```
 void printKDist(node *root, int k) {
@@ -163,3 +163,13 @@ void LOT(node *root) {
   }
 }
 ```
+### Size of binary Tree
+- for iterative solution, queue can be used code will be similar to Level order traversal
+```
+int getSize(node * root) {
+  if (root == NULL) return 0;
+  return 1 + getSize(root->left) + getSize(root->right);
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h) [max h+1 calls at a time in stack]
