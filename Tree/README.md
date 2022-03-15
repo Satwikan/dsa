@@ -226,3 +226,5 @@ void printLeft (node *root) {
   }
 }
 ```
+- Time Complexity: 0(n)
+- Auxilary Space: 0(w), O(n)
