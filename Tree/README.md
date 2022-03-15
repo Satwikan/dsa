@@ -173,3 +173,30 @@ int getSize(node * root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [max h+1 calls at a time in stack]
+### Maximum in Binary Tree
+- for iterative solution, queue can be used code will be similar to Level order traversal
+- for iterative Auxilary Space: O(w)
+```
+int getMax(Node *root) {
+  if (root == NULL) return INT_MIN;
+  return max(root->key, max(getMax(root->left), getMax(root->left)));
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h) [max h+1 calls at a time in stack]
+### Print Left View of binary Tree
+- ![image](https://user-images.githubusercontent.com/69719072/158302578-63229751-4dbb-497b-94a3-beaca43393c9.png)
+- ![image](https://user-images.githubusercontent.com/69719072/158302616-308beeb9-55ea-4958-aeb1-fd74e5822c17.png)
+- If you do a pre-order traversal of Binary tree, you will always vist leftmost node first
+```
+(node *root, bool first=true) {
+  if (root == NULL) return;
+  if (first) cout << root->key << " ";
+  if (root->left == NULL && root->right != NULL) {
+    cout << root->right->key << " ";
+    
+  } else {
+    cout << root->left->key << " ";
+  }
+}
+```
