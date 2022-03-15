@@ -187,16 +187,42 @@ int getMax(Node *root) {
 ### Print Left View of binary Tree
 - ![image](https://user-images.githubusercontent.com/69719072/158302578-63229751-4dbb-497b-94a3-beaca43393c9.png)
 - ![image](https://user-images.githubusercontent.com/69719072/158302616-308beeb9-55ea-4958-aeb1-fd74e5822c17.png)
+#### Method 1 (recursive)
 - If you do a pre-order traversal of Binary tree, you will always vist leftmost node first
 ```
-(node *root, bool first=true) {
+int maxLevel = 0;
+void printLeft(Node *root, int level) {
   if (root == NULL) return;
-  if (first) cout << root->key << " ";
-  if (root->left == NULL && root->right != NULL) {
-    cout << root->right->key << " ";
-    
-  } else {
-    cout << root->left->key << " ";
+  if (maxLevel < level) {
+    cout << root->key << " ";
+    maxLevel = level;
+  }
+  printLeft(root->left, level+1);
+  printLeft(root->right, level+1);
+}
+void printLeftView(Node *root) {
+  printLeft(root, 1);
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h)
+#### Method 2 (iterative)
+- Level order traversal Line by Line
+```
+void printLeft (node *root) {
+  if (root == NULL) return;
+  Queue<node *> q;
+  q.push(root);
+  node* curr = NULL;
+  int size;
+  while(!q.empty) {
+    size = q.size();
+    for (int i = 0; i < size(); i++) {
+      curr = q.pop();
+      if (i == 0) cout << (curr->key) << " ";
+      if (curr->left != NULL) q.push(curr->left);
+      if (curr->right != NULL) q.push(curr->right);
+    }
   }
 }
 ```
