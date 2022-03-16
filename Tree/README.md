@@ -129,7 +129,7 @@ void LOT(node *root) {
   q.push(root);
   q.push(NULL);
   node *temp = NULL;
-  while(!q.empty()) {
+  while(q.size() > 1) {
     q.pop() = temp;
     if (temp == NULL) {
       q.push(NULL);
@@ -259,4 +259,27 @@ int isBalanced(node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
-<!-- ### Maximum Width of Binar -->
+### Maximum Width of Binary Tree
+- Use Level Order Traversal Line by Line
+```
+int (node *root) {
+  Queue<node *> q;
+  q.push(root);
+  q.push(NULL);
+  node *temp = NULL;
+  int maxW = 0;
+  while(!q.empty()) {
+    q.pop() = temp;
+    if (temp == NULL) {
+      maxW = maxW < q.size() ? q.size() : maxW;
+      q.push(NULL);
+      // cout << "\n":
+      q.pop() = temp;
+    }
+    // cout << temp.key << " ";
+    if (temp->left != NULL) q.push(temp->left);
+    if (temp->right != NULL) q.push(temp->right);
+  }
+  return maxW;
+}
+```
