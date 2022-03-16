@@ -283,3 +283,24 @@ int (node *root) {
   return maxW;
 }
 ```
+- Time Complexity: O(n)
+- Auxilary Space: O(h)
+### Convert Binary Tree to Doublly Linked List inspace
+- [Refrence](https://www.youtube.com/watch?v=U85iBR14sxw&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=19)
+- no extra space allocation
+- Nodes should be placed by inorder traversal in Doublly LL
+```
+Node *prev = NULL:
+Node* *BTToDLL(Node *root) {
+  if (root == NULL) return root;
+  Node *head = BTToDLL(root->left);
+  if (prev == NULL) head = root;
+  else {
+    root->left = prev;
+    prev->right = root;
+  }
+  prev = root;
+  BTToDLL(root->ight);
+  return head;
+}
+```
