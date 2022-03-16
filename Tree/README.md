@@ -304,3 +304,5 @@ Node* *BTToDLL(Node *root) {
   return head;
 }
 ```
+- Time Complexity: O(n) [same as Inorder Traversal]
+- Auxilary Space: O(h)
