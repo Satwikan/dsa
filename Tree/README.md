@@ -260,4 +260,3 @@ int isBalanced(node *root) {
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
 <!-- ### Maximum Width of Binar -->
-
