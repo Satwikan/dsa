@@ -268,7 +268,7 @@ int (node *root) {
   q.push(NULL);
   node *temp = NULL;
   int maxW = 0;
-  while(!q.empty()) {
+  while(q.size() > 1) {
     q.pop() = temp;
     if (temp == NULL) {
       maxW = maxW < q.size() ? q.size() : maxW;
