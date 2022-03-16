@@ -244,3 +244,19 @@ bool isCSum(node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
+### Check for Balanced Binary Tree
+- every root must have difference between height of left subtree and right subtree less than equal 1
+- [Refrence Video](https://www.youtube.com/watch?v=cCaeuQxKx3o&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=17)
+- Fn returns -1 is not balanced else returns height of the tree/subtree, which can be used by root to calculate it's own height.
+```
+int isBalanced(node *root) {
+  if (root == NULL) return 0;
+  int lh = isBalanced(root->left);
+  int rh = isBalanced(root->right);
+  if ((rh == -1) || (lh == -1) || (abs(lh-rh) > 1)) return -1;
+  return max(lh, rh) + 1;
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h)
+<!-- ### Maximum Width of Binar -->
