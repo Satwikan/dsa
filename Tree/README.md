@@ -228,3 +228,19 @@ void printLeft (node *root) {
 ```
 - Time Complexity: 0(n)
 - Auxilary Space: 0(w), O(n)
+### Children Sum Property (CSP)
+- root must be equal to sum of it's 2 children
+- if no children exists or root is NULL, then it's CSP is true
+- ![image](https://user-images.githubusercontent.com/69719072/158516103-6a9b47bb-9cf8-476e-a2df-d59bef6218db.png)
+```
+bool isCSum(node *root) {
+  if (root == NULL) return true;
+  if (root->left == NULL && root->right == NULL) return true;
+  int sum = 0;
+  if (root->left != NULL) sum += root->left->key;
+  if (root->right != NULL) sum += root->right->key;
+  return ((sum == root->key) && isCSum(root->left) && isCSum(root->right));
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h)
