@@ -308,3 +308,10 @@ Node* *BTToDLL(Node *root) {
 ```
 - Time Complexity: O(n) [same as Inorder Traversal]
 - Auxilary Space: O(h)
+### construct Binary Tree from Inorder and Preorder
+- we need atleast Inorder and 1 more traversal(Preorder/Postorder) to construct the binary tree
+```
+Node *cTree(int in[], int pre[], int is, int ie) {
+  if ()
+}
+```
