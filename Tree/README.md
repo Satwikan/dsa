@@ -310,8 +310,24 @@ Node* *BTToDLL(Node *root) {
 - Auxilary Space: O(h)
 ### construct Binary Tree from Inorder and Preorder
 - we need atleast Inorder and 1 more traversal(Preorder/Postorder) to construct the binary tree
+- check preorder for root and inorder for it's children
+- 
+- [Refrence](https://www.youtube.com/watch?v=BlCEi0I3RB8&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=22)
 ```
 Node *cTree(int in[], int pre[], int is, int ie) {
-  if ()
+  if (is > ie) return NULL;
+  Node *root = new Node(pre[preIndex++]);
+  int inIndex;
+  for(int i = is; i <= ie; i++) {
+    if (in[i] == root->key) {
+      inIndex++;
+      break;
+    }
+    root->left = cTree(in, pre, is, inIndex-1);
+    root->right = cTree(in, pre, inIndex+1, ie);
+    return root;
+  }
 }
 ```
+- Time Complexity: O(n2)
+- for Time Complexity: O(n) use hashset to store inOrder keys
