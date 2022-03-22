@@ -289,18 +289,20 @@ int (node *root) {
 - [Refrence](https://www.youtube.com/watch?v=U85iBR14sxw&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=19)
 - no extra space allocation
 - Nodes should be placed by inorder traversal in Doublly LL
+- Inorder Traversal
+- for next we use right, for prev we use left
 ```
 Node *prev = NULL:
 Node* *BTToDLL(Node *root) {
   if (root == NULL) return root;
   Node *head = BTToDLL(root->left);
-  if (prev == NULL) head = root;
+  if (prev == NULL) head = root; // for 1st node of Double LL
   else {
     root->left = prev;
     prev->right = root;
   }
   prev = root;
-  BTToDLL(root->ight);
+  BTToDLL(root->right);
   return head;
 }
 ```
