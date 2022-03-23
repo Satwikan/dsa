@@ -331,3 +331,38 @@ Node *cTree(int in[], int pre[], int is, int ie) {
 ```
 - Time Complexity: O(n2)
 - for Time Complexity: O(n) use hashset to store inOrder keys
+### Traverse Tree in Spiral Form
+- ![image](https://user-images.githubusercontent.com/69719072/159624490-c9e6e68a-2372-4bc0-9f99-53eecb08de0e.png)
+- use Line by Line Level Order Trversal Method
+```
+void printSpiral(node *root) {
+  Queue<node *> q;
+  // ======new lines start=============
+  stack <int> s;
+  bool reverse = false;
+  // ======new lines end=============
+  q.push(root);
+  node *temp = NULL;
+  while(!q.empty()) {
+    int count = q.size();
+    for (int i = 0; i < count; i++) {
+      temp = q.front();q.pop();
+      // ======new lines start=============
+      if (reverse) s.push(curr->key);
+      // ======new lines end=============
+      else cout << temp.key << " ";
+      if (temp->left != NULL) q.push(temp->left);
+      if (temp->right != NULL) q.push(temp->right);
+    }
+    // ======new lines start=============
+    if (reverse) {
+      while(!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
+      }
+      reverse = !reverse;
+    }
+    // ======new lines end=============
+    cout << "\n";
+  }
+}
