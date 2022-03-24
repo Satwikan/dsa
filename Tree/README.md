@@ -228,7 +228,7 @@ void printLeft (node *root) {
 ```
 - Time Complexity: 0(n)
 - Auxilary Space: 0(w), O(n)
-### Children Sum Property (CSP)
+## Children Sum Property (CSP)
 - root must be equal to sum of it's 2 children
 - if no children exists or root is NULL, then it's CSP is true
 - ![image](https://user-images.githubusercontent.com/69719072/158516103-6a9b47bb-9cf8-476e-a2df-d59bef6218db.png)
@@ -244,7 +244,7 @@ bool isCSum(node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
-### Check for Balanced Binary Tree
+## Check for Balanced Binary Tree
 - every root must have difference between height of left subtree and right subtree less than equal 1
 - [Refrence Video](https://www.youtube.com/watch?v=cCaeuQxKx3o&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=17)
 - Fn returns -1 is not balanced else returns height of the tree/subtree, which can be used by root to calculate it's own height.
@@ -259,7 +259,7 @@ int isBalanced(node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
-### Maximum Width of Binary Tree
+## Maximum Width of Binary Tree
 - Use Level Order Traversal Line by Line
 ```
 int (node *root) {
@@ -285,7 +285,7 @@ int (node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
-### Convert Binary Tree to Doublly Linked List inspace
+## Convert Binary Tree to Doublly Linked List inspace
 - [Refrence](https://www.youtube.com/watch?v=U85iBR14sxw&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=19)
 - no extra space allocation
 - Nodes should be placed by inorder traversal in Doublly LL
@@ -308,10 +308,9 @@ Node* *BTToDLL(Node *root) {
 ```
 - Time Complexity: O(n) [same as Inorder Traversal]
 - Auxilary Space: O(h)
-### construct Binary Tree from Inorder and Preorder
+## construct Binary Tree from Inorder and Preorder
 - we need atleast Inorder and 1 more traversal(Preorder/Postorder) to construct the binary tree
 - check preorder for root and inorder for it's children
-- 
 - [Refrence](https://www.youtube.com/watch?v=BlCEi0I3RB8&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=22)
 ```
 Node *cTree(int in[], int pre[], int is, int ie) {
@@ -376,27 +375,42 @@ void printSpiral(node *root) {
 void printSpiral(node *root) {
   stack <int> s1;
   stack <int> s2;
-  bool reverse = false;
   s1.push(root);
   node *temp = NULL;
   while(!s1.empty() || !s2.empty()) {
-    int count1 = s1.size();
-    int count2 = s2.size();
-    int count = reverse ? count2 : count1;
-    for (int i = 0; i < count; i++) {
+    while (!s1.empty()) {
       temp = q.top();q.pop();
       cout << temp.key << " ";
-      if (reverse) {
-        s1.push(curr->right);s1.push(curr->left);
-      }
-      else  {
-        s2.push(curr->left);s2.push(curr->right);
-      }
-      if (temp->left != NULL) q.push(temp->left);
-      if (temp->right != NULL) q.push(temp->right);
+      if (temp->left != NULL) s2.push(temp->left);
+      if (temp->right != NULL) s2.push(curr->right);
     }
-    reverse = !reverse;
-    cout << "\n";
+    while (!s2.empty()) {
+      temp = q.top();q.pop();
+      cout << temp.key << " ";
+      if (temp->right != NULL) s1.push(curr->right);
+      if (temp->left != NULL) s1.push(temp->left);
+    }
+    // cout << "\n";
   }
 }
 ```
+### Diameter of Binary Tree
+- ![image](https://user-images.githubusercontent.com/69719072/159840385-bb7d1d40-f5ef-450d-8d22-feb68dd91e82.png)
+```
+int maxD = 0;
+int diameter(Node *root) {
+  if (root == NULL) return 0;
+  int lh = diameter(root->left);
+  int rh = diameter(root->right);
+  maxD = max(1 + lh + rh, maxD);
+  return 1 + max(lh, rh);
+}
+int solution (Node *root) {
+  diameter(root);
+  return maxD;
+}
+```
+- Time Complexity: O(n)
+- Auxilary Space: O(h)
+## Lowest Common Ancestor (LCA)
+- ![image](https://user-images.githubusercontent.com/69719072/159841786-5ffd9d08-773d-4c3b-a8e1-a498de0a5e1d.png)
