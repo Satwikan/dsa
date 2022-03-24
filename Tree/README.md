@@ -1,23 +1,23 @@
 # Tree
-## Use Cases
-### To represent hierarchical data
+# Use Cases
+## To represent hierarchical data
 - Organization Structure
 - Folder Structure
 - XML/ HTML Content(JSON objects)
 - OOP (inheritance)
-#### BST
-#### Binary heap
-#### Parse Tree, Expression Tree in Compilers
-### Variations of Tree
+### BST
+### Binary heap
+### Parse Tree, Expression Tree in Compilers
+## Variations of Tree
 - Trie: used in dictonary
 - suffix tree: search in large strings
 - binary index tree: range based qury searches (fast for certain conditions)
 - segment Tree: range based qury searches (more powerfull)
 
-## Binary Tree
+# Binary Tree
 - every tree has at-most two children
 - ![image](https://user-images.githubusercontent.com/69719072/158005098-9f7ee762-954a-4560-b1bb-098bde047115.png)
-### Representation
+## Representation
 - for below tree
 - ![image](https://user-images.githubusercontent.com/69719072/158005307-50157881-37c3-46c1-9360-d49c68b2bef9.png)
 ```
@@ -40,13 +40,13 @@ int main () {
   root->left->left = new Node(40);
 }
 ```
-### Tree Traversal
-#### Depth First Search (DFS)
+## Tree Traversal
+### Depth First Search (DFS)
 - L: Left, M: Root Node, R: Right
 - Inorder (L M R)
 - Preorder (M L R)
 - Postorder (L R M)
-#### Inorder
+### Inorder
 ```
 void printInorder(node *root) {
   if (root == NULL) return;
@@ -58,7 +58,7 @@ void printInorder(node *root) {
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [h +1 recursive calls]
 
-#### Preorder
+### Preorder
 ```
 void printInorder(node *root) {
   if (root == NULL) return;
@@ -69,7 +69,7 @@ void printInorder(node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [h+1 calls at a time in stack]
-#### Postorder
+### Postorder
 ```
 void printInorder(node *root) {
   if (root == NULL) return;
@@ -80,7 +80,7 @@ void printInorder(node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [h+1 calls at a time in stack]
-#### Height of binary tree
+### Height of binary tree
 ```
 int height(node *root) {
   if (root == NULL) return 0;
@@ -89,7 +89,7 @@ int height(node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [max h+1 calls at a time in stack]
-#### Print Nodes at distance K
+### Print Nodes at distance K
 ```
 void printKDist(node *root, int k) {
   if (root == NULL) return;
@@ -102,7 +102,7 @@ void printKDist(node *root, int k) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
-### Level Order Traversal
+## Level Order Traversal
 - use queue here, recursion is not recomended
 ```
 void LOT(node *root) {
@@ -119,9 +119,9 @@ void LOT(node *root) {
 ```
 - Time Complexity: 0(n) [theta]
 - Auxilary Space: 0(w) (width of binary tree)
-### Level Order Traversal Line by Line
+## Level Order Traversal Line by Line
 - ![image](https://user-images.githubusercontent.com/69719072/158051286-cae0b61a-30fb-4ffd-be1f-ab2db1b5ccee.png)
-#### Method 1
+### Method 1
 - If we encounter a NULL that means we reached at end of line
 ```
 void LOT(node *root) {
@@ -144,7 +144,7 @@ void LOT(node *root) {
 ```
 - Time Complexity: 0(n) [theta]
 - Auxilary Space: 0(w) (width of binary tree)
-#### Method 2
+### Method 2
 - run 2 loops
  ```
  void LOT(node *root) {
@@ -163,7 +163,7 @@ void LOT(node *root) {
   }
 }
 ```
-### Size of binary Tree
+## Size of binary Tree
 - for iterative solution, queue can be used code will be similar to Level order traversal
 ```
 int getSize(node * root) {
@@ -173,7 +173,7 @@ int getSize(node * root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [max h+1 calls at a time in stack]
-### Maximum in Binary Tree
+## Maximum in Binary Tree
 - for iterative solution, queue can be used code will be similar to Level order traversal
 - for iterative Auxilary Space: O(w)
 ```
@@ -184,10 +184,10 @@ int getMax(Node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [max h+1 calls at a time in stack]
-### Print Left View of binary Tree
+## Print Left View of binary Tree
 - ![image](https://user-images.githubusercontent.com/69719072/158302578-63229751-4dbb-497b-94a3-beaca43393c9.png)
 - ![image](https://user-images.githubusercontent.com/69719072/158302616-308beeb9-55ea-4958-aeb1-fd74e5822c17.png)
-#### Method 1 (recursive)
+### Method 1 (recursive)
 - If you do a pre-order traversal of Binary tree, you will always vist leftmost node first
 ```
 int maxLevel = 0;
@@ -206,7 +206,7 @@ void printLeftView(Node *root) {
 ```
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
-#### Method 2 (iterative)
+### Method 2 (iterative)
 - Level order traversal Line by Line
 ```
 void printLeft (node *root) {
@@ -330,7 +330,7 @@ Node *cTree(int in[], int pre[], int is, int ie) {
 ```
 - Time Complexity: O(n2)
 - for Time Complexity: O(n) use hashset to store inOrder keys
-### Traverse Tree in Spiral Form
+## Traverse Tree in Spiral Form
 - ![image](https://user-images.githubusercontent.com/69719072/159624490-c9e6e68a-2372-4bc0-9f99-53eecb08de0e.png)
 #### Method 1
 - use Line by Line Level Order Trversal Method
@@ -394,7 +394,7 @@ void printSpiral(node *root) {
   }
 }
 ```
-### Diameter of Binary Tree
+## Diameter of Binary Tree
 - ![image](https://user-images.githubusercontent.com/69719072/159840385-bb7d1d40-f5ef-450d-8d22-feb68dd91e82.png)
 ```
 int maxD = 0;
