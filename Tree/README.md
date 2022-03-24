@@ -369,4 +369,34 @@ void printSpiral(node *root) {
 }
 ```
 #### Method 2
- 
+- Method 1 works extra amount of work for reverse nodes
+- use 2 stacks s1 s2 instead, push children in alternate stack 
+- for s2's children push children in revrerse order
+```
+void printSpiral(node *root) {
+  stack <int> s1;
+  stack <int> s2;
+  bool reverse = false;
+  s1.push(root);
+  node *temp = NULL;
+  while(!s1.empty() || !s2.empty()) {
+    int count1 = s1.size();
+    int count2 = s2.size();
+    int count = reverse ? count2 : count1;
+    for (int i = 0; i < count; i++) {
+      temp = q.top();q.pop();
+      cout << temp.key << " ";
+      if (reverse) {
+        s1.push(curr->right);s1.push(curr->left);
+      }
+      else  {
+        s2.push(curr->left);s2.push(curr->right);
+      }
+      if (temp->left != NULL) q.push(temp->left);
+      if (temp->right != NULL) q.push(temp->right);
+    }
+    reverse = !reverse;
+    cout << "\n";
+  }
+}
+```
