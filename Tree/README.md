@@ -13,7 +13,7 @@
 - suffix tree: search in large strings
 - binary index tree: range based qury searches (fast for certain conditions)
 - segment Tree: range based qury searches (more powerfull)
-
+- 
 # Binary Tree
 - every tree has at-most two children
 - ![image](https://user-images.githubusercontent.com/69719072/158005098-9f7ee762-954a-4560-b1bb-098bde047115.png)
@@ -451,3 +451,6 @@ Node *lca(Node *root, int n1, int n2) {
   else return lca2;
 }
 ```
+## Burn a Binary Tree from Leaf
+- ![image](https://user-images.githubusercontent.com/69719072/160273797-0787929d-5950-494f-b261-6b93fc5bb9e0.png)
+
