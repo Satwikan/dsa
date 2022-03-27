@@ -414,6 +414,7 @@ int solution (Node *root) {
 - Auxilary Space: O(h)
 ## Lowest Common Ancestor (LCA)
 - ![image](https://user-images.githubusercontent.com/69719072/159841786-5ffd9d08-773d-4c3b-a8e1-a498de0a5e1d.png)
+### Method 1
 ```
 bool calPath(node *root, int target, vector<Node *>& path){
   if (root->key == false) return false;
@@ -434,3 +435,8 @@ Node* lca(Node *root, int n1, int n2){
 }
 ```
 - Time Complexity: 0(n) + 0(n) + O(n) = O(n)
+### Method 2 (More Efficient, but with assumptions)
+- requires only one traversal and 0(h) extra space for the recursive traversal
+- assumes that both n1 and n2 exist in the tree. won't give accurate results when only (n1 or n2) exists
+- ![image](https://user-images.githubusercontent.com/69719072/160272041-a446f66e-1bfa-4da4-bd09-c134c3961e12.png)
+- ![image](https://user-images.githubusercontent.com/69719072/160272047-ea38f82a-4bee-49f7-8da1-0ebf2bdc2e1f.png)
