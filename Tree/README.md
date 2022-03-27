@@ -414,4 +414,23 @@ int solution (Node *root) {
 - Auxilary Space: O(h)
 ## Lowest Common Ancestor (LCA)
 - ![image](https://user-images.githubusercontent.com/69719072/159841786-5ffd9d08-773d-4c3b-a8e1-a498de0a5e1d.png)
-- 
+```
+bool calPath(node *root, int target, vector<Node *>& path){
+  if (root->key == false) return false;
+  path.push_back(root);
+  if (root->key == target) return true;
+  if (calPath(root->left, target, path) || calPath(root->right, target, path)) return true;
+  p.pop_back();
+  return false;
+}
+Node* lca(Node *root, int n1, int n2){
+  vector<Node *> path1, path2;
+  if(findPath(root, n1, path1) == false || findPath(root, n2, path2) == false)
+    return null;
+  for(int i = 0; i < path1.size()-1 && path2.size()-1; i++){
+     if(path1[i+1] != path2[i+1]) return path1[i];
+  }
+  return null;
+}
+```
+- Time Complexity: 0(n) + 0(n) + O(n) = O(n)
