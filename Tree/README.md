@@ -440,3 +440,14 @@ Node* lca(Node *root, int n1, int n2){
 - assumes that both n1 and n2 exist in the tree. won't give accurate results when only (n1 or n2) exists
 - ![image](https://user-images.githubusercontent.com/69719072/160272041-a446f66e-1bfa-4da4-bd09-c134c3961e12.png)
 - ![image](https://user-images.githubusercontent.com/69719072/160272047-ea38f82a-4bee-49f7-8da1-0ebf2bdc2e1f.png)
+```
+Node *lca(Node *root, int n1, int n2) {
+  if (root == NULL) return NULL;
+  if (root->key == n1 || root->key == n2) return root;
+  Node *lca1 = lca(root->left, n1, n2);
+  Node *lca2 = lca(root->right, n1, n2);
+  if (lca1 != NULL && lca2 != NULL) return root;
+  if (lca1 != NULL) return lca1;
+  else return lca2;
+}
+```
