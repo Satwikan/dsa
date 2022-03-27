@@ -417,7 +417,7 @@ int solution (Node *root) {
 ### Method 1
 ```
 bool calPath(node *root, int target, vector<Node *>& path){
-  if (root->key == false) return false;
+  if (root == NULL) return false;
   path.push_back(root);
   if (root->key == target) return true;
   if (calPath(root->left, target, path) || calPath(root->right, target, path)) return true;
@@ -456,8 +456,10 @@ Node *lca(Node *root, int n1, int n2) {
 - find farthest node from given leaf, that will be the ans
 - farthest node must be reachable from on of the ancestors of given leaf node
 ```
-void findPath(Node *root, int target, vector<Node *>& path) {
-  if (root == NULL) return;
-  
+int res = 0;
+// Initially: dist = -1;
+int burnTree(Node *root, int leaf, int &dist) {
+  if (root == NULL) return 0;
+  if (root->data)
 }
 ```
