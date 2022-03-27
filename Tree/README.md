@@ -453,4 +453,11 @@ Node *lca(Node *root, int n1, int n2) {
 ```
 ## Burn a Binary Tree from Leaf
 - ![image](https://user-images.githubusercontent.com/69719072/160273797-0787929d-5950-494f-b261-6b93fc5bb9e0.png)
-
+- find farthest node from given leaf, that will be the ans
+- farthest node must be reachable from on of the ancestors of given leaf node
+```
+void findPath(Node *root, int target, vector<Node *>& path) {
+  if (root == NULL) return;
+  
+}
+```
