@@ -454,12 +454,25 @@ Node *lca(Node *root, int n1, int n2) {
 ## Burn a Binary Tree from Leaf
 - ![image](https://user-images.githubusercontent.com/69719072/160273797-0787929d-5950-494f-b261-6b93fc5bb9e0.png)
 - find farthest node from given leaf, that will be the ans
-- farthest node must be reachable from on of the ancestors of given leaf node
+- farthest node must be reachable from one of the ancestors of given leaf node
+- this function changes distance and returnss hieght
+- distance would be -1 if given node is not a descedent of leaf, else it would be dist
 ```
 int res = 0;
 // Initially: dist = -1;
 int burnTree(Node *root, int leaf, int &dist) {
   if (root == NULL) return 0;
-  if (root->data)
+  if (root->data == leaf) {dist = 0; return 1;}
+  int ldist = -1, rdist = -1;
+  int lh = burnTime(root->left, leaf, ldist);
+  int rh = burnTime(root->right, leaf, rdist);
+  if (ldist != -1) {
+    dist = ldist+1;
+    res = max(res, dist+rh);
+  } else if (rdist != -1) {
+    dist = rdist + 1;
+    res = max(res, dist + lh);
+  }
+  return max(lh, rh) + 1;
 }
 ```
