@@ -476,3 +476,11 @@ int burnTree(Node *root, int leaf, int &dist) {
   return max(lh, rh) + 1;
 }
 ```
+## Count Nodes in a Complete Binary Tree
+- Complete Binary Tree: every node must has 2 child's
+- except last level which must be filled from left to right
+### Method 1:
+- count all nodes in 0(n) recursivly, (works on every tree)
+### Method 2:
+- use the fact that it is binary tree
+- Time Complexity: O(logn * logn)
