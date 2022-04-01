@@ -511,3 +511,39 @@ int countNodes(Node * root) {
 ## Serialize and Deserialize a Binary Tree
 - ![image](https://user-images.githubusercontent.com/69719072/161205311-f6f76b3f-4f14-4ae4-a1d0-d6b798dfaf97.png)
 - the Serialization should be such that, Original tree can be constructed from given tree through Deserialization
+### Method 1
+- use special value [-1 or null] to allot null value in for a node during a traversal
+- for -1 we assume -1 as a value does'nt exist in given tree
+- the following example uses preorder traversal
+- ![image](https://user-images.githubusercontent.com/69719072/161206241-926000c1-1bf8-475d-80b7-1d6012996916.png)
+- for n nodes we need n+1 nulls to represent complete tree
+- sor size of array would be: n + (n + 1) = 2n+ 1
+```
+// Serialization uses preorder traversal
+void serialize(Node *root, vector<int>& arr) {
+  if (root == null) {
+    arr.push_back(-1);
+    return;
+  }
+  arr.push_back(root->key);
+  serialize(root->left, arr);
+  serialize(root->right, arr);
+  return;
+}
+```
+```
+// Dserialization uses preorder traversal
+const int EMPTY = -1;
+int index = 0;
+void serialize(vector<int>& arr, int index) {
+  if (index == arr.size()) return NULL;
+  int val = arr[index];
+  index++;
+  if (val == EMPTY) return NULL;
+  Node * root = new Node(val);
+  root->left = deSerialize(arr);
+  root->right = deSerialize(arr);
+  return root;
+}
+```
+
