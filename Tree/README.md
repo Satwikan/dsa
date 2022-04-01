@@ -477,6 +477,7 @@ int burnTree(Node *root, int leaf, int &dist) {
 }
 ```
 ## Count Nodes in a Complete Binary Tree
+- [Refrence](https://www.youtube.com/watch?v=aRQgNG32-qI&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=31)
 - Complete Binary Tree: every node must has 2 child's
 - except last level which must be filled from left to right
 - ![image](https://user-images.githubusercontent.com/69719072/161204076-3987c086-b0c2-4a7d-9eda-57beb106a805.png)
@@ -505,3 +506,5 @@ int countNodes(Node * root) {
   return 1 + countNodes(root->left) + countNodes(root->right);
 }
 ```
+- Best Case:when given binary tree is also perfect, then Time Complexity = 0(h) = 0(logn)
+- Worst Case:
