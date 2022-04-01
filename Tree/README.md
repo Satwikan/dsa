@@ -479,6 +479,7 @@ int burnTree(Node *root, int leaf, int &dist) {
 ## Count Nodes in a Complete Binary Tree
 - Complete Binary Tree: every node must has 2 child's
 - except last level which must be filled from left to right
+- ![image](https://user-images.githubusercontent.com/69719072/161204076-3987c086-b0c2-4a7d-9eda-57beb106a805.png)
 ### Method 1:
 - count all nodes in 0(n) recursivly, (works on every tree)
 ### Method 2:
