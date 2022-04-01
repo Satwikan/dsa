@@ -484,3 +484,23 @@ int burnTree(Node *root, int leaf, int &dist) {
 ### Method 2:
 - use the fact that it is binary tree
 - Time Complexity: O(logn * logn)
+```
+int countNodes(Node * root) {
+  if (root == null) return 0;
+  int lh = 0, rh = 0;
+  NOde *root = curr;
+  while (curr != null) {
+    lh++;
+    curr = curr->left;
+  }
+  curr = root;
+  while (curr != null) {
+    rh++;
+    curr = curr->right;
+  }
+  if (lh == rh) {
+    return pow(2, lh) - 1;
+  }
+  return 1 + countNodes(root->left) + countNodes(root->right);
+}
+```
