@@ -508,3 +508,6 @@ int countNodes(Node * root) {
 ```
 - Best Case:when given binary tree is also perfect, then Time Complexity = 0(h) = 0(logn)
 - Worst Case: O(logn * logn)
+## Serialize and Deserialize a Binary Tree
+- ![image](https://user-images.githubusercontent.com/69719072/161205311-f6f76b3f-4f14-4ae4-a1d0-d6b798dfaf97.png)
+- the Serialization should be such that, Original tree can be constructed from given tree through Deserialization
