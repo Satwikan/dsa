@@ -507,4 +507,4 @@ int countNodes(Node * root) {
 }
 ```
 - Best Case:when given binary tree is also perfect, then Time Complexity = 0(h) = 0(logn)
-- Worst Case:
+- Worst Case: O(logn * logn)
