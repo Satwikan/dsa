@@ -546,4 +546,20 @@ void serialize(vector<int>& arr, int index) {
   return root;
 }
 ```
-
+## Iterative Inorder Traversal
+- use stack
+```
+void inorderIter(Node * root) {
+  if (root == NULL) return;
+  stack<Node *> s;
+  Node * curr = root;
+  while (!s.empty() || curr != NULL){
+    while (curr != NULL) {
+      s.push(curr);
+      curr = curr->left;
+    }
+    cout << (curr->value) << " ";
+    curr = curr->right;
+  }
+}
+```
