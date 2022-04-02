@@ -566,7 +566,7 @@ void inorderIter(Node * root) {
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
 ## Iterative Preorder Traversal
-- use stack
+### Method 1
 ```
 void inorderIter(Node * root) {
   if (root == NULL) return;
@@ -581,19 +581,22 @@ void inorderIter(Node * root) {
 }
 ```
 - Time Complexity: O(n)
-- Auxilary Space: O(h)
-## Iterative Postorder Traversal
-- use stack
+- Auxilary Space: O(n)
+### Method 2 (Space Optimised)
+- don't push left child to stack
 ```
 void inorderIter(Node * root) {
   if (root == NULL) return;
   stack<Node *> s;
   Node * curr = root;
   while (!s.empty() || curr != NULL){
-    cout << (curr->value) << " ";
-    if (curr->right != NULL) s.push(curr->right);
-    if (curr->left != NULL) s.push(curr->left);
-    curr = q.top(); q.pop();
+    while(curr != NULL) {
+      cout << curr->key << " ";
+      if (curr->right != NULL)
+        s.push(curr->right);
+      curr = curr->left;
+    }
+    if (!s.empty()) {curr = s.top(); s.top();}
   }
 }
 ```
