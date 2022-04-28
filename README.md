@@ -6,3 +6,4 @@ Data Structures and Algorithms for all basic needs
 ### [Linked List](https://github.com/Satwikan/dsa/tree/master/LinkedList)
 ### [Recursion](https://github.com/Satwikan/dsa/tree/master/recursion)
 ### [Tree](https://github.com/Satwikan/dsa/tree/master/Tree)
+### [Greedy]()
