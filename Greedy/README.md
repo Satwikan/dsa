@@ -41,8 +41,19 @@ class Solution
     }
 };
 ```
-## Fractinal Knapsack
-- Knapsack with fraction of items allowed
+## Job Sequencing Problem
+- you are given list of job with deadline and accompanied profit
+- your job is maximise the profit
+- Every job takes 1 unit of time
+- only one job can be assigned at a time
+- time starts at 0
+- ![image](https://user-images.githubusercontent.com/69719072/165888635-f2bbca61-9a93-4942-8c0d-45f975e8ceaf.png)
+### Solution
+- Sort jobs in decreasing order of profits
+- Initialize the results as first job in the sorted list. assign the latest possible slot
+- Do following the remaining (n-1) jobs
+- (a) If this job can not be added, ignore it.
+- (b) else add it to the latest possible slot
 ```
 
 ```
