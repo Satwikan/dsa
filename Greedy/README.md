@@ -5,5 +5,38 @@
 - ![image](https://user-images.githubusercontent.com/69719072/165805127-2fca34a1-9b84-42cd-ac05-2d666933bc64.png)
 - sort according to finish time
 ```
-comments
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+    public:
+    struct meeting {
+        int start;
+        int end;
+    };
+    
+    //Function to find the maximum number of meetings that can
+    //be performed in a meeting room.
+    bool static sortByEnd (struct meeting m1, struct meeting m2){
+        return (m1.end < m2.end);
+    }
+    int maxMeetings(int start[], int end[], int n)
+    {
+        struct meeting meet[n];
+        for (int i = 0; i < n; i++) {
+            meet[i].start = start[i];meet[i].end = end[i];
+        }
+        
+        sort(meet, meet+n, sortByEnd);
+        int limit = meet[0].end;
+        int mm = 1;
+        for (int i = 1; i < n; i++) {
+            if (meet[i].start > limit) {
+                mm++;
+                limit = meet[i].end;
+            }
+        }
+        return mm;
+    }
+};
 ```
