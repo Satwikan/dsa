@@ -154,7 +154,7 @@ void LOT(node *root) {
   while(!q.empty()) {
     int count = q.size();
     for (int i = 0; i < count; i++) {
-      q.pop() = temp;
+      temp = q.front();q.pop();
       cout << temp.key << " ";
       if (temp->left != NULL) q.push(temp->left);
       if (temp->right != NULL) q.push(temp->right);
