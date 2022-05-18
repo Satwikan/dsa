@@ -19,4 +19,8 @@
 ## Adjacency list
 - it only stores which vertices are connected
 - saves space and makes operation [findind all adjacent vertix] faster
+- we can use dynamic sized array's or linked list as a list
 ![image](https://user-images.githubusercontent.com/69719072/169060145-b90c539e-aa13-4d5b-9bc4-e0d520fb7d0e.png)
+### Complexity Analysis
+- ![image](https://user-images.githubusercontent.com/69719072/169061965-228a11b2-cb90-41f4-a057-1a8fd3898671.png)
+
