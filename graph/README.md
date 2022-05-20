@@ -43,4 +43,10 @@ int main () {
 }
 ```
 ![image](https://user-images.githubusercontent.com/69719072/169512465-beb1e1d6-a76d-423a-bdaa-bf158decf49b.png)
+# BFS
+- given a undirected graph and a source vertex 's' print bfs
+- ![image](https://user-images.githubusercontent.com/69719072/169513126-e3df8f77-d2b3-4848-bcdd-814962022068.png)
+- ![image](https://user-images.githubusercontent.com/69719072/169513252-cfe98c45-8959-402c-a2d0-a591d0951b75.png)
+
+ 
 
