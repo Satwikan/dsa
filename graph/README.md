@@ -98,4 +98,6 @@ void BFSDin(vector<int> adj[], int v) {
     }
 }
 ```
+- we are traversing every edge and total edges are 2xE in undirected graph and E in directed graph
+- we are adding an "V + " for a corner case where every node is disconnected
 Time Complexity: O(v+e)
