@@ -142,3 +142,5 @@ int BFSDin(vector<int> adj[], int v) {
 - Cycle Detection
 - Ford Fulkerson Alogorithm
 - Broadcasting  
+# DFS
+- it is maily recursive in nature
