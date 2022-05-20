@@ -119,7 +119,7 @@ void bfs(vertex<int> adj[], int v, int s, bool visited[]) {
     }
    }
 }
-void BFSDin(vector<int> adj[], int v) {
+int BFSDin(vector<int> adj[], int v) {
   bool visited[v+1];
   int count = 1;
   for(int i=0; i < v; i++)
@@ -130,5 +130,6 @@ void BFSDin(vector<int> adj[], int v) {
       visited[i] = true;
       BFS(adj, i, visited);
     }
+  return count;
 }
 ```
