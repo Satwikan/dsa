@@ -143,4 +143,21 @@ int BFSDin(vector<int> adj[], int v) {
 - Ford Fulkerson Alogorithm
 - Broadcasting  
 # DFS
-- it is maily recursive in nature
+![image](https://user-images.githubusercontent.com/69719072/169523931-1aab08e1-ce08-44ac-ad58-610a1ced80ec.png)
+![image](https://user-images.githubusercontent.com/69719072/169524080-430e886f-2d1b-4284-b37f-0024eb30e750.png)
+- it is maily recursive in nature and one graph might have multiple DFS's 
+```
+void DFSRec(vector<int> adj[], int s, bool visited[]) {
+  visited[s] = true;
+  cout << s << " ";
+  for(int u: adj[s])
+    if (visited[u] == false)
+      DFSRec(adj, u, visited);
+}
+void DFS(vector<int> adj[], int v, int s) {
+  bool visited[v];
+  for(int i = 0; i < v; i++)
+    visited[i] = false;
+   DFSRec(adj, s, visited);
+}
+```
