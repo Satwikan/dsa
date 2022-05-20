@@ -23,9 +23,9 @@
 ![image](https://user-images.githubusercontent.com/69719072/169060145-b90c539e-aa13-4d5b-9bc4-e0d520fb7d0e.png)
 ### Complexity Analysis
 - ![image](https://user-images.githubusercontent.com/69719072/169061965-228a11b2-cb90-41f4-a057-1a8fd3898671.png)
-### Implementation
-- undirected graph 
+### Implementation 
 ![image](https://user-images.githubusercontent.com/69719072/169511496-bc00b28d-c877-4644-95a0-17c28b261af3.png)
+- undirected graph
 
 ```
 void addEdge(vector<int> adj[], int u, int v) {
@@ -42,3 +42,5 @@ int main () {
   return 0;
 }
 ```
+![image](https://user-images.githubusercontent.com/69719072/169512465-beb1e1d6-a76d-423a-bdaa-bf158decf49b.png)
+
