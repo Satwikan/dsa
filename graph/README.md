@@ -47,6 +47,26 @@ int main () {
 - given a undirected graph and a source vertex 's' print bfs
 - ![image](https://user-images.githubusercontent.com/69719072/169513126-e3df8f77-d2b3-4848-bcdd-814962022068.png)
 - ![image](https://user-images.githubusercontent.com/69719072/169513252-cfe98c45-8959-402c-a2d0-a591d0951b75.png)
-
+- visited means the node have been added to the queue, not printed
+```
+void bfs(vertex<int> adj[], int v, int s) {
+  bool visited[v+1];
+  for(int i=0; i < v; i++)
+    visited[i] = false;
+   queue<int> q;
+   q.push(s); 
+   while(q.empty() == false) {
+    int u = q.front();
+    q.pop();
+    cout << u << " ";
+    for (int v: adj[u]) {
+      if (!visited[v]) {
+        visited[v] = true;
+        q.push(v);
+      }
+    }
+   }
+}
+```
  
 
