@@ -133,3 +133,12 @@ int BFSDin(vector<int> adj[], int v) {
   return count;
 }
 ```
+### Applications of BFS
+- Shortest Path in an unweighted Graph
+- Web Crawlers in Search Engines
+- Peer to Peer Networks (Bitorrent)
+- Social Networking Search
+- In Garbage Collection (Cheney's Algorithm)
+- Cycle Detection
+- Ford Fulkerson Alogorithm
+- Broadcasting  
