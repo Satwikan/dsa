@@ -44,6 +44,7 @@ int main () {
 ```
 ![image](https://user-images.githubusercontent.com/69719072/169512465-beb1e1d6-a76d-423a-bdaa-bf158decf49b.png)
 # BFS
+## Source is given
 - given a undirected graph and a source vertex 's' print bfs
 - ![image](https://user-images.githubusercontent.com/69719072/169513126-e3df8f77-d2b3-4848-bcdd-814962022068.png)
 - ![image](https://user-images.githubusercontent.com/69719072/169513252-cfe98c45-8959-402c-a2d0-a591d0951b75.png)
@@ -68,5 +69,33 @@ void bfs(vertex<int> adj[], int v, int s) {
    }
 }
 ```
- 
-
+## Source is not given and graph may be disconnected as well
+![image](https://user-images.githubusercontent.com/69719072/169516335-f2ba4fbd-5c32-4ed5-8405-99458f87e2bc.png)
+```
+void bfs(vertex<int> adj[], int v, int s, bool visited[]) {
+   queue<int> q;
+   q.push(s); 
+   while(q.empty() == false) {
+    int u = q.front();
+    q.pop();
+    cout << u << " ";
+    for (int v: adj[u]) {
+      if (!visited[v]) {
+        visited[v] = true;
+        q.push(v);
+      }
+    }
+   }
+}
+void BFSDin(vector<int> adj[], int v) {
+  bool visited[v+1];
+  for(int i=0; i < v; i++)
+    visited[i] = false;
+  for (int i = 0; i < v; i++)
+    if (visited[i] == false) {
+      visited[i] = true;
+      BFS(adj, i, visited);
+    }
+}
+```
+Time Complexity: O(v+e)
