@@ -101,3 +101,34 @@ void BFSDin(vector<int> adj[], int v) {
 - we are traversing every edge and total edges are 2xE in undirected graph and E in directed graph
 - we are adding an "V + " for a corner case where every node is disconnected
 Time Complexity: O(v+e)
+### Counting conncted components in an undirected graph
+- it may be called no of "islands" in a graph
+```
+void bfs(vertex<int> adj[], int v, int s, bool visited[]) {
+   queue<int> q;
+   q.push(s); 
+   while(q.empty() == false) {
+    int u = q.front();
+    q.pop();
+    cout << u << " ";
+    for (int v: adj[u]) {
+      if (!visited[v]) {
+        visited[v] = true;
+        q.push(v);
+      }
+    }
+   }
+}
+void BFSDin(vector<int> adj[], int v) {
+  bool visited[v+1];
+  int count = 1;
+  for(int i=0; i < v; i++)
+    visited[i] = false;
+  for (int i = 0; i < v; i++)
+    if (visited[i] == false) {
+      count++;
+      visited[i] = true;
+      BFS(adj, i, visited);
+    }
+}
+```
