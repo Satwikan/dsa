@@ -23,4 +23,22 @@
 ![image](https://user-images.githubusercontent.com/69719072/169060145-b90c539e-aa13-4d5b-9bc4-e0d520fb7d0e.png)
 ### Complexity Analysis
 - ![image](https://user-images.githubusercontent.com/69719072/169061965-228a11b2-cb90-41f4-a057-1a8fd3898671.png)
+### Implementation
+- undirected graph]
+![image](https://user-images.githubusercontent.com/69719072/169511496-bc00b28d-c877-4644-95a0-17c28b261af3.png)
 
+```
+void addEdge(vector<int> adj[], int u, int v) {
+  adj[u].push_back(v);
+  adj[v].push_back(u);
+}
+int main () {
+  int v = u;
+  vector<int> adj[v];
+  addEdge(adj, 0, 1);
+  addEdge(adj, 0, 2);
+  addEdge(adj, 1, 2);
+  addEdge(adj, 1, 3);
+  return 0;
+}
+```
