@@ -123,7 +123,7 @@ void bfs(vertex<int> adj[], int v, int s, bool visited[]) {
 }
 int BFSDin(vector<int> adj[], int v) {
   bool visited[v+1];
-  int count = 1;
+  int count = 0;
   for(int i=0; i < v; i++)
     visited[i] = false;
   for (int i = 0; i < v; i++)
@@ -166,8 +166,9 @@ void DFS(vector<int> adj[], int v, int s) {
    DFSRec(adj, s, visited);
 }
 ```
-### Graph is disconnected
+## Graph is disconnected
 ![image](https://user-images.githubusercontent.com/69719072/169638994-fda417b5-b85a-4605-9a1e-15e4c7f9a3e1.png)
+- count no of cannected components as well
 ```
 void DFSRec(vector<int> adj[], int s, bool visited[]) {
   visited[s] = true;
@@ -176,12 +177,22 @@ void DFSRec(vector<int> adj[], int s, bool visited[]) {
     if (visited[u] == false)
       DFSRec(adj, u, visited);
 }
-void DFS(vector<int> adj[], int v, int s) {
+int DFS(vector<int> adj[], int v) {
+  int count = 0;
   bool visited[v];
   for(int i = 0; i < v; i++)
     visited[i] = false;
   for(int i = 0; i < v; i++)
-    if (visited[u] == false)
-      DFSRec(adj, s, visited);
+    if (visited[i] == false) {
+      count++;
+      DFSRec(adj, i, visited);
+    }
 }
 ```
+Time Complexity: O(V + E)
+### Applications of BFS
+- Cycle Detection
+- Topological Sorting
+- Strongly Connected components
+- Solving Maze and Similar Puzzels
+- Path Finding
