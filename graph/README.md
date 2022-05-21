@@ -43,6 +43,8 @@ int main () {
 }
 ```
 ![image](https://user-images.githubusercontent.com/69719072/169512465-beb1e1d6-a76d-423a-bdaa-bf158decf49b.png)
+<hr>
+
 # BFS
 ## Source is given
 - given a undirected graph and a source vertex 's' print bfs
@@ -141,7 +143,10 @@ int BFSDin(vector<int> adj[], int v) {
 - In Garbage Collection (Cheney's Algorithm)
 - Cycle Detection
 - Ford Fulkerson Alogorithm
-- Broadcasting  
+- Broadcasting
+
+<hr/>
+
 # DFS
 ![image](https://user-images.githubusercontent.com/69719072/169523931-1aab08e1-ce08-44ac-ad58-610a1ced80ec.png)
 ![image](https://user-images.githubusercontent.com/69719072/169524080-430e886f-2d1b-4284-b37f-0024eb30e750.png)
@@ -161,3 +166,4 @@ void DFS(vector<int> adj[], int v, int s) {
    DFSRec(adj, s, visited);
 }
 ```
+
