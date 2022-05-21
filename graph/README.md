@@ -196,3 +196,8 @@ Time Complexity: O(V + E)
 - Strongly Connected components
 - Solving Maze and Similar Puzzels
 - Path Finding
+## Shortest Path in an Unweighted Graph
+![image](https://user-images.githubusercontent.com/69719072/169639540-8fda66f8-49e6-4809-98c6-970029574fbf.png)
+ 
+- <s>use BFS</s>
+- 
