@@ -166,4 +166,22 @@ void DFS(vector<int> adj[], int v, int s) {
    DFSRec(adj, s, visited);
 }
 ```
-
+### Graph is disconnected
+![image](https://user-images.githubusercontent.com/69719072/169638994-fda417b5-b85a-4605-9a1e-15e4c7f9a3e1.png)
+```
+void DFSRec(vector<int> adj[], int s, bool visited[]) {
+  visited[s] = true;
+  cout << s << " ";
+  for(int u: adj[s])
+    if (visited[u] == false)
+      DFSRec(adj, u, visited);
+}
+void DFS(vector<int> adj[], int v, int s) {
+  bool visited[v];
+  for(int i = 0; i < v; i++)
+    visited[i] = false;
+  for(int i = 0; i < v; i++)
+    if (visited[u] == false)
+      DFSRec(adj, s, visited);
+}
+```
