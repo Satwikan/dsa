@@ -44,6 +44,14 @@
 - make n = (n & n-1)
 - repeat above steps until you reach 0
 - number of times it took to reach zero is no of ones in binary
+```
+int countSetBits(int n) {
+    if (n == 0) return 0;
+    // if last bit set add 1 else add 0
+    return (n & 1) + countSetBits(n >> 1);
+}
+ 
+```
 
 ## generate all possible subsets of a set
 - let's take example we have to generate all sets of {a, b, c}
