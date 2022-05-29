@@ -9,3 +9,4 @@
 - we can use a disjoint set to represent this data
 - a disjoint can be used to represent different sets in a same universe
 - Disjoint means that no two subsets have anythings in common
+- ![image](https://i.ibb.co/4jHcsH2/image-2022-05-29-114132897.png)
