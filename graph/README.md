@@ -4,9 +4,9 @@
 # Undirected Graph
 ![image](https://user-images.githubusercontent.com/69719072/169046602-0dda5c1c-1cd1-4f56-9312-20453db81cbd.png)
 # Directed
-- directed graph have 2 degree's in and out degree
-- if you sum all indegrees/indegrees you get no of edges
-- max no of edges = |V|\*(|V|-1), max is when there is complete graph
+- directed graph has 2 degree's in and out-degree
+- if you sum all indegrees/indegrees you get no edges
+- max no of edges = |V|\*(|V|-1), max is when there is a complete graph
 ![image](https://user-images.githubusercontent.com/69719072/169046721-121b83ef-2479-4053-814c-6f8a48fa9496.png)
 
 # Graph Representation
@@ -100,10 +100,10 @@ void BFSDin(vector<int> adj[], int v) {
     }
 }
 ```
-- we are traversing every edge and total edges are 2xE in undirected graph and E in directed graph
-- we are adding an "V + " for a corner case where every node is disconnected
+- we are traversing every edge and the total edges are 2xE in the undirected graph and E in a directed graph
+- we are adding a "V + " for a corner case where every node is disconnected
 Time Complexity: O(v+e)
-### Counting conncted components in an undirected graph
+### Counting connected components in an undirected graph
 - it may be called no of "islands" in a graph
 ```
 void bfs(vertex<int> adj[], int v, int s, bool visited[]) {
@@ -138,11 +138,11 @@ int BFSDin(vector<int> adj[], int v) {
 ### Applications of BFS
 - Shortest Path in an unweighted Graph
 - Web Crawlers in Search Engines
-- Peer to Peer Networks (Bitorrent)
+- Peer Peer Networks (BitTorrent)
 - Social Networking Search
 - In Garbage Collection (Cheney's Algorithm)
 - Cycle Detection
-- Ford Fulkerson Alogorithm
+- Ford Fulkerson Algorithm
 - Broadcasting
 
 <hr/>
