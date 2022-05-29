@@ -8,3 +8,4 @@ Data Structures and Algorithms for all basic needs
 ### [Tree](https://github.com/Satwikan/dsa/tree/master/Tree)
 ### [Greedy](https://github.com/Satwikan/dsa/tree/master/Greedy)
 ### [Graph](https://github.com/Satwikan/dsa/tree/master/graph)
+### [Disjoint Set](https://github.com/Satwikan/dsa/tree/master/disjointSet)
