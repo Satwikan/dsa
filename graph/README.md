@@ -187,6 +187,7 @@ int DFS(vector<int> adj[], int v) {
       count++;
       DFSRec(adj, i, visited);
     }
+	return count;
 }
 ```
 Time Complexity: O(V + E)
@@ -244,4 +245,32 @@ for(int i = 0; i < v; i++)
   }
   return false;
 }
+```
+## Detect Cycle in an directed graph
+- solution for undirected graph won't work
+```
+void DFSRec(vector<int> adj[], int s, bool visited[], bool recSt[]) {
+visited[s] = true;
+recSt[s] = true;
+cout << s << " ";
+for(int u: adj[s]){
+  if ((visited[u] == false && DFSRec(adj, u, visited, recSt))
+  || recSt[u]){
+  return true;
+ recSt[s] = false;
+ return false;
+}
+bool DFS(vector<int> adj[], int v) {
+bool visited[v];
+bool recSt[v];
+for(int i = 0; i < v; i++){
+  visited[i] = false;
+  recSt[i] = false;
+}
+for(int i = 0; i < v; i++)
+  if (visited[i] == false) {
+    if (DFSRec(adj, i, visited, recSt) == true) return true;
+  }
+}
+return false;
 ```
