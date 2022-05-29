@@ -198,6 +198,27 @@ Time Complexity: O(V + E)
 - Path Finding
 ## Shortest Path in an Unweighted Graph
 ![image](https://user-images.githubusercontent.com/69719072/169639540-8fda66f8-49e6-4809-98c6-970029574fbf.png)
- 
-- <s>use BFS</s>
-- 
+- <b>use BFS</b>
+```
+void bfs(vertex<int> adj[], int v, int s) {
+bool visited[v+1];
+vector<int>dist(n, INFINITY);
+dist[s] = 0;
+for(int i=0; i < v; i++)
+  visited[i] = false;
+ queue<int> q;
+ q.push(s); 
+ while(q.empty() == false) {
+  int u = q.front();
+  q.pop();
+  cout << u << " ";
+  for (int v1: adj[u]) {
+    if (!visited[v1]) {
+      visited[v1] = true;
+	  dist[v1] = 1 + dist[u];
+      q.push(v1);
+    }
+  }
+ }
+}
+```
