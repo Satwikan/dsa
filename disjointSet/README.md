@@ -70,3 +70,4 @@ void union(int x, int y) {
     }
 }
 ```
+- ![image](https://i.ibb.co/sJ8qLHx/image-2022-05-30-163147605.png)
