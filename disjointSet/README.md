@@ -88,6 +88,6 @@ int find(int x) {
 ```
 ### Time Complexity:
 - for m operations on n elements
-- O(m * alpha(n))
+- Avg O(m * alpha(n))
 - where, alpha(n) is the inverse Ackermann function
 - alpha(n) <= 4, for any n
