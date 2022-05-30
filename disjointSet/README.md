@@ -72,3 +72,4 @@ void union(int x, int y) {
     }
 }
 ```
+Time Complexity: Avg = O(logn)
