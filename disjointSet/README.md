@@ -44,7 +44,9 @@ void union(int x, int y) {
 - to avoid tree to become too case we use Union by Rank
 
 ## Union by Rank
+
 ![image](https://i.ibb.co/7n3qm5C/image-2022-05-30-162650718.png)
+
 - ![image](https://i.ibb.co/sJ8qLHx/image-2022-05-30-163147605.png)
 - this was worst case in simple implementation
 - we will rank to determine node will become child of which node
@@ -76,18 +78,33 @@ void union(int x, int y) {
     }
 }
 ```
+
 Time Complexity: Avg = O(logn)
+
 ## Path Compression
+
 - it optimizes for future find call
-![image](https://i.ibb.co/86C81N8/image-2022-05-30-163917415.png)
+- ![image](https://i.ibb.co/86C81N8/image-2022-05-30-163917415.png)
+
 ```
 int find(int x) {
     if (parent[x] != x) parent[x] = find(parent[x]);
     return parent[x];
 }
 ```
+
 ### Time Complexity:
+
 - for m operations on n elements
-- Avg O(m * alpha(n))
+- Avg O(m \* alpha(n))
 - where, alpha(n) is the inverse Ackermann function
 - alpha(n) <= 4, for any n
+
+## Kruskal's Algorithm
+
+- to find minimum spanning tree
+- a spanning tree is a tree that connects all the vertices in a undirected weighted graph
+- Spanning Tree with v vertices has v-1 edges
+- minimum spanning tree is a tree that has minimum weight among all the trees 
+- ![image](https://i.ibb.co/wzMvzTm/image-2022-05-30-164946281.png)
+- ![image](https://i.ibb.co/Km9XtfK/image-2022-05-30-165120570.png)
