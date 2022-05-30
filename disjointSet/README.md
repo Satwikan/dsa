@@ -105,6 +105,55 @@ int find(int x) {
 - to find minimum spanning tree
 - a spanning tree is a tree that connects all the vertices in a undirected weighted graph
 - Spanning Tree with v vertices has v-1 edges
-- minimum spanning tree is a tree that has minimum weight among all the trees 
+- minimum spanning tree is a tree that has minimum weight among all the trees
+
+### Input
+
 - ![image](https://i.ibb.co/wzMvzTm/image-2022-05-30-164946281.png)
+
+### Implementation
+
 - ![image](https://i.ibb.co/Km9XtfK/image-2022-05-30-165120570.png)
+- simple: create a separate graph for mst
+- DS for graph
+- graph is represented as array of edges
+
+```
+struct Edge {
+    int src, dist, weight;
+    Edge(int s, int d, int w)
+        { src = s; dist = d; weight = w; }
+};
+// to sort edges by weight
+bool myCmp(Edge a, Edge b) {
+    return a.weight < b.weight;
+}
+```
+ 
+- implementation
+
+```
+// i: Index of next edge
+// E: Total number of edges
+// V: Total number of vertices
+// s: current size of MST
+
+int parent[v], rank[v];
+int kruskal(Edge arr[]) {
+    sort(arr, arr + e, myCmp);
+    for (int i = 0; i < v; i++) { parent[i] = i; rank[i] = 0; }
+    in res = 0;
+    for (int i = 0, s = 0; s < v-1; i++) {
+        Edge e = arr[i];
+        int x = find(e.src);
+        int y = find(e.dist);
+        if (x != y) {
+            s++;
+            union(x, y);
+            res += e.weight;
+        }
+    }
+    return res;
+}
+```
+- ![image](https://i.ibb.co/MND3y2m/image-2022-05-30-180419424.png)
