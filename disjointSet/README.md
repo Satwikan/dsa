@@ -159,5 +159,5 @@ int kruskal(Edge arr[]) {
 }
 ```
 - ![image](https://i.ibb.co/MND3y2m/image-2022-05-30-180419424.png)
-- Time Complexity: Avg = O(ElogE + V + E*aplha(V)) = O(ElogV)
+- Time Complexity: O(ElogE + V + E*aplha(V)) = O(ElogV)
 - Auxiliary Space: O(V)
