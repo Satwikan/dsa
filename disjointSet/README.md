@@ -16,11 +16,9 @@
 - Disjoint means that no two subsets have anythings in common
 - ![image](https://i.ibb.co/4jHcsH2/image-2022-05-29-114132897.png)
 
-## Union
-
+## Union && Find
 ![image](https://i.ibb.co/WNXQBTx/image-2022-05-29-114726562.png)
 ![image](https://i.ibb.co/QCGxMks/image-2022-05-29-124402547.png)
-
 ```
 int parent[n]
 void initialize() {
@@ -37,5 +35,38 @@ void union(int x, int y) {
     int yroot = find(y);
     if (xroot != yroot)
         parent[xroot] = yroot;
+}
+```
+- there is a worst case when tree forms is linear
+- to avoid tree to become too case we use Union by Rank
+## Union by Rank
+![image](https://i.ibb.co/7n3qm5C/image-2022-05-30-162650718.png)
+- we will rank to determine node will become child of which node
+- rank is nothing but height of binary tree
+```
+int parent[n], rank[n];
+void initialize() {
+    for (int i = 0; i < n; i++){
+        parent[i] = i;
+        rank = 0;
+    }
+}
+int find(int x) {
+    if (parent[x] != x)
+        parent[x] = find(parent[x]);
+    return parent[x];
+}
+void union(int x, int y) {
+    int xroot = find(x);
+    int yroot = find(y);
+    if (xroot == yroot) return;
+    if (rank[xroot] < rank[yroot])
+        parent[xroot] = yroot;
+    else if (rank[xroot] > rank[yroot])
+        parent[yroot] = xroot;
+    else {
+        parent[yroot] = xroot;
+        rank[xroot]++;
+    }
 }
 ```
