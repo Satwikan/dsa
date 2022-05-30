@@ -139,15 +139,17 @@ bool myCmp(Edge a, Edge b) {
 // s: current size of MST
 
 int parent[v], rank[v];
+Edge Output[v-1];
 int kruskal(Edge arr[]) {
     sort(arr, arr + e, myCmp);
     for (int i = 0; i < v; i++) { parent[i] = i; rank[i] = 0; }
-    in res = 0;
+    int res = 0;
     for (int i = 0, s = 0; s < v-1; i++) {
         Edge e = arr[i];
         int x = find(e.src);
         int y = find(e.dist);
         if (x != y) {
+            Output[s] = e;
             s++;
             union(x, y);
             res += e.weight;
@@ -157,3 +159,5 @@ int kruskal(Edge arr[]) {
 }
 ```
 - ![image](https://i.ibb.co/MND3y2m/image-2022-05-30-180419424.png)
+- Time Complexity: Avg = O(ElogE + V + E*aplha(V)) = O(ElogV)
+- Auxiliary Space: O(V)
