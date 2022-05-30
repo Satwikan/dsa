@@ -41,6 +41,8 @@ void union(int x, int y) {
 - to avoid tree to become too case we use Union by Rank
 ## Union by Rank
 ![image](https://i.ibb.co/7n3qm5C/image-2022-05-30-162650718.png)
+- ![image](https://i.ibb.co/sJ8qLHx/image-2022-05-30-163147605.png)
+- this was worst case in simple implementation
 - we will rank to determine node will become child of which node
 - rank is nothing but height of binary tree
 ```
@@ -70,4 +72,3 @@ void union(int x, int y) {
     }
 }
 ```
-- ![image](https://i.ibb.co/sJ8qLHx/image-2022-05-30-163147605.png)
