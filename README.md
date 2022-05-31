@@ -9,3 +9,4 @@ Data Structures and Algorithms for all basic needs
 ### [Greedy](https://github.com/Satwikan/dsa/tree/master/Greedy)
 ### [Graph](https://github.com/Satwikan/dsa/tree/master/graph)
 ### [Disjoint Set](https://github.com/Satwikan/dsa/tree/master/disjointSet)
+### [Leetcode-Tips](https://github.com/Satwikan/dsa/blob/master/Leetcode-Tips.md)
