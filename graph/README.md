@@ -350,3 +350,22 @@ while (!q.empty()) {
 - to get indegree of every vertex we can modify add function of graph
 - or we can use a vector<int> indegree(v, 0) and traverse whole adjacency list and increment indegree of every vertex [O(E)]
 - Time Complexity: O(V+E)
+
+## Detect Cycle in an directed graph (Kahn's Algo)
+- Topological Sort is only for acyclic graph
+- thus won't work on this and won't print every vertex
+- add a count to check if all vertices are visited
+```
+int count = 0;
+while (!q.empty()) {
+  int u = q.front();
+  q.pop();
+  count++;
+  cout << u << " ";
+  for (int v: adj[u]) {
+    indegree[v]--;
+    if (indegree[v] == 0)
+      q.push(v);
+  }
+}
+```
