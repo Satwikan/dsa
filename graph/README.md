@@ -321,4 +321,32 @@ for(int i = 0; i < v; i++)
 }
 return false;
 ```
+
+- Time Complexity: O(V+E)
+
+## Topological Sorting
+
+- input: directed acyclic graph
+- output: topological order of the graph
+- topological order: vertices are visited in the order of their finishing times
+- graph can have multiple topological orders
+- ![image](https://i.ibb.co/1Ygkz0P/image-2022-05-31-191730435.png)
+- ![image](https://i.ibb.co/8YSRY5b/image-2022-05-31-191826926.png)
+### BFS Based Solution (Kahn's Algo)
+- store indegrees in every vertex
+- create a queue and enqueue all vertices with indegree 0
+```
+while (!q.empty()) {
+  int u = q.front();
+  q.pop();
+  cout << u << " ";
+  for (int v: adj[u]) {
+    indegree[v]--;
+    if (indegree[v] == 0)
+      q.push(v);
+  }
+}
+```
+- to get indegree of every vertex we can modify add function of graph
+- or we can use a vector<int> indegree(v, 0) and traverse whole adjacency list and increment indegree of every vertex [O(E)]
 - Time Complexity: O(V+E)
