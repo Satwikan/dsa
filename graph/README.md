@@ -11,7 +11,7 @@
 - directed graph has 2 degree's in and out-degree
 - if you sum all indegrees/indegrees you get no edges
 - max no of edges = |V|\*(|V|-1), max is when there is a complete graph
-  ![image](https://user-images.githubusercontent.com/69719072/169046721-121b83ef-2479-4053-814c-6f8a48fa9496.png)
+- ![image](https://user-images.githubusercontent.com/69719072/169046721-121b83ef-2479-4053-814c-6f8a48fa9496.png)
 
 # Graph Representation
 
@@ -19,7 +19,7 @@
 
 - we use adjacency matrix to represent graphs
 - undirected graph always form symmatrix matrix
-  ![image](https://user-images.githubusercontent.com/69719072/169057720-12041da1-f3cc-44fd-a0d8-cad7c3e85d3c.png)
+- ![image](https://user-images.githubusercontent.com/69719072/169057720-12041da1-f3cc-44fd-a0d8-cad7c3e85d3c.png)
 - we can use additional data structre if given vertices are not integers(eg. city's names) like array or dictonary
   ![image](https://user-images.githubusercontent.com/69719072/169058753-cfac7fbf-76c1-4388-8ce0-f75a0a8660af.png)
 
@@ -332,9 +332,12 @@ return false;
 - graph can have multiple topological orders
 - ![image](https://i.ibb.co/1Ygkz0P/image-2022-05-31-191730435.png)
 - ![image](https://i.ibb.co/8YSRY5b/image-2022-05-31-191826926.png)
+
 ### BFS Based Solution (Kahn's Algo)
+
 - store indegrees in every vertex
 - create a queue and enqueue all vertices with indegree 0
+
 ```
 while (!q.empty()) {
   int u = q.front();
@@ -347,14 +350,17 @@ while (!q.empty()) {
   }
 }
 ```
+
 - to get indegree of every vertex we can modify add function of graph
 - or we can use a vector<int> indegree(v, 0) and traverse whole adjacency list and increment indegree of every vertex [O(E)]
 - Time Complexity: O(V+E)
 
 ## Detect Cycle in an directed graph (Kahn's Algo)
+
 - Topological Sort is only for acyclic graph
 - thus won't work on this and won't print every vertex
 - add a count to check if all vertices are visited
+
 ```
 int count = 0;
 while (!q.empty()) {
@@ -370,4 +376,29 @@ while (!q.empty()) {
 }
 return count != v;
 ```
+
 - ![image](https://i.ibb.co/gPktxg4/image-2022-05-31-194636870.png)
+
+## Topological Sorting using DFS
+
+- print node only if all dependencies of that node are in the stack and then
+- create a empty stack
+- for every vertex u, do following
+
+```
+if (u is not visited)
+  DFS(u, st);
+while (st is not empty)
+  pop an item from st and print it
+
+DFS(u, st)
+ Mask u as visited
+ For every adjacent v of u
+    if v is not visited
+    DFS(v, st)
+  push u to st
+```
+
+## Minimum Spanning Tree Problem
+
+- ![image](https://i.ibb.co/WVwbw3V/image-2022-06-02-090234687.png)
