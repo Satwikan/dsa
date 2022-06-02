@@ -9,7 +9,7 @@
 ### Binary heap
 ### Parse Tree, Expression Tree in Compilers
 ## Variations of Tree
-- Trie: used in dictonary
+- Trie: used in dictionary
 - suffix tree: search in large strings
 - binary index tree: range based qury searches (fast for certain conditions)
 - segment Tree: range based qury searches (more powerfull)
