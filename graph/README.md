@@ -401,4 +401,6 @@ DFS(u, st)
 
 ## Minimum Spanning Tree Problem
 
+- given an arrangement of computers as weighted and connected undirected graph.
 - ![image](https://i.ibb.co/WVwbw3V/image-2022-06-02-090234687.png)
+- Minimize the total wire length and make sure that all computer are connected to each other may be through intermediate computers.
