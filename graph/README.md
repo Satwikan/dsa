@@ -399,8 +399,9 @@ DFS(u, st)
   push u to st
 ```
 
-## Minimum Spanning Tree Problem
+## Minimum Spanning Tree Problem (Prim's Algo)
 
 - given an arrangement of computers as weighted and connected undirected graph.
 - ![image](https://i.ibb.co/WVwbw3V/image-2022-06-02-090234687.png)
 - Minimize the total wire length and make sure that all computer are connected to each other may be through intermediate computers.
+- Prim's algo maintains two sets one in the MST and one not in MST.
