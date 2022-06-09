@@ -405,3 +405,6 @@ DFS(u, st)
 - ![image](https://i.ibb.co/WVwbw3V/image-2022-06-02-090234687.png)
 - Minimize the total wire length and make sure that all computer are connected to each other may be through intermediate computers.
 - Prim's algo maintains two sets one in the MST and one not in MST.
+- ![image](https://i.ibb.co/KqkMx4B/image-2022-06-09-105923626.png)
+- ![image](https://i.ibb.co/ZhvgZyf/image-2022-06-09-110132964.png)
+
