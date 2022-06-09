@@ -441,6 +441,7 @@ int primMST(vector<int> graph[], int V) {
   return res;
 }
 ```
+
 ```
 int minKey(int key[], bool mstSet[]) {
   int min = INT_MAX, min_index;
@@ -474,7 +475,20 @@ void Prims(int v) {
   printMST(parent, v);
 }
 ```
+
 - Time Complexity: O(V^2)
 - This can be optimized by using min heap and adjacency list
 - Then Time Complexity: O(VlogV) + O((V+E)logV) = O(ElogV)
-- for a connected graph V = O(E) because ```V-1 <= E <V*(V-1)/2```
+- for a connected graph V = O(E) because `V-1 <= E < V*(V-1)/2`
+
+## Dijstra's Shortest Path
+
+- given a weighted undirected graph and a source vertex s, find shortest path from s to all other vertices in the graph.
+- somewhat like prims's algo
+- manage an array 'key' initialized with and pick vertex
+- ![image](https://i.ibb.co/Nrx1VVS/image-2022-06-09-134617278.png)
+
+### Facts
+
+- does not work for negative weighted edge
+- does the shortest path change if add a weight to all edges of the original graph
