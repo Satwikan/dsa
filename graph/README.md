@@ -401,10 +401,77 @@ DFS(u, st)
 
 ## Minimum Spanning Tree Problem (Prim's Algo)
 
+- greedy algorithm
 - given an arrangement of computers as weighted and connected undirected graph.
 - ![image](https://i.ibb.co/WVwbw3V/image-2022-06-02-090234687.png)
 - Minimize the total wire length and make sure that all computer are connected to each other may be through intermediate computers.
 - Prim's algo maintains two sets one in the MST and one not in MST.
+- cut the graph between MST set and not MST set
+- pick minimum edge from the set of edges that are slashed from graph cutting
+- then pick edge with min. weight edge and corresponding vertex to MST set
 - ![image](https://i.ibb.co/KqkMx4B/image-2022-06-09-105923626.png)
 - ![image](https://i.ibb.co/ZhvgZyf/image-2022-06-09-110132964.png)
 
+### Implementation
+
+- [Reference](https://www.youtube.com/watch?v=eNml2e_dB1w&list=PL0SWhLkCGuU8IwrL9nxGiwQ-3Hy4ijFRh&index=19)
+- ![image](https://i.ibb.co/dg2rYrd/image-2022-06-09-110847510.png)
+- for set of MST set we maintain boolean array
+- for implementing cutting of graph and checking for min edge we maintain a key array which is initialized with infinity
+- key array updates with minimum edge distance with
+-
+- ![image](https://i.ibb.co/1z1Rbn2/image-2022-06-09-114131592.png)
+
+```
+int primMST(vector<int> graph[], int v) {
+  int key[v], res=0;
+  fill(key, key+v, INT_MAX);
+  key[0] = 0;
+  bool mstSet[v] = false;
+  for (int i = 0; i < v; i++) {
+    int u = -1;
+    for (int i = 0; i < v; i++)
+      if (!mstSet[i] && (u == -1 || key[i] < key[u])) u = i;
+    mstSet[u] = true;
+    res += key[u];
+    for (int v = 0; v < v; v++)
+      if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
+        key[v] = graph[u][v];
+  }
+  return res;
+}
+```
+
+```
+int minKey(int key[], bool mstSet[]) {
+  int min = INT_MAX, min_index;
+  for (int v = 0; v < V; v++)
+    if (mstSet[v] == false && key[v] < min)
+      min = key[v], min_index = v;
+  return min_index;
+}
+void Prims(int v) {
+  int parent[v];
+  int key[v];
+  bool visited[v];
+  for (int i = 0; i < v; i++) {
+    parent[i] = -1;
+    key[i] = INT_MAX;
+    visited[i] = false;
+  }
+  key[0] = 0;
+  parent[0] = -1;
+  while (true) {
+    int u = minKey(key, visited);
+    if (u == -1) break;
+    visited[u] = true;
+    for (int v: adj[u]) {
+      if (visited[v] == false && adj[u][v] < key[v]) {
+        parent[v] = u;
+        key[v] = adj[u][v];
+      }
+    }
+  }
+  printMST(parent, v);
+}
+```
