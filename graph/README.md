@@ -423,25 +423,24 @@ DFS(u, st)
 - ![image](https://i.ibb.co/1z1Rbn2/image-2022-06-09-114131592.png)
 
 ```
-int primMST(vector<int> graph[], int v) {
-  int key[v], res=0;
-  fill(key, key+v, INT_MAX);
+int primMST(vector<int> graph[], int V) {
+  int key[V], res=0;
+  fill(key, key+V, INT_MAX);
   key[0] = 0;
   bool mstSet[v] = false;
-  for (int i = 0; i < v; i++) {
+  for (int i = 0; i < V; i++) {
     int u = -1;
-    for (int i = 0; i < v; i++)
+    for (int i = 0; i < V; i++)
       if (!mstSet[i] && (u == -1 || key[i] < key[u])) u = i;
     mstSet[u] = true;
     res += key[u];
-    for (int v = 0; v < v; v++)
+    for (int v = 0; v < V; v++)
       if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
         key[v] = graph[u][v];
   }
   return res;
 }
 ```
-
 ```
 int minKey(int key[], bool mstSet[]) {
   int min = INT_MAX, min_index;
@@ -475,3 +474,7 @@ void Prims(int v) {
   printMST(parent, v);
 }
 ```
+- Time Complexity: O(V^2)
+- This can be optimized by using min heap and adjacency list
+- Then Time Complexity: O(VlogV) + O((V+E)logV) = O(ElogV)
+- for a connected graph V = O(E) because ```V-1 <= E <V*(V-1)/2```
