@@ -491,4 +491,17 @@ void Prims(int v) {
 ### Facts
 
 - does not work for negative weighted edge
-- does the shortest path change if add a weight to all edges of the original graph
+- does the shortest path change if add a fix amount of weight to all edges of the original graph (Yes it does!)
+
+### Implementation
+
+- [Reference](https://www.youtube.com/watch?v=9m1uVOt5ySg&list=PL0SWhLkCGuU8IwrL9nxGiwQ-3Hy4ijFRh&index=21)
+- Create a min heap and a dist array
+```
+dijstra(int graph[V][V], int V, int s) {
+  dist[v] = {infinity, infinity, infinity, ..., infinity};
+  dist[s] = 0;
+  insert
+
+```
+- Time Complexity: O(VlogV + ElogV)
