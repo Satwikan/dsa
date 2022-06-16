@@ -498,6 +498,7 @@ void Prims(int v) {
 
 - [Reference](https://www.youtube.com/watch?v=9m1uVOt5ySg&list=PL0SWhLkCGuU8IwrL9nxGiwQ-3Hy4ijFRh&index=21)
 - Create a min heap and a dist array
+
 ```
 dist[v] = {infinity, infinity, infinity, ..., infinity};
 dist[s] = 0;
@@ -509,6 +510,42 @@ while (pq is not empty) {
       dist[adjacent] = dist[popped] + weight of edge
       push adjacent into pq
 }
+```
+
+### Code
+
+- ![image](https://i.ibb.co/RPH4kRB/image-2022-06-16-092854014.png)
 
 ```
+int[] dijkstra(int graph[][], int V, int s) {
+  int dist[V];
+  for (int i = 0; i < V; i++)
+    dist[i] = INT_MAX;
+  dist[s] = 0;
+  priority_queue<pair<int, int>> pq;
+  pq.push({0, s});
+  while (!pq.empty()) {
+    int u = pq.top().second;
+    pq.pop();
+    for (int v = 0; v < V; v++)
+      if (graph[u][v] && dist[v] > dist[u] + graph[u][v]) {
+        // relax operation
+        dist[v] = dist[u] + graph[u][v];
+        pq.push({dist[v], v});
+      }
+  }
+  return dist;
+}
+
+```
+
 - Time Complexity: O(VlogV + ElogV)
+
+## Kosaraju's Algorithm
+
+- it is used to solve strongly connected components problem in a directed graph
+
+### Strongly Connected Components
+
+- strongly connected components are components of graph if all vertices under that component can be reachable to each other
+- ![image](https://i.ibb.co/4FG4HZb/image-2022-06-16-094449765.png)
