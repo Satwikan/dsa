@@ -614,3 +614,9 @@ for every edge (u, v)
     if (d[v] > d[u]+weight(u, 0))
       print "Negative weight cycle"
 ```
+## Articulation Points
+- given a connected undirected graph, find all articulation points
+- articulation points: these are vertices upon removal of which and their associated edges number of connected components increase more than 1
+- ![image](https://i.ibb.co/qDy4CFH/image-2022-06-16-181040900.png)
+### Applications
+- used to find vulnerable points in a network
