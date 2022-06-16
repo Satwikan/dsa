@@ -498,10 +498,16 @@ void Prims(int v) {
 - [Reference](https://www.youtube.com/watch?v=9m1uVOt5ySg&list=PL0SWhLkCGuU8IwrL9nxGiwQ-3Hy4ijFRh&index=21)
 - Create a min heap and a dist array
 ```
-dijstra(int graph[V][V], int V, int s) {
-  dist[v] = {infinity, infinity, infinity, ..., infinity};
-  dist[s] = 0;
-  insert
+dist[v] = {infinity, infinity, infinity, ..., infinity};
+dist[s] = 0;
+insert all disance into pq -> O(V)
+while (pq is not empty) {
+  pop the min element from pq
+  for every adjacent vertex of the popped vertex
+    if dist[adjacent] > dist[popped] + weight of edge
+      dist[adjacent] = dist[popped] + weight of edge
+      push adjacent into pq
+}
 
 ```
 - Time Complexity: O(VlogV + ElogV)
