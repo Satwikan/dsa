@@ -579,6 +579,7 @@ dfs(u, st)
 - Time Complexity: O(V+E)
 
 ## Bellman Ford Algorithm
+- [Reference](https://www.youtube.com/watch?v=TOcJUEtHSrw&list=PL0SWhLkCGuU8IwrL9nxGiwQ-3Hy4ijFRh&index=26)
 - find shortest path from a source vertex to all other vertices in a weighted directed graph
 - for a unweighted graph it can be solved using bfs (path with min. number of edges): O(V+E)
 - for a directed weighted acyclic graph it can be solved using topological sorting: O(V+E)
