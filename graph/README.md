@@ -601,3 +601,16 @@ for _ = 0 to V-1
 ```
 - ![image](https://i.ibb.co/LhTvBLV/image-2022-06-16-175244342.png)
 - O(VE)
+### Negative weight Cycle
+- we can also detect negative weight cycle using bellman ford algorithm
+- for that after relaxing v-1 times, if there is a negative weight cycle, then after relaxing 1 more time we will get a dist for some edge which would be less that we got in out v-1 run.
+```
+d[v] = {INT_MAX, INT_MAX, INT_MAX, ..., INT_MAX};
+d[s] = 0;
+for _ = 0 to V-1 
+  for every edge (u, v)
+    dist[v] = min(dist[v], dist[u] + weight of edge) // relax
+for every edge (u, v)
+    if (d[v] > d[u]+weight(u, 0))
+      print "Negative weight cycle"
+```
