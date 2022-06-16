@@ -492,6 +492,7 @@ void Prims(int v) {
 
 - does not work for negative weighted edge
 - does the shortest path change if add a fix amount of weight to all edges of the original graph (Yes it does!)
+- while multiplying all edges by a constant, the shortest path does not change
 
 ### Implementation
 
