@@ -557,3 +557,22 @@ int[] dijkstra(int graph[][], int V, int s) {
 ### Algo
 
 ![image](https://i.ibb.co/Jzpr5jY/image-2022-06-16-154805153.png)
+
+### Implementation for Step 1
+
+- create an empty stack, st
+
+````
+for every vertex u
+  if u is not visited
+    dfs(u, st)
+while st is not empty
+  pop the top element from st and add to the result
+
+dfs(u, st)
+  mark u as visited
+  for every vertex v adjacent to u
+    if v is not visited
+      dfs(v, st)
+  push u into st
+```
