@@ -562,7 +562,7 @@ int[] dijkstra(int graph[][], int V, int s) {
 
 - create an empty stack, st
 
-````
+```
 for every vertex u
   if u is not visited
     dfs(u, st)
@@ -576,3 +576,27 @@ dfs(u, st)
       dfs(v, st)
   push u into st
 ```
+- Time Complexity: O(V+E)
+
+## Bellman Ford Algorithm
+- find shortest path from a source vertex to all other vertices in a weighted directed graph
+- for a unweighted graph it can be solved using bfs (path with min. number of edges): O(V+E)
+- for a directed weighted acyclic graph it can be solved using topological sorting: O(V+E)
+- Dijstra's worked with directed/undirected weighted acyclic/cyclic graph but won't work with -ve weighted graph
+- Bellman Ford works with -ve weighted graph
+- it is a dynamic programming algorithm
+### Idea
+- first find shortest path that are of one edge length. Then shortest path that are of two edge length and so on.
+- relax all edges v-1 times: because for a simple path without loops we would have at most v-1 edges in the path therefore it will guarantee that we generate shortest path
+- consider a line graph with following order of relaxing operation
+- it would take v-1 time to relax V<sup>n-1</sup> - V<sup>n</sup> edge
+- ![image](https://i.ibb.co/1TgJnd0/image-2022-06-16-175651785.png)
+```
+d[v] = {INT_MAX, INT_MAX, INT_MAX, ..., INT_MAX};
+d[s] = 0;
+for _ = 0 to V-1 
+  for every edge (u, v)
+    dist[v] = min(dist[v], dist[u] + weight of edge) // relax
+```
+- ![image](https://i.ibb.co/LhTvBLV/image-2022-06-16-175244342.png)
+- O(VE)
