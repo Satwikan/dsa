@@ -21,14 +21,14 @@
 - undirected graph always form symmetric matrix
 - ![image](https://user-images.githubusercontent.com/69719072/169057720-12041da1-f3cc-44fd-a0d8-cad7c3e85d3c.png)
 - we can use additional data structure if given vertices are not integers(eg. city's names) like array or dictionary
-  ![image](https://user-images.githubusercontent.com/69719072/169058753-cfac7fbf-76c1-4388-8ce0-f75a0a8660af.png)
+- ![image](https://user-images.githubusercontent.com/69719072/169058753-cfac7fbf-76c1-4388-8ce0-f75a0a8660af.png)
 
 ## Adjacency list
 
 - it only stores which vertices are connected
 - saves space and makes operation [finding all adjacent vertex] faster
 - we can use dynamic sized array's or linked list as a list
-  ![image](https://user-images.githubusercontent.com/69719072/169060145-b90c539e-aa13-4d5b-9bc4-e0d520fb7d0e.png)
+- ![image](https://user-images.githubusercontent.com/69719072/169060145-b90c539e-aa13-4d5b-9bc4-e0d520fb7d0e.png)
 
 ### Complexity Analysis
 
