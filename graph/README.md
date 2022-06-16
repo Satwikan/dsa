@@ -544,8 +544,16 @@ int[] dijkstra(int graph[][], int V, int s) {
 ## Kosaraju's Algorithm
 
 - it is used to solve strongly connected components problem in a directed graph
+- it is implemented using dfs
 
 ### Strongly Connected Components
 
 - strongly connected components are components of graph if all vertices under that component can be reachable to each other
 - ![image](https://i.ibb.co/4FG4HZb/image-2022-06-16-094449765.png)
+- there is a source component that starts the graph (everything is reachable from source) and sink component that ends the graph
+- there can be multiple sink components
+- let there be 2 vertices v and u such that v is reachable from u but opposite is not true (u is source, v is sink), then dfs of v should happen before dfs of u
+
+### Algo
+
+![image](https://i.ibb.co/Jzpr5jY/image-2022-06-16-154805153.png)
