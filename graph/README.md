@@ -665,9 +665,11 @@ low[v] > disc[u]
 - ![image](https://i.ibb.co/QChJZrX/image-2022-06-21-083758929.png)
 
 ## Tarjan's Algorithm for Strongly Connected Components
-- better than kosaraju's algorithm because it only requires only single traversal of the graph 
+
+- better than kosaraju's algorithm because it only requires only single traversal of the graph
 
 ### No cross edge
+
 - it is based on concepts of articulation points and bridges
 - while making the tree with back-edge we don't pop the vertices from stack after when their all children are visited like previous instead
 - if all adjacent of a vertex u are done with recursive and disc[u] = low[u], then print this vertex and all other vertices in the stack
@@ -679,3 +681,14 @@ low[v] > disc[u]
 - cross edge: two vertices are connected by an edge but not by a back-edge
 - ![image](https://i.ibb.co/xDG9LLw/image-2022-06-21-103326829.png)
 - if there is a cross edge then on dfs we won't update the low value of the vertex based on cross edge
+
+## Kruskal's Algorithm for Minimum Spanning Tree
+
+- given a weighted connected and undirected graph
+- generate a minimum spanning tree for the given graph
+- we will just output weight of the produced tree
+
+### Algo
+- sort all edges in increasing order
+- add 1st edge to the tree
+- now for every edge min. to max. until size of mst does not become V-1 check if on adding this edge to our tree it forms cycle if not, then add it edge
