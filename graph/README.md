@@ -665,6 +665,7 @@ low[v] > disc[u]
 - ![image](https://i.ibb.co/QChJZrX/image-2022-06-21-083758929.png)
 
 ## Tarjan's Algorithm for Strongly Connected Components
+- better than kosaraju's algorithm because it only requires only single traversal of the graph 
 
 ### No cross edge
 - it is based on concepts of articulation points and bridges
