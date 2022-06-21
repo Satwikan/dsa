@@ -16,8 +16,7 @@
 - code with memoization for fibonacci
 ```
 int fib(int n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
+    if (n == 0 || n == 1) return n;
     return fib(n - 1) + fib(n - 2);
 }
 ```
@@ -26,8 +25,8 @@ int fib(int n) {
 int store[n+1] = {0, 0, ..., 0};
 int fib(int n, int &store[]) {
     if (n == 0 || n == 1) return n;
-    if (store[n] != 0) return store[n];
-    store[n] = fib(n - 1, store) + fib(n - 2, store);
+    if (store[n] == 0) 
+        store[n] = fib(n - 1, store) + fib(n - 2, store);
     return store[n];
 }
 ```
