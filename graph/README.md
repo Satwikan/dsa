@@ -645,20 +645,30 @@ for every edge (u, v)
 - Discovery Time: the time when the node is first visited by dfs (counter that starts with 1 increases by 1 for every node discovered)
 - Low Value: the lowest discovery time reachable through tree or a back-edge
 - then if a node has a child which has low atleast the discovery time of that node, then that child can't reach any of the ancestors upon removal of that node
+
 ```
 u -> v in DFS Tree
-u is articulation point if 
+u is articulation point if
   low[v] >= discovery[u]
 ```
+
 ## Bridges in Graph
+
 - similar to articulation points but for edges
 - then for
+
 ```
 u - v
 low[v] > disc[u]
 ```
+
 - ![image](https://i.ibb.co/QChJZrX/image-2022-06-21-083758929.png)
 
 ## Tarjan's Algorithm for Strongly Connected Components
 
+### No cross edges
+
 - it is based on concepts articulation points
+- while making the tree with back-edge don't pop the vertices from stack
+- if all adjacent of a vertex u are done with recursive and disc[u] = low[u], then print this vertex and all other vertices in the stack
+- ![image](https://i.ibb.co/8Dtx4sF/image-2022-06-21-102808040.png)
