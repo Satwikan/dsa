@@ -13,7 +13,7 @@
 - Resource Allocation (0-1 Knapsack)
 
 ## Memoization
-- code with memoization for fibonacci
+- fibonacci
 ```
 int fib(int n) {
     if (n == 0 || n == 1) return n;
@@ -21,6 +21,7 @@ int fib(int n) {
 }
 ```
 - Time Complexity: O(2<sup>n</sup>)
+- fibonacci with memoization 
 ```
 int store[n+1] = {0, 0, ..., 0};
 int fib(int n, int &store[]) {
@@ -31,3 +32,15 @@ int fib(int n, int &store[]) {
 }
 ```
 - Time Complexity: O(n)
+  
+## Tabulation
+- in top down we were building our solution from n to start, but in bottom up we are building our solution from start to n.
+```
+int fib(int n) {
+    int store[n+1] = {0, 0, ..., 0};
+    store[0] = 0; store[1] = 1;
+    for (int i = 2; i <= n; i++)
+        store[i] = store[i-1] + store[i-2];
+    return store[n];
+}
+```
