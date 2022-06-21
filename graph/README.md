@@ -692,3 +692,7 @@ low[v] > disc[u]
 - sort all edges in increasing order
 - add 1st edge to the tree
 - now for every edge min. to max. until size of mst does not become V-1 check if on adding this edge to our tree it forms cycle if not, then add it edge
+
+### Implementation
+- Simple: Create a separate graph for mst and add edges to it, this will require cycle detection algo to run on every edge
+- Improve: use Dijoint Set [shown here](https://github.com/Satwikan/dsa/tree/master/disjointSet#kruskals-algorithm)
