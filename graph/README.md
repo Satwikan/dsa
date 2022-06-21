@@ -576,9 +576,11 @@ dfs(u, st)
       dfs(v, st)
   push u into st
 ```
+
 - Time Complexity: O(V+E)
 
 ## Bellman Ford Algorithm
+
 - [Reference](https://www.youtube.com/watch?v=TOcJUEtHSrw&list=PL0SWhLkCGuU8IwrL9nxGiwQ-3Hy4ijFRh&index=26)
 - find shortest path from a source vertex to all other vertices in a weighted directed graph
 - for a unweighted graph it can be solved using bfs (path with min. number of edges): O(V+E)
@@ -586,37 +588,65 @@ dfs(u, st)
 - Dijstra's worked with directed/undirected weighted acyclic/cyclic graph but won't work with -ve weighted graph
 - Bellman Ford works with -ve weighted graph
 - it is a dynamic programming algorithm
+
 ### Idea
+
 - first find shortest path that are of one edge length. Then shortest path that are of two edge length and so on.
 - relax all edges v-1 times: because for a simple path without loops we would have at most v-1 edges in the path therefore it will guarantee that we generate shortest path
 - consider a line graph with following order of relaxing operation
 - it would take v-1 time to relax V<sup>n-1</sup> - V<sup>n</sup> edge
 - ![image](https://i.ibb.co/1TgJnd0/image-2022-06-16-175651785.png)
+
 ```
 d[v] = {INT_MAX, INT_MAX, INT_MAX, ..., INT_MAX};
 d[s] = 0;
-for _ = 0 to V-1 
+for _ = 0 to V-1
   for every edge (u, v)
     dist[v] = min(dist[v], dist[u] + weight of edge) // relax
 ```
+
 - ![image](https://i.ibb.co/LhTvBLV/image-2022-06-16-175244342.png)
 - O(VE)
+
 ### Negative weight Cycle
+
 - we can also detect negative weight cycle using bellman ford algorithm
 - for that after relaxing v-1 times, if there is a negative weight cycle, then after relaxing 1 more time we will get a dist for some edge which would be less that we got in out v-1 run.
+
 ```
 d[v] = {INT_MAX, INT_MAX, INT_MAX, ..., INT_MAX};
 d[s] = 0;
-for _ = 0 to V-1 
+for _ = 0 to V-1
   for every edge (u, v)
     dist[v] = min(dist[v], dist[u] + weight of edge) // relax
 for every edge (u, v)
     if (d[v] > d[u]+weight(u, 0))
       print "Negative weight cycle"
 ```
+
 ## Articulation Points
+
 - given a connected undirected graph, find all articulation points
 - articulation points: these are vertices upon removal of which and their associated edges number of connected components increase more than 1
 - ![image](https://i.ibb.co/qDy4CFH/image-2022-06-16-181040900.png)
+
 ### Applications
+
 - used to find vulnerable points in a network
+
+### Idea
+
+- we use dfs to find articulation points
+- convert the graph as a tree by dfs traversing from a source to every edge, if we find some node has edge to one of the ancestors of the tree then we call it back-edge(dashed edge)
+- ![image](https://i.ibb.co/Lx1WmPF/image-2022-06-16-182227834.png)
+- now there are 2 rules to find articulation points
+- Rule 1: If root of the formed tree has 2 children then the root is articulation point
+- Rule 2: if there is non-root node such that it's low value is greater than or equal to the discovery time of that node then the node is articulation point
+- Discovery Time: the time when the node is first visited by dfs (counter that starts with 1 increases by 1 for every node discovered)
+- Low Value: the lowest discovery time reachable through tree or a back-edge
+- then if a node has a child that has low which is atleast the discovery time of that node, then that child can't reach any of the ancestors upon removal of that node
+```
+u -> v in DFS Tree
+u is articulation point if 
+  low[u] >= discovery[v]
+```
