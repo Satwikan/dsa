@@ -666,9 +666,15 @@ low[v] > disc[u]
 
 ## Tarjan's Algorithm for Strongly Connected Components
 
-### No cross edges
-
-- it is based on concepts articulation points
+### No cross edge
+- it is based on concepts of articulation points and bridges
 - while making the tree with back-edge don't pop the vertices from stack
 - if all adjacent of a vertex u are done with recursive and disc[u] = low[u], then print this vertex and all other vertices in the stack
 - ![image](https://i.ibb.co/8Dtx4sF/image-2022-06-21-102808040.png)
+
+### with cross edge
+
+- above we assumed there is no cross edge
+- cross edge: two vertices are connected by an edge but not by a back-edge
+- ![image](https://i.ibb.co/xDG9LLw/image-2022-06-21-103326829.png)
+- if there is a cross edge then on dfs we won't update the low value of the vertex based on cross edge
