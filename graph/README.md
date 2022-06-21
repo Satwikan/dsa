@@ -668,7 +668,7 @@ low[v] > disc[u]
 
 ### No cross edge
 - it is based on concepts of articulation points and bridges
-- while making the tree with back-edge don't pop the vertices from stack
+- while making the tree with back-edge we don't pop the vertices from stack after when their all children are visited like previous instead
 - if all adjacent of a vertex u are done with recursive and disc[u] = low[u], then print this vertex and all other vertices in the stack
 - ![image](https://i.ibb.co/8Dtx4sF/image-2022-06-21-102808040.png)
 
