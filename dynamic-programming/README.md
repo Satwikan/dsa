@@ -45,6 +45,7 @@ int fib(int n, int &store[]) {
 
 - in top down we were building our solution from n to start, but in bottom up we are building our solution from start to n.
 - i.e; for each sub-problem, we should already have the solution for it's previous sub-problem unlike Memoization.
+- we will have array of dimensions that is equal to number of variables changing
 
 ```
 int fib(int n) {
@@ -66,3 +67,70 @@ int fib(int n) {
 ## Longest Common Subsequence
 
 - ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
+### recursive solution without memoization
+```
+int lcs(string s1, string s2, int m, int n) {
+    if (m == 0 || n == 0) return 0;
+    if (s1[m-1] == s2[n-1])
+        return 1 + lcs(s1, s2, m-1, n-1);
+    return max(lcs(s1, s2, m-1, n), lcs(s1, s2, m, n-1));
+}
+```
+- ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
+- we can see here that some functions calls are repeated, so we can use memoization to reduce the number of calls.
+### recursive solution with memoization
+- we will use array of dimensions 2 because we have 2 variables changing
+```
+int memo[m+1][n+1] = {-1, -1, ..., -1};
+int lcs(string s1, string s2, int m, int n) {
+    if (memo[m][n] != -1) return memo[m][n];
+    if (m == 0 || n == 0) return 0;
+    if (s1[m-1] == s2[n-1])
+        memo[m][n] = 1 + lcs(s1, s2, m-1, n-1);
+    memo[m][n] = max(lcs(s1, s2, m-1, n), lcs(s1, s2, m, n-1));
+    return memo[m][n];
+}
+```
+- leet-code
+- 1 <= text1.length, text2.length <= 1000
+- text1 and text2 consist of only lowercase English characters.
+```
+class Solution {
+public:
+    int lcs(string& text1, string& text2, int i, int j, int memo[][1001]) {
+        if (i >= text1.size() || j >= text2.size()) return 0;
+        if (memo[i][j] != -1) return memo[i][j];
+        if (text1[i] == text2[j]) memo[i][j] =  1 + lcs(text1, text2, i+1, j+1, memo);
+        else memo[i][j] =  max(lcs(text1, text2, i+1, j, memo), lcs(text1, text2, i, j+1, memo));
+        return memo[i][j];
+    }
+    int longestCommonSubsequence(string text1, string text2) {
+        int m = text1.size(), n = text2.size();
+        int memo[1001][1001];
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                memo[i][j] = -1;
+        
+        int res = lcs(text1, text2, 0, 0, memo);
+        return res < 0 ? 0 : res;
+    }
+};
+```
+- iterative
+```
+int lcs(string s1, string s2) {
+    int store[s1.size()+1][s2.size()+1];
+    for (int i = 0; i <= s1.size(); i++) {
+        for (int j = 0; j <= s2.size(); j++) {
+            if (i == 0 || j == 0)
+                store[i][j] = 0;
+            else if (s1[i-1] == s2[j-1])
+                store[i][j] = store[i-1][j-1] + 1;
+            else
+                store[i][j] = max(store[i-1][j], store[i][j-1]);
+        }
+    }
+    return store[s1.size()][s2.size()];
+}
+```
+- Time Complexity: O(m*n)
