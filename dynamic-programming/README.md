@@ -44,6 +44,7 @@ int fib(int n, int &store[]) {
 ## Tabulation
 
 - in top down we were building our solution from n to start, but in bottom up we are building our solution from start to n.
+- i.e; for each sub-problem, we should already have the solution for it's previous sub-problem unlike Memoization.
 
 ```
 int fib(int n) {
@@ -54,3 +55,14 @@ int fib(int n) {
     return store[n];
 }
 ```
+
+- please note that DP is not the most efficient approach to solve fibonacci problem, it can be done in O(log n) time.
+
+## memoization vs tabulation
+
+- memoization is easy to implement, whereas tabulation does not require recursion call overhead.
+- so typically tabulation are faster.
+
+## Longest Common Subsequence
+
+- ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
