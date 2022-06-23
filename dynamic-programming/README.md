@@ -116,14 +116,14 @@ public:
     }
 };
 ```
-- iterative
+- Tabulation
+- ![image](https://i.ibb.co/gjxTJ1q/image-2022-06-23-173446983.png)
 ```
 int lcs(string s1, string s2) {
     int store[s1.size()+1][s2.size()+1];
     for (int i = 0; i <= s1.size(); i++) {
         for (int j = 0; j <= s2.size(); j++) {
-            if (i == 0 || j == 0)
-                store[i][j] = 0;
+            if (i == 0 || j == 0) store[i][j] = 0;
             else if (s1[i-1] == s2[j-1])
                 store[i][j] = store[i-1][j-1] + 1;
             else
