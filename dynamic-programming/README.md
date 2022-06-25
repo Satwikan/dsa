@@ -67,7 +67,9 @@ int fib(int n) {
 ## Longest Common Subsequence
 
 - ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
+
 ### recursive solution without memoization
+
 ```
 int lcs(string s1, string s2, int m, int n) {
     if (m == 0 || n == 0) return 0;
@@ -76,10 +78,14 @@ int lcs(string s1, string s2, int m, int n) {
     return max(lcs(s1, s2, m-1, n), lcs(s1, s2, m, n-1));
 }
 ```
+
 - ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
 - we can see here that some functions calls are repeated, so we can use memoization to reduce the number of calls.
+
 ### recursive solution with memoization
+
 - we will use array of dimensions 2 because we have 2 variables changing
+
 ```
 int memo[m+1][n+1] = {-1, -1, ..., -1};
 int lcs(string s1, string s2, int m, int n) {
@@ -91,9 +97,11 @@ int lcs(string s1, string s2, int m, int n) {
     return memo[m][n];
 }
 ```
+
 - leet-code
 - 1 <= text1.length, text2.length <= 1000
 - text1 and text2 consist of only lowercase English characters.
+
 ```
 class Solution {
 public:
@@ -110,14 +118,16 @@ public:
         for (int i = 0; i < m; i++)
             for (int j = 0; j < n; j++)
                 memo[i][j] = -1;
-        
+
         int res = lcs(text1, text2, 0, 0, memo);
         return res < 0 ? 0 : res;
     }
 };
 ```
+
 - Tabulation
 - ![image](https://i.ibb.co/gjxTJ1q/image-2022-06-23-173446983.png)
+
 ```
 int lcs(string s1, string s2) {
     int store[s1.size()+1][s2.size()+1];
@@ -133,4 +143,87 @@ int lcs(string s1, string s2) {
     return store[s1.size()][s2.size()];
 }
 ```
-- Time Complexity: O(m*n)
+
+- Time Complexity: O(m\*n)
+
+### Variations of LCS
+
+- Diff Utility
+- Min insertion/deletion to make two strings equal
+- Shortest Common Super-sequence
+- Longest Palindromic Subsequence
+- Longest Repeated Subsequence
+- Space Optimized DP solution of LCS
+- Print Longest Common Subsequence
+
+## Coin Change (Count Combinations)
+
+- ![image](https://i.ibb.co/hXb1NH5/image-2022-06-25-140507339.png)
+
+### recursive solution
+
+```
+void getCount(int coins[], int n, int sum, int& count) {
+    if (n == 0) {
+        if (sum == 0) count++;
+        return;
+    }
+    getCount(coins, n-1, sum, count);
+    if (sum - coins[n-1] >= 0)
+        getCount(coins, n, sum - coins[n-1] count);
+}
+```
+
+### tabulation
+
+```
+int getCount(int coins[], int n, int sum) {
+    int store[sum+1];
+    for (int i = 0; i <= sum; i++)
+        store[i] = 0;
+    store[0] = 1;
+    for (int i = 1; i <= n; i++) {
+        for (int j = coins[i-1]; j <= sum; j++)
+            store[j] += store[j-coins[i-1]];
+    }
+    return store[sum];
+}
+```
+
+## Edit Distance
+
+- calculate min total number of steps required to make two strings equal
+- we use insertion, deletion, replace as a step
+- ![image](https://i.ibb.co/T00y4zj/image-2022-06-25-141034300.png)
+
+### recursive solution
+
+```
+int editDistance(string s1, string s2, int m, int n) {
+    if (m == 0) return n;
+    if (n == 0) return m;
+    if (s1[m-1] = s2[n-1]) return editDistance(s1, s2, m-1, n-1);
+    return 1 + min(editDistance(s1, s2, m-1, n-1),
+        editDistance(s1, s2, m, n-1),
+        editDistance(s1, s2, m-1, n))
+}
+```
+
+### tabulation
+
+- ![image](https://i.ibb.co/P4kqKRf/image-2022-06-25-144518362.png)
+
+```
+int editDistance(string s1, string s2, int m, int n) {
+    int store[m+1][n+1];
+    for (int i = 0; i <= m; i++) {
+        for (int j = 0; j <= n; j++) {
+            if (i == 0) store[i][j] = j;
+            else if (j == 0) store[i][j] = i;
+            else if (s1[i-1] == s2[j-1]) store[i][j] = store[i-1][j-1];
+            else store[i][j] = 1 + min(store[i-1][j], store[i][j-1], store[i-1][j-1]);
+        }
+    }
+    return store[m][n];
+}
+```
