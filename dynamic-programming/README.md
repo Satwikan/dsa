@@ -227,3 +227,36 @@ int editDistance(string s1, string s2, int m, int n) {
     return store[m][n];
 }
 ```
+### application
+- spelling correction
+- dictionary search suggestion
+
+## Longest Increasing Subsequence
+- ![image](https://i.ibb.co/bvdqJ5B/image-2022-06-25-184057308.png)
+
+### solution
+- we won't generate all sub-sequences because that won't have overlapping sub-problems instead we will generate lis
+- calculate lis at every index
+- and then take max of each lis
+- ![image](https://i.ibb.co/Y2XhsPw/image-2022-06-26-112550571.png)
+```
+int lis (int arr[], int n) {
+    int lis[n];
+    lis[0] = 1;
+    for (int i = 1; i < n; i++) {
+        lis[i] = 1;
+        for (int i = 1; i < n; i++) {
+            if (arr[j] < arr[i])
+                lis[i] = max(lis[i], lis[j] + 1);
+        }
+    }
+    int mx = lis[0];
+    for(int i = 0; i < n; i++) {
+        mx = max(mx, lis[i]);
+    }
+    return mx;
+}
+```
+- Time Complexity: O(n2)
+- Space Complexity: O(n)
+- not a best solution though, best solution is has binary search with O(nlogn)
