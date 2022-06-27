@@ -245,7 +245,7 @@ int lis (int arr[], int n) {
     lis[0] = 1;
     for (int i = 1; i < n; i++) {
         lis[i] = 1;
-        for (int i = 1; i < n; i++) {
+        for (int j = 0; j < i; j++) {
             if (arr[j] < arr[i])
                 lis[i] = max(lis[i], lis[j] + 1);
         }
@@ -291,3 +291,28 @@ int lis(int arr[], int n) {
 }
 ```
 - Time Complexity: O(nlogn)
+
+### Variations of LIS
+- Minimum number of deletions to make a array sorted
+- Maximum Sum of increasing subsequence
+```
+int lis (int arr[], int n) {
+    int lis[n];
+    lis[0] = 1;
+    for (int i = 1; i < n; i++) {
+        lis[i] = arr[i]; // because we want sum
+        for (int j = 0; j < i; j++) {
+            if (arr[j] < arr[i])
+                lis[i] = max(lis[i], lis[j] + arr[i]);
+        }
+    }
+    int mx = lis[0];
+    for(int i = 0; i < n; i++) {
+        mx = max(mx, lis[i]);
+    }
+    return mx;
+}
+```
+- Maximum Sum of increasing subsequence with only one deletion
+- Build Bridges
+- The Longest Chain
