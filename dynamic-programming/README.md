@@ -292,14 +292,16 @@ int lis(int arr[], int n) {
 ```
 - Time Complexity: O(nlogn)
 
-### Variations of LIS
-- Minimum number of deletions to make a array sorted
-- Maximum Sum of increasing subsequence
+## Variations of LIS
+### Minimum number of deletions to make a array sorted
+```
+return n - lis(arr, n);
+```
+### Maximum Sum of increasing subsequence
 ```
 int lis (int arr[], int n) {
     int lis[n];
-    lis[0] = 1;
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         lis[i] = arr[i]; // because we want sum
         for (int j = 0; j < i; j++) {
             if (arr[j] < arr[i])
@@ -313,6 +315,8 @@ int lis (int arr[], int n) {
     return mx;
 }
 ```
-- Maximum Sum of increasing subsequence with only one deletion
-- Build Bridges
-- The Longest Chain
+### Maximum Length of Bitonic Subsequence
+- a sequence is bitonic if it is increasing and then decreasing
+- both increasing and decreasing sequences are bitonic sequences
+### Build Bridges
+#### The Longest Chain
