@@ -260,3 +260,34 @@ int lis (int arr[], int n) {
 - Time Complexity: O(n2)
 - Space Complexity: O(n)
 - not a best solution though, best solution is has binary search with O(nlogn)
+
+### Binary solution (nlogn)
+- it really very awesome algo not only it generates length of lis in nlogn
+- but also generates the lis subsequence
+#### Algo
+- take a auxiliary array of length n tail
+- now tail[i] = min tail of lis of length [i+1] i = 0  to i = n-1
+```
+int cellIdx(int tail[], int b, int e, int x) {
+    while(r > l) {
+        int m = l + (r-l)/2;
+        if(tail[m] >= x) r = m;
+        else l = m + 1;
+    }
+    return r;
+}
+int lis(int arr[], int n) {
+    int tail[n];
+    tail[0] = arr[0];
+    int k = 0;
+    for(int i = 1; i < arr.size(); i++) {
+        if (tail[k] < arr[i]) tail[++k] = arr[i];
+        else {
+            int c = cellIdx(tail, 0, k, arr[i]);
+            tail[c] = arr[i];
+        }
+    }
+    return k+1;
+}
+```
+- Time Complexity: O(nlogn)
