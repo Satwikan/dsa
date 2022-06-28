@@ -227,18 +227,23 @@ int editDistance(string s1, string s2, int m, int n) {
     return store[m][n];
 }
 ```
+
 ### application
+
 - spelling correction
 - dictionary search suggestion
 
 ## Longest Increasing Subsequence
+
 - ![image](https://i.ibb.co/bvdqJ5B/image-2022-06-25-184057308.png)
 
 ### solution
+
 - we won't generate all sub-sequences because that won't have overlapping sub-problems instead we will generate lis
 - calculate lis at every index
 - and then take max of each lis
 - ![image](https://i.ibb.co/Y2XhsPw/image-2022-06-26-112550571.png)
+
 ```
 int lis (int arr[], int n) {
     int lis[n];
@@ -257,16 +262,21 @@ int lis (int arr[], int n) {
     return mx;
 }
 ```
+
 - Time Complexity: O(n2)
 - Space Complexity: O(n)
 - not a best solution though, best solution is has binary search with O(nlogn)
 
 ### Binary solution (nlogn)
+
 - it really very awesome algo not only it generates length of lis in nlogn
 - but also generates the lis subsequence
+
 #### Algo
+
 - take a auxiliary array of length n tail
-- now tail[i] = min tail of lis of length [i+1] i = 0  to i = n-1
+- now tail[i] = min tail of lis of length [i+1] i = 0 to i = n-1
+
 ```
 int cellIdx(int tail[], int b, int e, int x) {
     while(r > l) {
@@ -290,14 +300,19 @@ int lis(int arr[], int n) {
     return k+1;
 }
 ```
+
 - Time Complexity: O(nlogn)
 
 ## Variations of LIS
+
 ### Minimum number of deletions to make a array sorted
+
 ```
 return n - lis(arr, n);
 ```
+
 ### Maximum Sum of increasing subsequence
+
 ```
 int lis (int arr[], int n) {
     int lis[n];
@@ -315,8 +330,24 @@ int lis (int arr[], int n) {
     return mx;
 }
 ```
+
 ### Maximum Length of Bitonic Subsequence
+
 - a sequence is bitonic if it is increasing and then decreasing
 - both increasing and decreasing sequences are bitonic sequences
+- take 2 auxiliary arrays of length n, 1 for increasing subsequence at every element and 1 for decreasing subsequence.
+- sum them and and subtract 1
+
 ### Build Bridges
-#### The Longest Chain
+
+- given some n numbers and array of pairs arr. a pair denotes a bridge between numbers.
+- calculate maximum number of bridges possible without crossing.
+- ![image](https://i.ibb.co/9tmHp29/image-2022-06-27-170249054.png)
+- sort them with 1st number and then apply binary LIS.
+
+### Longest Chain of Pairs
+
+- ![image](https://i.ibb.co/B4n7Sy8/image-2022-06-28-144411000.png)
+- ![image](https://i.ibb.co/j3px1yN/image-2022-06-28-144525918.png)
+- sort the array of pairs according to first values.
+- find the lis of the sorted array.
