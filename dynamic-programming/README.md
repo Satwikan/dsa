@@ -358,3 +358,38 @@ int lis (int arr[], int n) {
 - given a rod of length n and 3 integers a, b, c, make maximum cuts such that every cut is either of length a, b or c.
 - if none is possible return -1.
 - ![image](https://i.ibb.co/dLF7t9B/image-2022-06-29-142600569.png)
+
+### Recursion
+```
+int maxCuts(int n, int a, int b, int c) {
+    if (n <= 0) return n;
+    int res = max(
+        maxCuts(n-a, a, b, c), 
+        maxCuts(n-b , a, b, c), 
+        maxCuts(n-c, a, b, c));
+    if (res == -1) res;
+    else return res+1;
+}
+```
+- Time Complexity:O(3^n)
+### Tabulation
+```
+int maxCuts(int n, int a, int b, int c) {
+    int memo[n+1];
+    memo[0] = 0;co
+    for(int i = 1; i < n+1; i++) {
+        memo[i] = -1;
+        if (i-a >= 0) mx = max(memo[i], memo[i-a]);
+        if (i-b >= 0) mx = max(memo[i], memo[i-b]);
+        if (i-c >= 0) mx = max(memo[i], memo[i-c]);
+        if (memo[i] != -1) memo[i];
+    }
+    return memo[n];
+}
+```
+- Time Complexity: O(n)
+## Minimum Coins
+- given coins array with unlimited number of coins and a val
+- output minimum coins to make up that value
+```
+```
