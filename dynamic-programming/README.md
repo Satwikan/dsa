@@ -350,4 +350,11 @@ int lis (int arr[], int n) {
 - ![image](https://i.ibb.co/B4n7Sy8/image-2022-06-28-144411000.png)
 - ![image](https://i.ibb.co/j3px1yN/image-2022-06-28-144525918.png)
 - sort the array of pairs according to first values.
-- find the lis of the sorted array.
+- find the lis of the sorted array(according to first value).
+- this is activity selection problem.
+
+## Maximum Cuts
+
+- given a rod of length n and 3 integers a, b, c, make maximum cuts such that every cut is either of length a, b or c.
+- if none is possible return -1.
+- ![image](https://i.ibb.co/dLF7t9B/image-2022-06-29-142600569.png)
