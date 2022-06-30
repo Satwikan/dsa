@@ -391,5 +391,7 @@ int maxCuts(int n, int a, int b, int c) {
 ## Minimum Coins
 - given coins array with unlimited number of coins and a val
 - output minimum coins to make up that value
+- ![image](https://i.ibb.co/hyLH9xk/image-2022-06-29-155459338.png)
 ```
+int minCoins() {}
 ```
