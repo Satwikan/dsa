@@ -392,6 +392,7 @@ int maxCuts(int n, int a, int b, int c) {
 - given coins array with unlimited number of coins and a val
 - output minimum coins to make up that value
 - ![image](https://i.ibb.co/hyLH9xk/image-2022-06-29-155459338.png)
+### Recursion
 ```
 int minCoins(int coins[], int n, int val) {
     if (val <= 0 || n == 0) return 0;
@@ -406,6 +407,7 @@ int minCoins(int coins[], int n, int val) {
     return res;
 }
 ```
+### Memoization
 ```
 int minCoins(int coins[], int n, int val) {
     int dp[val+1]:
@@ -424,4 +426,78 @@ int minCoins(int coins[], int n, int val) {
     return dp[val];
 }
 ```
-- Time Complexity O(val*n)
+- Time Complexity: O(val*n)
+- Space: O(n)
+## Minimum Jumps to Reach End
+- number of jumps are decided based on current value of of index
+- ![image](https://i.ibb.co/pJvGnzQ/image-2022-07-11-191828055.png)
+### Recursion
+```
+int minJumps(int arr[], int i, int n) {
+    if (n == 1) return 0;
+    int res = INT_MAX;
+    for (int i = 0; i <= n-2; i++) {
+        if (i+arr[j] >= n) {
+            int sub_res = minJumps(arr, i+1);
+            if (sub_res != INT_MAX)
+                mn = min(mn, sub_res+1);
+        }
+    }
+    return res;
+}
+```
+### Memoization
+```
+// Time Complexity: O(n^2)
+// Space: O(n)
+int minJumps(int arr[], int n) {
+    int dp[n];
+    dp[0] = 0;
+    for (int i = 1; i < n; i++)
+        dp[i] = INT_MAX:
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < i; j++) {
+            if (j + arr[j] >= i) {
+                if (dp[j] != INT_MAX) 
+                dp[i] = min(dp[i], 1+dp[j]);
+            }
+        }
+    }
+    return dp[n-1];
+}
+```
+## 0-1 Knapsack
+- ![image](https://i.ibb.co/x3GJYrb/image-2022-07-11-200017374.png)
+- items are finite
+### Recursion
+```
+// Time Complexity: O(2^n)
+int knapsack(int v[], int w[], int n, W) {
+    if (n == 0 || W == 0) return 0;
+    int res = knapsack(v, w, n-1, W);
+    if (W >= w[n])
+        max(res, v[n-1] + knapsack(v, w, n-1, W-w[n-1]));
+    return res;
+}
+```
+### Memoization
+```
+// Time Complexity: O(N*W)
+// N: number of items, W: weight limit of knapsack
+int knapSack(int W, int wt[], int val[], int n) {
+    int memo[n+1][W+1];
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= W; j++) {
+            if (i == 0 || j == 0) memo[i][j] = 0;
+            else {
+                memo[i][j] = memo[i-1][j];
+                if (wt[i-1] <= j)
+                    memo[i][j]=max(memo[i][j], val[i-1]+memo[i-1][j-wt])
+            }
+        }
+    }
+    return memo[n][W];
+}
+```
+- it might perform worse than recursive solution
+- it is a pseudo hard problem it is a np-hard problem
