@@ -1,5 +1,9 @@
 # Dynamic Programming
 
+## Topics I did'nt get yet
+
+-
+
 - optimization over plain recursive, reuse the solutions of sub-problems when there are overlapping sub-problems
 
 ### Types
@@ -360,19 +364,23 @@ int lis (int arr[], int n) {
 - ![image](https://i.ibb.co/dLF7t9B/image-2022-06-29-142600569.png)
 
 ### Recursion
+
 ```
 int maxCuts(int n, int a, int b, int c) {
     if (n <= 0) return n;
     int res = max(
-        maxCuts(n-a, a, b, c), 
-        maxCuts(n-b , a, b, c), 
+        maxCuts(n-a, a, b, c),
+        maxCuts(n-b , a, b, c),
         maxCuts(n-c, a, b, c));
     if (res == -1) res;
     else return res+1;
 }
 ```
+
 - Time Complexity:O(3^n)
+
 ### Tabulation
+
 ```
 int maxCuts(int n, int a, int b, int c) {
     int memo[n+1];
@@ -387,12 +395,17 @@ int maxCuts(int n, int a, int b, int c) {
     return memo[n];
 }
 ```
+
 - Time Complexity: O(n)
+
 ## Minimum Coins
+
 - given coins array with unlimited number of coins and a val
 - output minimum coins to make up that value
 - ![image](https://i.ibb.co/hyLH9xk/image-2022-06-29-155459338.png)
+
 ### Recursion
+
 ```
 int minCoins(int coins[], int n, int val) {
     if (val <= 0 || n == 0) return 0;
@@ -407,7 +420,9 @@ int minCoins(int coins[], int n, int val) {
     return res;
 }
 ```
+
 ### Memoization
+
 ```
 int minCoins(int coins[], int n, int val) {
     int dp[val+1]:
@@ -426,12 +441,17 @@ int minCoins(int coins[], int n, int val) {
     return dp[val];
 }
 ```
-- Time Complexity: O(val*n)
+
+- Time Complexity: O(val\*n)
 - Space: O(n)
+
 ## Minimum Jumps to Reach End
+
 - number of jumps are decided based on current value of of index
 - ![image](https://i.ibb.co/pJvGnzQ/image-2022-07-11-191828055.png)
+
 ### Recursion
+
 ```
 int minJumps(int arr[], int i, int n) {
     if (n == 1) return 0;
@@ -446,7 +466,9 @@ int minJumps(int arr[], int i, int n) {
     return res;
 }
 ```
+
 ### Memoization
+
 ```
 // Time Complexity: O(n^2)
 // Space: O(n)
@@ -458,7 +480,7 @@ int minJumps(int arr[], int n) {
     for (int i = 1; i <= n; i++) {
         for (int j = 0; j < i; j++) {
             if (j + arr[j] >= i) {
-                if (dp[j] != INT_MAX) 
+                if (dp[j] != INT_MAX)
                 dp[i] = min(dp[i], 1+dp[j]);
             }
         }
@@ -466,10 +488,14 @@ int minJumps(int arr[], int n) {
     return dp[n-1];
 }
 ```
+
 ## 0-1 Knapsack
+
 - ![image](https://i.ibb.co/x3GJYrb/image-2022-07-11-200017374.png)
 - items are finite
+
 ### Recursion
+
 ```
 // Time Complexity: O(2^n)
 int knapsack(int v[], int w[], int n, W) {
@@ -480,7 +506,9 @@ int knapsack(int v[], int w[], int n, W) {
     return res;
 }
 ```
+
 ### Memoization
+
 ```
 // Time Complexity: O(N*W)
 // N: number of items, W: weight limit of knapsack
@@ -499,5 +527,50 @@ int knapSack(int W, int wt[], int val[], int n) {
     return memo[n][W];
 }
 ```
+
 - it might perform worse than recursive solution
 - it is a pseudo hard problem it is a np-hard problem
+
+## Optimal Strategy for a game
+
+- [Reference](https://www.youtube.com/watch?v=MTNNGbFgejE&list=PL0SWhLkCGuU-HbPwaMNuopO8oHrVN0BcU&index=21)
+- given a array of numbers
+- there 2 players they make a move one by one
+- in each move a player can select a number from either end
+- that number would be deleted and next player's turn would come up
+- both players are playing optimally
+- you start first, return maximum sum of selected numbers you can get
+
+```
+I/P: 20, 5, 4, 6
+O/P: 25
+
+I/P: 2, 3, 15, 7
+O/P: 17
+```
+
+- if we had problem statement as "ensure that you get more sum than your opponent"
+- then that can be easily done as
+- if n is even then we can make sure whether your opponent get only even or odd placed numbers then we can select which sum is max (odd or even)
+
+### Recursion Solution 1
+
+```
+int sol(int arr[], int i, int j, int sum) {
+    if (j == i+1) return max(arr[i], arr[j]);
+    return max(sum-sol(arr, i+1, j, sum-arr[i]),
+               sum-sol(arr, i, j-1, sum-arr[i]));
+}
+int mainSol (int arr[], int n) {
+    int sum = 0;
+    for(int i = 0; i < n; i++) sum += arr[i]
+    return sol(arr, 0, n-1, sum);
+}
+```
+
+- if we make this solution into dp then we would have to memoize sum.
+- and sum can be huge for large arrays
+
+### Recursion Solution 2
+
+- ![image](https://i.ibb.co/z8NGNbP/image-2022-07-13-120527930.png)
