@@ -1,10 +1,10 @@
 # Dynamic Programming
 
+- optimization over plain recursive, reuse the solutions of sub-problems when there are overlapping sub-problems
+
 ## Topics I did'nt get yet
 
--
-
-- optimization over plain recursive, reuse the solutions of sub-problems when there are overlapping sub-problems
+- [Optimal Strategy](https://github.com/Satwikan/dsa/tree/master/dynamic-programming#optimal-strategy-for-a-game)
 
 ### Types
 
@@ -534,12 +534,12 @@ int knapSack(int W, int wt[], int val[], int n) {
 ## Optimal Strategy for a game
 
 - [Reference](https://www.youtube.com/watch?v=MTNNGbFgejE&list=PL0SWhLkCGuU-HbPwaMNuopO8oHrVN0BcU&index=21)
-- given a array of numbers
+- given a even number of coins
 - there 2 players they make a move one by one
 - in each move a player can select a number from either end
-- that number would be deleted and next player's turn would come up
+- that coin would be deleted and next player's turn would come up
 - both players are playing optimally
-- you start first, return maximum sum of selected numbers you can get
+- you start first, return maximum sum of selected coins you can get
 
 ```
 I/P: 20, 5, 4, 6
@@ -574,3 +574,14 @@ int mainSol (int arr[], int n) {
 ### Recursion Solution 2
 
 - ![image](https://i.ibb.co/z8NGNbP/image-2022-07-13-120527930.png)
+
+#### Dynamic Solution
+
+- ![image](https://i.ibb.co/y80vxGB/image-2022-07-13-122153475.png)
+
+## #gg Dropping Puzzle
+- [Reference](https://www.youtube.com/watch?v=psbTOUl05T4&list=PL0SWhLkCGuU-HbPwaMNuopO8oHrVN0BcU&index=20)
+- given no of eggs and number of floors calculate minimum number of trails we would need to pinpoint threshold floor.
+- a threshold floor is a floor from which dropping an egg will break it
+- floors above threshold floor will also break the egg but floors below the threshold won't.
+- ![image](https://i.ibb.co/51v51c4/image-2022-07-14-170520283.png)
