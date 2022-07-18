@@ -1,4 +1,6 @@
 
+### [Code Snippets](https://github.com/Satwikan/dsa/blob/master/Code-Snippets.md)
+
 ### [Leetcode Tips](https://github.com/Satwikan/dsa/blob/master/Leetcode-Tips.md)
 # dsa
 Data Structures and Algorithms for all basic needs

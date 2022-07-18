@@ -580,8 +580,90 @@ int mainSol (int arr[], int n) {
 - ![image](https://i.ibb.co/y80vxGB/image-2022-07-13-122153475.png)
 
 ## #gg Dropping Puzzle
+
 - [Reference](https://www.youtube.com/watch?v=psbTOUl05T4&list=PL0SWhLkCGuU-HbPwaMNuopO8oHrVN0BcU&index=20)
 - given no of eggs and number of floors calculate minimum number of trails we would need to pinpoint threshold floor.
+- if egg is dropped and doesn't break then it can be used again.
 - a threshold floor is a floor from which dropping an egg will break it
 - floors above threshold floor will also break the egg but floors below the threshold won't.
 - ![image](https://i.ibb.co/51v51c4/image-2022-07-14-170520283.png)
+- ![image](https://i.ibb.co/SVnjKCP/image-2022-07-14-171407272.png)
+### Recursion
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+// A utility function to get
+// maximum of two integers
+int max(int a, int b) {
+	return (a > b) ? a : b;
+}
+
+// Function to get minimum
+// number of trials needed in worst
+// case with n eggs and k floors
+int eggDrop(int n, int k)
+{
+	// If there are no floors,
+	// then no trials needed.
+	// OR if there is one floor,
+	// one trial needed.
+	if (k == 1 || k == 0)
+		return k;
+
+	// We need k trials for one
+	// egg and k floors
+	if (n == 1)
+		return k;
+
+	int min = INT_MAX, x, res;
+
+	// Consider all droppings from
+	// 1st floor to kth floor and
+	// return the minimum of these
+	// values plus 1.
+	for (x = 1; x <= k; x++) {
+		res = max(
+			eggDrop(n - 1, x - 1),
+			eggDrop(n, k - x));
+		if (res < min)
+			min = res;
+	}
+
+	return min + 1;
+}
+int main() {
+	int n = 2, k = 10;
+	cout << "Minimum number of trials "
+			"in worst case with "
+		<< n << " eggs and " << k
+		<< " floors is "
+		<< eggDrop(n, k) << endl;
+	return 0;
+}
+```
+### Dynamic Programming
+- ![image](https://i.ibb.co/PZs5FxK/image-2022-07-16-120326144.png)
+```
+int res(int e, int f) {
+    int dp[f+1][e+1];
+    for (int i = 0; i <= f; i++) {
+        for (int i = 1; j <= e; j++) {
+            if (i == 0 || i == 1) dp[i][j] = i;
+            else if (j == 1) dp[i][j] == i;
+            else {
+                dp[i][j] = INT_MAX;
+                for(int x = 1; x <= i; x++) 
+                    dp[i][j] = min(dp[i][j], 
+                        1+max(dp[x-1][j-1], dp[i-x][j]))
+            }
+        }
+    }
+    return[f][e];
+}
+```
+## Count BSTs with n keys
+- given a number n
+- take n distinct numbers and calculate how many unique BSTs can be formed with them
+- BST: all keys should be distinct and value on left of node should be smaller than value of parent which should be smaller than value on right child
+- ![image](https://i.ibb.co/ggR0srq/image-2022-07-16-122901768.png)
