@@ -664,6 +664,18 @@ int res(int e, int f) {
 ```
 ## Count BSTs with n keys
 - given a number n
-- take n distinct numbers and calculate how many unique BSTs can be formed with them
+- take n distinct numbers and calculate how many unique BSTs can be formed with them, values of these numbers don't matter.
 - BST: all keys should be distinct and value on left of node should be smaller than value of parent which should be smaller than value on right child
-- ![image](https://i.ibb.co/ggR0srq/image-2022-07-16-122901768.png)
+- ![image](https://i.ibb.co/ggR0srq/image-2022-07-16-122901768.png) 
+### Algo
+- ![image](https://i.ibb.co/59dfdBD/image-2022-07-18-134639170.png) 
+- ![image](https://i.ibb.co/y0DGfkP/image-2022-07-18-134733489.png) 
+### Recursion
+```
+int CountBST(int n) {
+    if (n == 0 || n == 1) return 1;
+    int sum = 0;
+    for (int i = 1; i <= n; i++) sum += CountBST(i-1)*CountBST(n-i);
+    return sum;
+}
+```
