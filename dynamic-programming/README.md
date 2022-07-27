@@ -725,14 +725,72 @@ int maxSum(int arr[], int n) {
 ### Dynamic Programming
 ```
 int maxSum(int arr[], int n) {
+    if (n == 1) return arr[0];
     int memo[n+1];
     memo[1] = arr[0];
+    memo[2] = max(arr[0], arr[1]);
+    for (int i = 2; i <= n; i++)
+        memo[i] = max(memo[i-1], memo[i-2]+arr[i-1]);
+    return memo[n];
+}
+```
+### Space optimized
+```
+int maxSum(int arr[], int n) {
+    if (n == 1) return arr[0];
+    int memo1 = arr[0];
+    int memo2 = max(arr[0], arr[1]);
     for (int i = 2; i <= n; i++) {
-        if (i == 2) memo[i] = max(arr[0], arr[1]);
-        else {
-            memo[i] = max(memo[i-1], memo[i-2]+arr[i-1]);
+        int t = max(memo2, memo1+arr[i-1]);
+        memo1 = memo2;
+        memo2 = t;
+    }
+    return memo2;
+}
+```
+## Subset Sum Problem
+- given a set of integers and a sum, output number of subsets whose sum is equal to given sum
+- ![image](https://i.ibb.co/NY0NNpn/image-2022-07-27-150933214.png)
+### Recursion
+```
+int subsets(int arr[], int n, int sum) {
+    if (sum == 0) return 1;
+    if (n == 0) return 0;
+
+    int res = subsets(arr, n-1, sum);
+    if (sum >= arr[n-1]) res += subsets(arr, n-1, sum-arr[n-1]);
+
+    return res;
+}
+```
+- Time Complexity: O(2^n)
+### Dynamic Programming
+```
+int subsets(int arr[], int n, int sum) {
+    int memo[n+1][sum+1];
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= sum; j++) {
+            if (j == 0) memo[i][j] = 1;
+            else if (i == 0) memo[i][j] = 1;
+            else {
+                memo[i][j] = memo[i-1][j];
+                if (j >= arr[i-1]) memo[i][j] += memo[i-1][j-arr[i-1]];
+            }
         }
     }
-    return memo[n];
+    return memo[n][sum];
+}
+```
+- Time Complexity: O(sum*n)
+## Matrix Chain Multiplication
+- if we have 2 matrices as x\*y and y\*z then number of required multiplications would be x\*y\*z
+- given a array with two consecutive elements as dimensions of matrices, (therefore an array of size n represents n-1 matrices)
+- find minimum number of multiplications required to multiply all these matrices
+- ![image](https://i.ibb.co/xgLXx0v/image-2022-07-27-180044949.png)
+```
+int matrix(int arr[], int n) {
+    if (n < 3) return 0;
+
+    return min(matrix(arr, n-3) + , matrix(arr, n-1));
 }
 ```
