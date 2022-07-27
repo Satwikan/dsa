@@ -579,7 +579,7 @@ int mainSol (int arr[], int n) {
 
 - ![image](https://i.ibb.co/y80vxGB/image-2022-07-13-122153475.png)
 
-## #gg Dropping Puzzle
+## Egg Dropping Puzzle
 
 - [Reference](https://www.youtube.com/watch?v=psbTOUl05T4&list=PL0SWhLkCGuU-HbPwaMNuopO8oHrVN0BcU&index=20)
 - given no of eggs and number of floors calculate minimum number of trails we would need to pinpoint threshold floor.
@@ -677,5 +677,19 @@ int CountBST(int n) {
     int sum = 0;
     for (int i = 1; i <= n; i++) sum += CountBST(i-1)*CountBST(n-i);
     return sum;
+}
+```
+### Dynamic Programming
+```
+int CountBST(int n) {
+    int memo[n+1];
+    fill(memo, memo+n, 0);
+    memo[0] = 1, memo[1] = 1;
+    int sum = 0;
+    for (int i = 2; i <= n; i++) {
+        for (int j = i; i >= 1; j++)
+            memo[i] += memo[j-1]*memo[i-j];
+    }
+    return memo[n];
 }
 ```
