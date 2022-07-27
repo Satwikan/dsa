@@ -783,14 +783,28 @@ int subsets(int arr[], int n, int sum) {
 ```
 - Time Complexity: O(sum*n)
 ## Matrix Chain Multiplication
+- [Reference](https://www.youtube.com/watch?v=CfMp9Y-xHqU&list=PL0SWhLkCGuU-HbPwaMNuopO8oHrVN0BcU&index=27)
 - if we have 2 matrices as x\*y and y\*z then number of required multiplications would be x\*y\*z
 - given a array with two consecutive elements as dimensions of matrices, (therefore an array of size n represents n-1 matrices)
-- find minimum number of multiplications required to multiply all these matrices
+- find minimum number of multiplications required to convert these into single matrix by multiplying them
 - ![image](https://i.ibb.co/xgLXx0v/image-2022-07-27-180044949.png)
+### Idea
+- consider a partition that divides matrices into parts
+- ![image](https://i.ibb.co/G2RJ4jm/image-2022-07-27-184559100.png)
+### Recursion
 ```
-int matrix(int arr[], int n) {
-    if (n < 3) return 0;
-
-    return min(matrix(arr, n-3) + , matrix(arr, n-1));
+int matrix(int arr[], int i, int j) {
+    if (i+1 == j) return 0;
+    int res = INT_MAX;
+    for (int k = i+1; k < j; k++) {
+        res = min(res, mChain(arr, i, k)
+                     + mChain(arr, k, j)
+                     + arr[i]*arr[k]*arr[j])
+    }
+    return res;
 }
+```
+### Dynamic Programming
+```
+
 ```
