@@ -588,7 +588,9 @@ int mainSol (int arr[], int n) {
 - floors above threshold floor will also break the egg but floors below the threshold won't.
 - ![image](https://i.ibb.co/51v51c4/image-2022-07-14-170520283.png)
 - ![image](https://i.ibb.co/SVnjKCP/image-2022-07-14-171407272.png)
+
 ### Recursion
+
 ```
 #include <bits/stdc++.h>
 using namespace std;
@@ -642,8 +644,11 @@ int main() {
 	return 0;
 }
 ```
+
 ### Dynamic Programming
+
 - ![image](https://i.ibb.co/PZs5FxK/image-2022-07-16-120326144.png)
+
 ```
 int res(int e, int f) {
     int dp[f+1][e+1];
@@ -653,8 +658,8 @@ int res(int e, int f) {
             else if (j == 1) dp[i][j] == i;
             else {
                 dp[i][j] = INT_MAX;
-                for(int x = 1; x <= i; x++) 
-                    dp[i][j] = min(dp[i][j], 
+                for(int x = 1; x <= i; x++)
+                    dp[i][j] = min(dp[i][j],
                         1+max(dp[x-1][j-1], dp[i-x][j]))
             }
         }
@@ -662,15 +667,21 @@ int res(int e, int f) {
     return[f][e];
 }
 ```
+
 ## Count BSTs with n keys
+
 - given a number n
 - take n distinct numbers and calculate how many unique BSTs can be formed with them, values of these numbers don't matter.
 - BST: all keys should be distinct and value on left of node should be smaller than value of parent which should be smaller than value on right child
-- ![image](https://i.ibb.co/ggR0srq/image-2022-07-16-122901768.png) 
+- ![image](https://i.ibb.co/ggR0srq/image-2022-07-16-122901768.png)
+
 ### Algo
-- ![image](https://i.ibb.co/59dfdBD/image-2022-07-18-134639170.png) 
-- ![image](https://i.ibb.co/y0DGfkP/image-2022-07-18-134733489.png) 
+
+- ![image](https://i.ibb.co/59dfdBD/image-2022-07-18-134639170.png)
+- ![image](https://i.ibb.co/y0DGfkP/image-2022-07-18-134733489.png)
+
 ### Recursion
+
 ```
 int CountBST(int n) {
     if (n == 0 || n == 1) return 1;
@@ -679,16 +690,48 @@ int CountBST(int n) {
     return sum;
 }
 ```
+
 ### Dynamic Programming
+
 ```
 int CountBST(int n) {
     int memo[n+1];
     fill(memo, memo+n, 0);
     memo[0] = 1, memo[1] = 1;
     int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < i; j++)
+            memo[i] += memo[j]*memo[i-j-1];
+    }
+    return memo[n];
+}
+```
+
+- the solution for this is catalan number it can be calculated in O(N) time and O(1) space
+- ![image](https://i.ibb.co/TvGVQzr/image-2022-07-27-143847257.png)
+
+## Max Sum with No Consecutive
+
+- given array of positive integers calculate max sum that can be obtained by these numbers such that no 2 numbers are consecutive.
+- ![image](https://i.ibb.co/5vcLxmz/image-2022-07-27-144135800.png)
+### Recursion
+```
+int maxSum(int arr[], int n) {
+    if (n == 1) return arr[0];
+    if (n == 2) return max(arr[0], arr[1]);
+    return max(maxSum(arr, n-1), arr[n-1]+maxSum(arr, n-2));
+}
+```
+### Dynamic Programming
+```
+int maxSum(int arr[], int n) {
+    int memo[n+1];
+    memo[1] = arr[0];
     for (int i = 2; i <= n; i++) {
-        for (int j = i; i >= 1; j++)
-            memo[i] += memo[j-1]*memo[i-j];
+        if (i == 2) memo[i] = max(arr[0], arr[1]);
+        else {
+            memo[i] = max(memo[i-1], memo[i-2]+arr[i-1]);
+        }
     }
     return memo[n];
 }
