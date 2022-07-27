@@ -8,6 +8,7 @@ Data Structures and Algorithms for all basic needs
 ## Algo
 ### [Greedy](https://github.com/Satwikan/dsa/tree/master/Greedy)
 ### [Recursion](https://github.com/Satwikan/dsa/tree/master/recursion)
+### [Backtracking](https://leetcode.com/problems/combinations/discuss/844096/Backtracking-cheatsheet-%2B-simple-solution)
 ### [Dynamic Programming](https://github.com/Satwikan/dsa/tree/master/dynamic-programming)
 
 ## Data Structures
