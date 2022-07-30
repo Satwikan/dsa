@@ -900,3 +900,40 @@ public:
 ## Allocate Minimum No. of Pages
 - given a integer array arr and a integer k, divide arr in k parts such that maximum of sum obtained from those parts is minimum
 - ![image](https://i.ibb.co/102j5db/image-2022-07-30-134115661.png)
+### Recursion
+```
+int minPages(int arr[], int n, int k) {
+    if (n == 1) return arr[0];
+    if (k == 1) return accumulate(arr, arr+n, 0);
+
+    int res = INT_MAX;
+    for (int i = 1; i < n; i++) {
+        res = min(res, minPages(arr, i, k-1)+accumulate(arr+i, arr+n, 0))
+    }
+    return res;
+}
+```
+### Dynamic Programming
+```
+int minPages(int arr[], int n, int k) {
+    int memo[n+1][k+1];
+    for (int i = 1; i < n; i++) {
+        for (int j = 1; j < k; j++) {
+            if (i == 1) memo[i][j] = arr[0];
+            if (j == 1) memo[i][j] = accumulate(arr, arr+i, 0);
+            else {
+                memo[i][j] = INT_MAX;
+                for (int l = 1; l < i; l++)
+                    memo[i][j] = min(memo[i][j], memo[l][j-1]+
+                    accumulate(arr+l, arr+i, 0));
+            }
+        }
+    }
+    return memo[n][k];
+}
+```
+- Time Complexity: O((n^3)*k)
+- if we pre-store  sum in a 2d array then
+- Time Complexity: O((n^2)*k)
+- these exist binary solution for this problem which reduces time complexity to
+- O(n log sum), where sum is sum of all elements
