@@ -714,7 +714,9 @@ int CountBST(int n) {
 
 - given array of positive integers calculate max sum that can be obtained by these numbers such that no 2 numbers are consecutive.
 - ![image](https://i.ibb.co/5vcLxmz/image-2022-07-27-144135800.png)
+
 ### Recursion
+
 ```
 int maxSum(int arr[], int n) {
     if (n == 1) return arr[0];
@@ -722,7 +724,9 @@ int maxSum(int arr[], int n) {
     return max(maxSum(arr, n-1), arr[n-1]+maxSum(arr, n-2));
 }
 ```
+
 ### Dynamic Programming
+
 ```
 int maxSum(int arr[], int n) {
     if (n == 1) return arr[0];
@@ -734,7 +738,9 @@ int maxSum(int arr[], int n) {
     return memo[n];
 }
 ```
+
 ### Space optimized
+
 ```
 int maxSum(int arr[], int n) {
     if (n == 1) return arr[0];
@@ -748,10 +754,14 @@ int maxSum(int arr[], int n) {
     return memo2;
 }
 ```
+
 ## Subset Sum Problem
+
 - given a set of integers and a sum, output number of subsets whose sum is equal to given sum
 - ![image](https://i.ibb.co/NY0NNpn/image-2022-07-27-150933214.png)
+
 ### Recursion
+
 ```
 int subsets(int arr[], int n, int sum) {
     if (sum == 0) return 1;
@@ -763,8 +773,11 @@ int subsets(int arr[], int n, int sum) {
     return res;
 }
 ```
+
 - Time Complexity: O(2^n)
+
 ### Dynamic Programming
+
 ```
 int subsets(int arr[], int n, int sum) {
     int memo[n+1][sum+1];
@@ -781,19 +794,27 @@ int subsets(int arr[], int n, int sum) {
     return memo[n][sum];
 }
 ```
-- Time Complexity: O(sum*n)
+
+- Time Complexity: O(sum\*n)
+
 ## Matrix Chain Multiplication
+
 - [Reference](https://www.youtube.com/watch?v=CfMp9Y-xHqU&list=PL0SWhLkCGuU-HbPwaMNuopO8oHrVN0BcU&index=27)
 - if we have 2 matrices as x\*y and y\*z then number of required multiplications would be x\*y\*z
 - given a array with two consecutive elements as dimensions of matrices, (therefore an array of size n represents n-1 matrices)
 - find minimum number of multiplications required to convert these into single matrix by multiplying them
 - ![image](https://i.ibb.co/xgLXx0v/image-2022-07-27-180044949.png)
+
 ### Idea
+
 - consider a partition that divides matrices into parts
 - ![image](https://i.ibb.co/G2RJ4jm/image-2022-07-27-184559100.png)
+
 ### Recursion
+
 ```
-int matrix(int arr[], int i, int j) {
+// Initially i = 0 and j = n-1
+int mChain(int arr[], int i, int j) {
     if (i+1 == j) return 0;
     int res = INT_MAX;
     for (int k = i+1; k < j; k++) {
@@ -804,7 +825,78 @@ int matrix(int arr[], int i, int j) {
     return res;
 }
 ```
+
 ### Dynamic Programming
-```
 
 ```
+int mChain(int arr[], int n) {
+    int memo[n][n];
+    for (int gap = 2; gap < n; gap++) {
+        for (int i = 0; i+gap < n; i++) {
+            int j = i+gap;
+            if (j = i+1) memo[i][j] = 0;
+            else {
+                memo[i][j] = INT_MAX;
+                for (int k = i+1; k < j; k++)
+                    memo[i][j] = min(memo[i][j], memo[i][k]+memo[j][k]+arr[i]*arr[k]*arr[j]);
+            }
+        }
+    }
+    return memo[0][n-1];
+}
+```
+
+- Time Complexity: O(n^3)
+- Space: O(n^2)
+
+## Palindrome Partitioning
+
+- given a string, output min no of cuts, required so that all parts become a palindrome (note a single character is palindrome as well)
+- ![image](https://i.ibb.co/jVCbCBn/image-2022-07-30-103851157.png)
+
+### Recursion
+```
+int palPart(string& s, int i, int j) {
+    if (isPalindrome(s, i, j)) return 0;
+    int res = INT_MAX;
+    for (int k = i; k < j; k++) {
+        res = min(res, palPar(s, i, k)+palPar(s, k+1, j)+1);
+    }
+    return res;
+}
+```
+- ![image](https://i.ibb.co/VSjYj9S/image-2022-07-30-105539012.png)
+### Dynamic Programming
+```
+class Solution {
+public:
+    int minCut(string s) {
+        int n = s.size();
+        if(isPalindrome(s, 0, n-1)) return 0;
+        int memo[n][n];
+        bool pal[n][n];
+        for(int i = 0; i < n; i++) {memo[i][i] = 0; pal[i][i] = true;}
+        for(int gap = 1; gap < n; gap++) {
+            for(int i = 0; i+gap < n; i++) {
+                int j = i+gap;
+                if (s[i] == s[j] && (gap == 1 || pal[i+1][j-1])) {
+                    memo[i][j] = 0;
+                    pal[i][j] = true;
+                }
+                else {
+                    pal[i][j] = false;
+                    memo[i][j] = INT_MAX;
+                    for (int k = i; k < j; k++)
+                        memo[i][j] = min(memo[i][j], memo[i][k]+memo[k+1][j]+1);
+                }
+            }
+        }
+        return memo[0][n-1];
+    }
+};
+```
+- Time Complexity: O(n^3)
+
+## Allocate Minimum No. of Pages
+- given a integer array arr and a integer k, divide arr in k parts such that maximum of sum obtained from those parts is minimum
+- ![image](https://i.ibb.co/102j5db/image-2022-07-30-134115661.png)
