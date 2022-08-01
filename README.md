@@ -20,3 +20,4 @@ Data Structures and Algorithms for all basic needs
 ### [Graph](https://github.com/Satwikan/dsa/tree/master/graph)
 ### [Disjoint Set](https://github.com/Satwikan/dsa/tree/master/disjointSet)
 ### [Heap](https://github.com/Satwikan/dsa/tree/master/heap)
+### [Trie](https://github.com/Satwikan/dsa/tree/master/trie)

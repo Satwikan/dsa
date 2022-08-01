@@ -35,3 +35,23 @@ void minHeapify(int i) {
 }
 ```
 - Time Complexity: O(h) = O(logn)
+### Extract Min
+- getMin: returns min value (doesn't modify array)
+- get top value, put last value in first value, call heapify 
+- ![image](https://i.ibb.co/z4d9hW1/image-2022-08-01-155108535.png)
+```
+int arr[];
+int size, capacity;
+int extractMin() {
+    if (size == 0) return INT_MAX;
+    if (size == 1) {
+        size--;
+        return arr[0];
+    }
+    swap(arr[0], arr[size-1]);
+    size--;
+    minHeapify(0);
+    return arr[size];
+}
+```
+- Time Complexity: O(h) = O(logn)
