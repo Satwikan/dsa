@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
         "bitonic",
+        "heapified",
         "Heapify",
         "logn",
-        "nlogn"
+        "nlogn",
+        "struct"
     ]
 }
