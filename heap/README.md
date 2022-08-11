@@ -138,7 +138,9 @@ void buildHeap(int arr, int n) {
         maxHeapify(arr, n, i);
 }
 ```
+
 - Step 2: Repeatedly swap root with last node, reduce heap size by one heapify
+
 ```
 void heapSort(int arr[], int n) {
     buildHeap(arr, n);
@@ -148,11 +150,41 @@ void heapSort(int arr[], int n) {
     }
 }
 ```
+
 - ![image](https://i.ibb.co/Qc6C6CW/image-2022-08-11-161431380.png)
 - heap sort can be seen as improvement of selection sort.
 - time complexity of heap sort is nlogn however constants hidden in it take more time than merge sort or quick sort
 - introSort is a hybrid algorithm that uses quick sort and heap sort, quicksort may go beyond nlogn and that's when it switches to heap sort. It is part of standard c++ library.
 - therefore heapsort is not used as standalone algo but as a part of hybrid algo in standard libraries.
-```
+
+## Priority Queue
+
+- ![image](https://i.ibb.co/kDb3tWh/image-2022-08-11-163549302.png)
+- however priority queue does not support decreaseKey, but we don't need it much
+
+## Sort a K-sorted array
+
+- given a array arr, and a number k, the array is such that an element will be present between the index i-k to i+k in the sorted array.
+- sort this array
 
 ```
+void sortK(int arr[], int n, int k) {
+    priority_queue<int, vector<int>, greater<int>> pq;
+    for(int = 0; i <= k; i++) pq.push(arr[i]);
+    int j = 0;
+    for (int i = k+1; i < n; i++) {
+        arr[j++] = pq.top();
+        pq.pop();
+        pq.push(arr[i]);
+    }
+    while (!pq.empty()) {
+        arr[j++] = pq.top();
+        pq.pop();
+    }
+}
+```
+
+- Time Complexity: O(n + k\*log(k))
+- ![image](https://i.ibb.co/1GFzBpB/image-2022-08-11-173923454.png)
+
+## Purchasing Max Items
