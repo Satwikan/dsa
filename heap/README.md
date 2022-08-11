@@ -188,3 +188,13 @@ void sortK(int arr[], int n, int k) {
 - ![image](https://i.ibb.co/1GFzBpB/image-2022-08-11-173923454.png)
 
 ## Purchasing Max Items
+
+- given a array and sum output max number of int such that their sum is less that given sum
+- ![image](https://i.ibb.co/W5dLK1S/image-2022-08-11-174232387.png)
+- Idea: instead of sorting use heap
+- Time Complexity: making heap + popping elements = O(n) + O(res+logn)
+
+## Print K-Largest Elements
+
+- ![image](https://i.ibb.co/b3j28fc/image-2022-08-11-183545913.png)
+- use heap Time Complexity: O(n) + O(k\*logn)
