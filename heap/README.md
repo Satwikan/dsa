@@ -108,6 +108,8 @@ void decreasing(int i, int x) {
 
 ```
 void buildHeap() {
+    // parent(i) = (i-1)/2;
+    // and last internal node will be parent of last node
     for (int i = (size-2)/2; i >= 0; i--) {
         minHeapify(i);
     }
@@ -120,6 +122,7 @@ void buildHeap() {
 
 - it is like selection sort, in selection sort we find max element swap it in last
 - Step 1: Build a Max Heap
+- Time Complexity: O(n)
 
 ```
 void maxHeapify(int arr[], int n, int i) {
@@ -134,4 +137,22 @@ void buildHeap(int arr, int n) {
     for(int i = (n-2)/2; i >= 0; i--)
         maxHeapify(arr, n, i);
 }
+```
+- Step 2: Repeatedly swap root with last node, reduce heap size by one heapify
+```
+void heapSort(int arr[], int n) {
+    buildHeap(arr, n);
+    for (int i = n-1; i >= 1; i--) {
+        swap(arr[i], arr[0]);
+        maxHeapify(arr, i, 0); // reducing size by passing i
+    }
+}
+```
+- ![image](https://i.ibb.co/Qc6C6CW/image-2022-08-11-161431380.png)
+- heap sort can be seen as improvement of selection sort.
+- time complexity of heap sort is nlogn however constants hidden in it take more time than merge sort or quick sort
+- introSort is a hybrid algorithm that uses quick sort and heap sort, quicksort may go beyond nlogn and that's when it switches to heap sort. It is part of standard c++ library.
+- therefore heapsort is not used as standalone algo but as a part of hybrid algo in standard libraries.
+```
+
 ```
