@@ -257,11 +257,30 @@ struct getIn{
     int val;
     int arrPos;
     int pos;
+    getIn(int v, int a, int p) {
+        this.val = v; this.arrPos = a; this.pos = p;
+    }
 }
+
+static bool myCmp(getIn& g1, getIn& g2) {
+    return g1.val >= g2.val;
+}
+
 vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
     int k = arrays.size();
-    
+    priority_queue<getIn, vector<getIn>, myCmp> pq;
+    vector<int> res;
+    for (int i = 0; i < k; i++) pq.push(getIn(arr[0], i, 0));
+    while (!pq.empty()) {
+        getIn g = pq.top();pq.pop();
+        res.push_back(g.val);
+        if (g.pos < arrays[g.arrPos].size()) {
+            ++g.pos;
+            pq.push(getIn(arr[g.arrPos][g.pos], g.arrPos, g.pos));
+        }
+    }
+    return res;
 }
 ```
-
+- ![image](https://i.ibb.co/WHZVJxb/image-2022-08-14-174542410.png)
 - Time Complexity: O(n*k*(log(k)))
