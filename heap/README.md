@@ -197,4 +197,71 @@ void sortK(int arr[], int n, int k) {
 ## Print K-Largest Elements
 
 - ![image](https://i.ibb.co/b3j28fc/image-2022-08-11-183545913.png)
-- use heap Time Complexity: O(n) + O(k\*logn)
+- method 1: use maxHeap Time Complexity: O(n) + O(k\*logn)
+- method 2: use minHeap- store first k elements in min heap, start traversing from k+1 elem in array then if (cur < pq.top()) replaceTopFromCur
+
+```
+class Solution {
+public:
+    int findKthLargest(vector<int>& num, int k) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for (int i = 0; i < k; i++) pq.push(num[i]);
+        for (int i = k; i < num.size(); i++) {
+            if (pq.top() < num[i]) {
+                pq.pop();
+                pq.push(num[i]);
+            }
+        }
+        return pq.top();
+    }
+};
+```
+
+- Time complexity: O(k + (n-k)\*log(k))
+- for n >> k, Time complexity: ~ O(n)
+
+## K Closet Elements
+
+- given a array arr, an integer x, and an integer k
+- return k closest integers to x present in arr.
+- treat this question as k-smallest elements, in which each element is abs(arr[i]-x), thereby giving us closest elements to x.
+
+```
+class Solution {
+public:
+    int findKClosetElements(vector<int>& num, int k) {
+        priority_queue<pair<int, int>,
+        vector<pair<int, int>>, smaller<int>> pq;
+        for (int i = 0; i < k; i++) {
+            pq.push(abs(num[i]-x), i);
+        }
+        for (int i = k; i < num.size(); i++) {
+            int diff = abs(arr[i], x);
+            if (pq.top().first > diff) {
+                pq.pop();
+                pq.push(diff, i);
+            }
+        }
+        return pq.top();
+    }
+};
+```
+
+## Merge K sorted arrays
+
+- do as the question demands
+- to merge 2 sorted array we compare first element of both array, so for k-sorted arrays we will use heap for comparison of first element of each array
+
+```
+struct getIn{
+    int val;
+    int arrPos;
+    int pos;
+}
+vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
+    int k = arrays.size();
+    
+}
+```
+
+- Time Complexity: O(n*k*(log(k)))
