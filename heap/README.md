@@ -282,5 +282,17 @@ vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
     return res;
 }
 ```
+
 - ![image](https://i.ibb.co/WHZVJxb/image-2022-08-14-174542410.png)
 - Time Complexity: O(n*k*(log(k)))
+
+## Median of Stream
+
+- popular interview question
+- Median of a array:(1) n is odd- a number which is smaller than half of elements and larger than half, (2) when n is even- then there will be 2 such elements, then median will be average of both numbers
+
+### Naive Implementation
+
+- it is to maintain a sorted array and add elements to it linearly.
+- insertion in that would take O(n)
+- so Time Complexity: O(n^2)
