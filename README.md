@@ -17,6 +17,7 @@ Data Structures and Algorithms for all basic needs
 ### [String](https://github.com/Satwikan/dsa/tree/master/string)
 ### [Linked List](https://github.com/Satwikan/dsa/tree/master/LinkedList)
 ### [Tree](https://github.com/Satwikan/dsa/tree/master/Tree)
+### [Binary Search Tree](https://github.com/Satwikan/dsa/tree/master/BinarySearchTree)
 ### [Graph](https://github.com/Satwikan/dsa/tree/master/graph)
 ### [Disjoint Set](https://github.com/Satwikan/dsa/tree/master/disjointSet)
 ### [Heap](https://github.com/Satwikan/dsa/tree/master/heap)
