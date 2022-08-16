@@ -300,14 +300,14 @@ vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
 
 ### use binary search tree
 
-- Time complexity: Avg- O(nlogn)
+- Time complexity: [Avg] O(nlogn)
 
 ### Heap
 
 - maintain 2 containers for 1st half and 2nd half of elements
 - if current n is even 2 containers would have equal elements, n is odd then 1st container would have 1 extra element
 - 1st container would be maxHeap, 2nd container would be minHeap
-- Time Complexity: O(nlogn)
+- Time Complexity: O(nlogn), heap is cache friendly too.
 
 ```
 vector<float> getMedian(vector<int>& arr) {
