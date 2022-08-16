@@ -290,9 +290,50 @@ vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
 
 - popular interview question
 - Median of a array:(1) n is odd- a number which is smaller than half of elements and larger than half, (2) when n is even- then there will be 2 such elements, then median will be average of both numbers
+- output a array denoting median prefixes
 
 ### Naive Implementation
 
 - it is to maintain a sorted array and add elements to it linearly.
 - insertion in that would take O(n)
 - so Time Complexity: O(n^2)
+
+### use binary search tree
+
+- Time complexity: Avg- O(nlogn)
+
+### Heap
+
+- maintain 2 containers for 1st half and 2nd half of elements
+- if current n is even 2 containers would have equal elements, n is odd then 1st container would have 1 extra element
+- 1st container would be maxHeap, 2nd container would be minHeap
+- Time Complexity: O(nlogn)
+
+```
+vector<float> getMedian(vector<int>& arr) {
+    vector<float> res;
+    int n = arr.size();
+    priority_queue<int, vector<int>, greater<int>> g;
+    priority_queue<int> s;
+    s.push(arr[0]);
+    res.push_back(arr[0]);
+    for (int i = 1; i < arr.size(); i++) {
+        int x = arr[i];
+        if (s.size() > g.size()) {
+            if (s.top() > x) {
+                g.push(s.top());
+                s.pop();
+                s.push(x);
+            }
+            else g.push(x);
+            res.push_back((s.top()+g.top())/2);
+        }
+        else {
+            if (x <= s.top()) s.push(x);
+            else {g.push(x); s.push(g.top()); g.pop();}
+            res.push_back(s.top());
+        }
+    }
+    return res;
+}
+```
