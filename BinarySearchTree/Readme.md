@@ -157,19 +157,68 @@ public:
 
 ## ![image](https://i.ibb.co/J5tm1Pz/image-2022-08-17-144053396.png)
 
+- my sol
+
 ```
-int search(Node *root, int x) {
+Node* floor(Node *root, int x) {
     while (root) {
         if (root->key == x) return x;
         if (root->key > x) {
-            if (root->left == NULL) return root->key;
+            if (root->left == NULL) return root;
             root = root->left;
         }
         else {
-            if (root->right == NULL) return root->key;
+            if (root->right == NULL) return root;
             root = root->right;
         }
     }
-    return -1;
+    return NULL;
 }
 ```
+
+- sol
+
+```
+Node* floor(Node *root, int x) {
+    Node* res = NULL;
+    while (root) {
+        if (root->key == x) return root;
+        else if (root->key > x) root = root->left;
+        else {
+            res = root;
+            root = root->right;
+        }
+    }
+    return res;
+}
+```
+
+- Time Complexity: O(h)
+- Space: O(1)
+
+## Ceil in BST
+
+## ![image](https://i.ibb.co/WkDg59N/image-2022-08-17-150731653.png)
+
+```
+Node* ceil(Node *root, int x) {
+    Node* res = NULL;
+    while (root) {
+        if (root->key == x) return root;
+        else if (root->key > x) {
+            res = root;
+            root = root->left;
+        }
+        else root = root->right;
+    }
+    return res;
+}
+```
+
+## Self Balancing Binary Search Tree
+
+- Idea: keep height O(logn)
+
+## ![image](https://i.ibb.co/V3WJWLj/image-2022-08-17-151101188.png)
+
+## ![image](https://i.ibb.co/jVkcTpd/image-2022-08-17-150948044.png)
