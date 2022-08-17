@@ -145,3 +145,31 @@ public:
     }
 };
 ```
+
+- Note: this getSuccessor function won't give in-order successor in every case but only when right child is not empty, here we are only calling it when we have a right child
+- Time Complexity: O(h)
+- Space: O(h)
+
+## Floor in a BST
+
+- given (x, a bst)
+- return x if x is present else return maximum value < x;
+
+## ![image](https://i.ibb.co/J5tm1Pz/image-2022-08-17-144053396.png)
+
+```
+int search(Node *root, int x) {
+    while (root) {
+        if (root->key == x) return x;
+        if (root->key > x) {
+            if (root->left == NULL) return root->key;
+            root = root->left;
+        }
+        else {
+            if (root->right == NULL) return root->key;
+            root = root->right;
+        }
+    }
+    return -1;
+}
+```
