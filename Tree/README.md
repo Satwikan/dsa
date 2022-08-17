@@ -16,10 +16,10 @@
 - 
 # Binary Tree
 - every tree has at-most two children
-- ![image](https://user-images.githubusercontent.com/69719072/158005098-9f7ee762-954a-4560-b1bb-098bde047115.png)
+## ![image](https://user-images.githubusercontent.com/69719072/158005098-9f7ee762-954a-4560-b1bb-098bde047115.png)
 ## Representation
 - for below tree
-- ![image](https://user-images.githubusercontent.com/69719072/158005307-50157881-37c3-46c1-9360-d49c68b2bef9.png)
+## ![image](https://user-images.githubusercontent.com/69719072/158005307-50157881-37c3-46c1-9360-d49c68b2bef9.png)
 ```
 struct Node {
   int key;
@@ -120,7 +120,7 @@ void LOT(node *root) {
 - Time Complexity: 0(n) [theta]
 - Auxilary Space: 0(w) (width of binary tree)
 ## Level Order Traversal Line by Line
-- ![image](https://user-images.githubusercontent.com/69719072/158051286-cae0b61a-30fb-4ffd-be1f-ab2db1b5ccee.png)
+## ![image](https://user-images.githubusercontent.com/69719072/158051286-cae0b61a-30fb-4ffd-be1f-ab2db1b5ccee.png)
 ### Method 1
 - If we encounter a NULL that means we reached at end of line
 ```
@@ -185,8 +185,8 @@ int getMax(Node *root) {
 - Time Complexity: O(n)
 - Auxilary Space: O(h) [max h+1 calls at a time in stack]
 ## Print Left View of binary Tree
-- ![image](https://user-images.githubusercontent.com/69719072/158302578-63229751-4dbb-497b-94a3-beaca43393c9.png)
-- ![image](https://user-images.githubusercontent.com/69719072/158302616-308beeb9-55ea-4958-aeb1-fd74e5822c17.png)
+## ![image](https://user-images.githubusercontent.com/69719072/158302578-63229751-4dbb-497b-94a3-beaca43393c9.png)
+## ![image](https://user-images.githubusercontent.com/69719072/158302616-308beeb9-55ea-4958-aeb1-fd74e5822c17.png)
 ### Method 1 (recursive)
 - If you do a pre-order traversal of Binary tree, you will always vist leftmost node first
 ```
@@ -231,7 +231,7 @@ void printLeft (node *root) {
 ## Children Sum Property (CSP)
 - root must be equal to sum of it's 2 children
 - if no children exists or root is NULL, then it's CSP is true
-- ![image](https://user-images.githubusercontent.com/69719072/158516103-6a9b47bb-9cf8-476e-a2df-d59bef6218db.png)
+## ![image](https://user-images.githubusercontent.com/69719072/158516103-6a9b47bb-9cf8-476e-a2df-d59bef6218db.png)
 ```
 bool isCSum(node *root) {
   if (root == NULL) return true;
@@ -331,7 +331,7 @@ Node *cTree(int in[], int pre[], int is, int ie) {
 - Time Complexity: O(n2)
 - for Time Complexity: O(n) use hashset to store inOrder keys
 ## Traverse Tree in Spiral Form
-- ![image](https://user-images.githubusercontent.com/69719072/159624490-c9e6e68a-2372-4bc0-9f99-53eecb08de0e.png)
+## ![image](https://user-images.githubusercontent.com/69719072/159624490-c9e6e68a-2372-4bc0-9f99-53eecb08de0e.png)
 #### Method 1
 - use Line by Line Level Order Trversal Method
 ```
@@ -395,7 +395,7 @@ void printSpiral(node *root) {
 }
 ```
 ## Diameter of Binary Tree
-- ![image](https://user-images.githubusercontent.com/69719072/159840385-bb7d1d40-f5ef-450d-8d22-feb68dd91e82.png)
+## ![image](https://user-images.githubusercontent.com/69719072/159840385-bb7d1d40-f5ef-450d-8d22-feb68dd91e82.png)
 ```
 int maxD = 0;
 int diameter(Node *root) {
@@ -413,7 +413,7 @@ int solution (Node *root) {
 - Time Complexity: O(n)
 - Auxilary Space: O(h)
 ## Lowest Common Ancestor (LCA)
-- ![image](https://user-images.githubusercontent.com/69719072/159841786-5ffd9d08-773d-4c3b-a8e1-a498de0a5e1d.png)
+## ![image](https://user-images.githubusercontent.com/69719072/159841786-5ffd9d08-773d-4c3b-a8e1-a498de0a5e1d.png)
 ### Method 1
 ```
 bool calPath(node *root, int target, vector<Node *>& path){
@@ -438,8 +438,8 @@ Node* lca(Node *root, int n1, int n2){
 ### Method 2 (More Efficient, but with assumptions)
 - requires only one traversal and 0(h) extra space for the recursive traversal
 - assumes that both n1 and n2 exist in the tree. won't give accurate results when only (n1 or n2) exists
-- ![image](https://user-images.githubusercontent.com/69719072/160272041-a446f66e-1bfa-4da4-bd09-c134c3961e12.png)
-- ![image](https://user-images.githubusercontent.com/69719072/160272047-ea38f82a-4bee-49f7-8da1-0ebf2bdc2e1f.png)
+## ![image](https://user-images.githubusercontent.com/69719072/160272041-a446f66e-1bfa-4da4-bd09-c134c3961e12.png)
+## ![image](https://user-images.githubusercontent.com/69719072/160272047-ea38f82a-4bee-49f7-8da1-0ebf2bdc2e1f.png)
 ```
 Node *lca(Node *root, int n1, int n2) {
   if (root == NULL) return NULL;
@@ -452,7 +452,7 @@ Node *lca(Node *root, int n1, int n2) {
 }
 ```
 ## Burn a Binary Tree from Leaf
-- ![image](https://user-images.githubusercontent.com/69719072/160273797-0787929d-5950-494f-b261-6b93fc5bb9e0.png)
+## ![image](https://user-images.githubusercontent.com/69719072/160273797-0787929d-5950-494f-b261-6b93fc5bb9e0.png)
 - find farthest node from given leaf, that will be the ans
 - farthest node must be reachable from one of the ancestors of given leaf node
 - this function changes distance and returnss hieght
@@ -480,7 +480,7 @@ int burnTree(Node *root, int leaf, int &dist) {
 - [Refrence](https://www.youtube.com/watch?v=aRQgNG32-qI&list=PL0SWhLkCGuU86tlJinmBwB114wdu8X2WS&index=31)
 - Complete Binary Tree: every node must has 2 child's
 - except last level which must be filled from left to right
-- ![image](https://user-images.githubusercontent.com/69719072/161204076-3987c086-b0c2-4a7d-9eda-57beb106a805.png)
+## ![image](https://user-images.githubusercontent.com/69719072/161204076-3987c086-b0c2-4a7d-9eda-57beb106a805.png)
 ### Method 1:
 - count all nodes in 0(n) recursivly, (works on every tree)
 ### Method 2:
@@ -509,13 +509,13 @@ int countNodes(Node * root) {
 - Best Case:when given binary tree is also perfect, then Time Complexity = 0(h) = 0(logn)
 - Worst Case: O(logn * logn)
 ## Serialize and Deserialize a Binary Tree
-- ![image](https://user-images.githubusercontent.com/69719072/161205311-f6f76b3f-4f14-4ae4-a1d0-d6b798dfaf97.png)
+## ![image](https://user-images.githubusercontent.com/69719072/161205311-f6f76b3f-4f14-4ae4-a1d0-d6b798dfaf97.png)
 - the Serialization should be such that, Original tree can be constructed from given tree through Deserialization
 ### Method 1
 - use special value [-1 or null] to allot null value in for a node during a traversal
 - for -1 we assume -1 as a value does'nt exist in given tree
 - the following example uses preorder traversal
-- ![image](https://user-images.githubusercontent.com/69719072/161206241-926000c1-1bf8-475d-80b7-1d6012996916.png)
+## ![image](https://user-images.githubusercontent.com/69719072/161206241-926000c1-1bf8-475d-80b7-1d6012996916.png)
 - for n nodes we need n+1 nulls to represent complete tree
 - sor size of array would be: n + (n + 1) = 2n+ 1
 ```

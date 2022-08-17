@@ -70,7 +70,7 @@ int fib(int n) {
 
 ## Longest Common Subsequence
 
-- ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
+## ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
 
 ### recursive solution without memoization
 
@@ -83,7 +83,7 @@ int lcs(string s1, string s2, int m, int n) {
 }
 ```
 
-- ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
+## ![image](https://i.ibb.co/xFw7SqJ/image-2022-06-23-163007978.png)
 - we can see here that some functions calls are repeated, so we can use memoization to reduce the number of calls.
 
 ### recursive solution with memoization
@@ -130,7 +130,7 @@ public:
 ```
 
 - Tabulation
-- ![image](https://i.ibb.co/gjxTJ1q/image-2022-06-23-173446983.png)
+## ![image](https://i.ibb.co/gjxTJ1q/image-2022-06-23-173446983.png)
 
 ```
 int lcs(string s1, string s2) {
@@ -162,7 +162,7 @@ int lcs(string s1, string s2) {
 
 ## Coin Change (Count Combinations)
 
-- ![image](https://i.ibb.co/hXb1NH5/image-2022-06-25-140507339.png)
+## ![image](https://i.ibb.co/hXb1NH5/image-2022-06-25-140507339.png)
 
 ### recursive solution
 
@@ -198,7 +198,7 @@ int getCount(int coins[], int n, int sum) {
 
 - calculate min total number of steps required to make two strings equal
 - we use insertion, deletion, replace as a step
-- ![image](https://i.ibb.co/T00y4zj/image-2022-06-25-141034300.png)
+## ![image](https://i.ibb.co/T00y4zj/image-2022-06-25-141034300.png)
 
 ### recursive solution
 
@@ -215,7 +215,7 @@ int editDistance(string s1, string s2, int m, int n) {
 
 ### tabulation
 
-- ![image](https://i.ibb.co/P4kqKRf/image-2022-06-25-144518362.png)
+## ![image](https://i.ibb.co/P4kqKRf/image-2022-06-25-144518362.png)
 
 ```
 int editDistance(string s1, string s2, int m, int n) {
@@ -239,14 +239,14 @@ int editDistance(string s1, string s2, int m, int n) {
 
 ## Longest Increasing Subsequence
 
-- ![image](https://i.ibb.co/bvdqJ5B/image-2022-06-25-184057308.png)
+## ![image](https://i.ibb.co/bvdqJ5B/image-2022-06-25-184057308.png)
 
 ### solution
 
 - we won't generate all sub-sequences because that won't have overlapping sub-problems instead we will generate lis
 - calculate lis at every index
 - and then take max of each lis
-- ![image](https://i.ibb.co/Y2XhsPw/image-2022-06-26-112550571.png)
+## ![image](https://i.ibb.co/Y2XhsPw/image-2022-06-26-112550571.png)
 
 ```
 int lis (int arr[], int n) {
@@ -346,13 +346,13 @@ int lis (int arr[], int n) {
 
 - given some n numbers and array of pairs arr. a pair denotes a bridge between numbers.
 - calculate maximum number of bridges possible without crossing.
-- ![image](https://i.ibb.co/9tmHp29/image-2022-06-27-170249054.png)
+## ![image](https://i.ibb.co/9tmHp29/image-2022-06-27-170249054.png)
 - sort them with 1st number and then apply binary LIS.
 
 ### Longest Chain of Pairs
 
-- ![image](https://i.ibb.co/B4n7Sy8/image-2022-06-28-144411000.png)
-- ![image](https://i.ibb.co/j3px1yN/image-2022-06-28-144525918.png)
+## ![image](https://i.ibb.co/B4n7Sy8/image-2022-06-28-144411000.png)
+## ![image](https://i.ibb.co/j3px1yN/image-2022-06-28-144525918.png)
 - sort the array of pairs according to first values.
 - find the lis of the sorted array(according to first value).
 - this is activity selection problem.
@@ -361,7 +361,7 @@ int lis (int arr[], int n) {
 
 - given a rod of length n and 3 integers a, b, c, make maximum cuts such that every cut is either of length a, b or c.
 - if none is possible return -1.
-- ![image](https://i.ibb.co/dLF7t9B/image-2022-06-29-142600569.png)
+## ![image](https://i.ibb.co/dLF7t9B/image-2022-06-29-142600569.png)
 
 ### Recursion
 
@@ -402,7 +402,7 @@ int maxCuts(int n, int a, int b, int c) {
 
 - given coins array with unlimited number of coins and a val
 - output minimum coins to make up that value
-- ![image](https://i.ibb.co/hyLH9xk/image-2022-06-29-155459338.png)
+## ![image](https://i.ibb.co/hyLH9xk/image-2022-06-29-155459338.png)
 
 ### Recursion
 
@@ -448,7 +448,7 @@ int minCoins(int coins[], int n, int val) {
 ## Minimum Jumps to Reach End
 
 - number of jumps are decided based on current value of of index
-- ![image](https://i.ibb.co/pJvGnzQ/image-2022-07-11-191828055.png)
+## ![image](https://i.ibb.co/pJvGnzQ/image-2022-07-11-191828055.png)
 
 ### Recursion
 
@@ -491,7 +491,7 @@ int minJumps(int arr[], int n) {
 
 ## 0-1 Knapsack
 
-- ![image](https://i.ibb.co/x3GJYrb/image-2022-07-11-200017374.png)
+## ![image](https://i.ibb.co/x3GJYrb/image-2022-07-11-200017374.png)
 - items are finite
 
 ### Recursion
@@ -573,11 +573,11 @@ int mainSol (int arr[], int n) {
 
 ### Recursion Solution 2
 
-- ![image](https://i.ibb.co/z8NGNbP/image-2022-07-13-120527930.png)
+## ![image](https://i.ibb.co/z8NGNbP/image-2022-07-13-120527930.png)
 
 #### Dynamic Solution
 
-- ![image](https://i.ibb.co/y80vxGB/image-2022-07-13-122153475.png)
+## ![image](https://i.ibb.co/y80vxGB/image-2022-07-13-122153475.png)
 
 ## Egg Dropping Puzzle
 
@@ -586,8 +586,8 @@ int mainSol (int arr[], int n) {
 - if egg is dropped and doesn't break then it can be used again.
 - a threshold floor is a floor from which dropping an egg will break it
 - floors above threshold floor will also break the egg but floors below the threshold won't.
-- ![image](https://i.ibb.co/51v51c4/image-2022-07-14-170520283.png)
-- ![image](https://i.ibb.co/SVnjKCP/image-2022-07-14-171407272.png)
+## ![image](https://i.ibb.co/51v51c4/image-2022-07-14-170520283.png)
+## ![image](https://i.ibb.co/SVnjKCP/image-2022-07-14-171407272.png)
 
 ### Recursion
 
@@ -647,7 +647,7 @@ int main() {
 
 ### Dynamic Programming
 
-- ![image](https://i.ibb.co/PZs5FxK/image-2022-07-16-120326144.png)
+## ![image](https://i.ibb.co/PZs5FxK/image-2022-07-16-120326144.png)
 
 ```
 int res(int e, int f) {
@@ -673,12 +673,12 @@ int res(int e, int f) {
 - given a number n
 - take n distinct numbers and calculate how many unique BSTs can be formed with them, values of these numbers don't matter.
 - BST: all keys should be distinct and value on left of node should be smaller than value of parent which should be smaller than value on right child
-- ![image](https://i.ibb.co/ggR0srq/image-2022-07-16-122901768.png)
+## ![image](https://i.ibb.co/ggR0srq/image-2022-07-16-122901768.png)
 
 ### Algo
 
-- ![image](https://i.ibb.co/59dfdBD/image-2022-07-18-134639170.png)
-- ![image](https://i.ibb.co/y0DGfkP/image-2022-07-18-134733489.png)
+## ![image](https://i.ibb.co/59dfdBD/image-2022-07-18-134639170.png)
+## ![image](https://i.ibb.co/y0DGfkP/image-2022-07-18-134733489.png)
 
 ### Recursion
 
@@ -708,12 +708,12 @@ int CountBST(int n) {
 ```
 
 - the solution for this is catalan number it can be calculated in O(N) time and O(1) space
-- ![image](https://i.ibb.co/TvGVQzr/image-2022-07-27-143847257.png)
+## ![image](https://i.ibb.co/TvGVQzr/image-2022-07-27-143847257.png)
 
 ## Max Sum with No Consecutive
 
 - given array of positive integers calculate max sum that can be obtained by these numbers such that no 2 numbers are consecutive.
-- ![image](https://i.ibb.co/5vcLxmz/image-2022-07-27-144135800.png)
+## ![image](https://i.ibb.co/5vcLxmz/image-2022-07-27-144135800.png)
 
 ### Recursion
 
@@ -758,7 +758,7 @@ int maxSum(int arr[], int n) {
 ## Subset Sum Problem
 
 - given a set of integers and a sum, output number of subsets whose sum is equal to given sum
-- ![image](https://i.ibb.co/NY0NNpn/image-2022-07-27-150933214.png)
+## ![image](https://i.ibb.co/NY0NNpn/image-2022-07-27-150933214.png)
 
 ### Recursion
 
@@ -803,12 +803,12 @@ int subsets(int arr[], int n, int sum) {
 - if we have 2 matrices as x\*y and y\*z then number of required multiplications would be x\*y\*z
 - given a array with two consecutive elements as dimensions of matrices, (therefore an array of size n represents n-1 matrices)
 - find minimum number of multiplications required to convert these into single matrix by multiplying them
-- ![image](https://i.ibb.co/xgLXx0v/image-2022-07-27-180044949.png)
+## ![image](https://i.ibb.co/xgLXx0v/image-2022-07-27-180044949.png)
 
 ### Idea
 
 - consider a partition that divides matrices into parts
-- ![image](https://i.ibb.co/G2RJ4jm/image-2022-07-27-184559100.png)
+## ![image](https://i.ibb.co/G2RJ4jm/image-2022-07-27-184559100.png)
 
 ### Recursion
 
@@ -852,7 +852,7 @@ int mChain(int arr[], int n) {
 ## Palindrome Partitioning
 
 - given a string, output min no of cuts, required so that all parts become a palindrome (note a single character is palindrome as well)
-- ![image](https://i.ibb.co/jVCbCBn/image-2022-07-30-103851157.png)
+## ![image](https://i.ibb.co/jVCbCBn/image-2022-07-30-103851157.png)
 
 ### Recursion
 ```
@@ -865,7 +865,7 @@ int palPart(string& s, int i, int j) {
     return res;
 }
 ```
-- ![image](https://i.ibb.co/VSjYj9S/image-2022-07-30-105539012.png)
+## ![image](https://i.ibb.co/VSjYj9S/image-2022-07-30-105539012.png)
 ### Dynamic Programming
 ```
 class Solution {
@@ -899,7 +899,7 @@ public:
 
 ## Allocate Minimum No. of Pages
 - given a integer array arr and a integer k, divide arr in k parts such that maximum of sum obtained from those parts is minimum
-- ![image](https://i.ibb.co/102j5db/image-2022-07-30-134115661.png)
+## ![image](https://i.ibb.co/102j5db/image-2022-07-30-134115661.png)
 ### Recursion
 ```
 int minPages(int arr[], int n, int k) {

@@ -7,7 +7,7 @@
 - Prefix Search
 - Lexicographical ordering of words
 
-- ![image](https://i.ibb.co/sjBJDZ6/image-2022-08-01-211300623.png)
+## ![image](https://i.ibb.co/sjBJDZ6/image-2022-08-01-211300623.png)
 
 ## Trie Representation
 ```

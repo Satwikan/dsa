@@ -17,18 +17,23 @@
 ## Min Heap
 
 - min heap is binary heap
-- ![image](https://i.ibb.co/23SK7vx/image-2022-08-01-100532154.png)
+
+## ![image](https://i.ibb.co/23SK7vx/image-2022-08-01-100532154.png)
 
 ## Operations on Heap
 
 ### Heapify
 
 - given a binary tree with one possible violation, for the heap
-- ![image](https://i.ibb.co/mbNqYS9/image-2022-08-01-152506425.png)
+
+## ![image](https://i.ibb.co/mbNqYS9/image-2022-08-01-152506425.png)
+
 - at every node:
 - take min. of parent and it's two child if it not equals to parent
 - then swap parent and min. child and recursively call heapify for that child
-- ![image](https://i.ibb.co/P12WnJj/image-2022-08-01-152920821.png)
+
+## ![image](https://i.ibb.co/P12WnJj/image-2022-08-01-152920821.png)
+
 - the below function is assuming only root might be in violation.
 
 ```
@@ -52,7 +57,8 @@ void minHeapify(int i) {
 
 - getMin: returns min value (doesn't modify array)
 - get top value, put last value in first value, call heapify
-- ![image](https://i.ibb.co/z4d9hW1/image-2022-08-01-155108535.png)
+
+## ![image](https://i.ibb.co/z4d9hW1/image-2022-08-01-155108535.png)
 
 ```
 int arr[];
@@ -76,7 +82,9 @@ int extractMin() {
 
 - take heap, index, newValue as a input and update the value at specified index
 - note that heap must be modified in order to compensate the new value.
-- ![image](https://i.ibb.co/1Grhq5H/image-2022-08-10-131150658.png)
+
+## ![image](https://i.ibb.co/1Grhq5H/image-2022-08-10-131150658.png)
+
 - Idea: compare newValue to it's parent and swap if necessary, do this until parent is smaller or root is reached.
 
 ```
@@ -94,16 +102,22 @@ void decreasing(int i, int x) {
 ### Delete
 
 - given a heap and index, remove it from heap such that what remains is still a heap
-- ![image](https://i.ibb.co/KyxWvXM/image-2022-08-11-152417573.png)
+
+## ![image](https://i.ibb.co/KyxWvXM/image-2022-08-11-152417573.png)
+
 - Idea: call DecreaseKey [set value at -inf at given index] and then extractMin
-- ![image](https://i.ibb.co/0nsWZyr/image-2022-08-11-152744850.png)
+
+## ![image](https://i.ibb.co/0nsWZyr/image-2022-08-11-152744850.png)
+
 - Time Complexity: O(logn)
 
 ### Build Heap
 
 - [Reference](https://www.youtube.com/watch?v=fUER3PZEjxU&list=PL0SWhLkCGuU8HuzHD3zglK5Mf4fawIVjV&index=10)
 - given a random array, rearrange it's elements to form a min heap
-- ![image](https://i.ibb.co/9gfsQGM/image-2022-08-11-153139530.png)
+
+## ![image](https://i.ibb.co/9gfsQGM/image-2022-08-11-153139530.png)
+
 - Idea: begin with bottom-most, right-most internal node call minHeapify and decrement i, we are going bottom up because for minHeapify there is assumption that for index i to call minHeapify, it's left and right should already be heapified.
 
 ```
@@ -151,7 +165,8 @@ void heapSort(int arr[], int n) {
 }
 ```
 
-- ![image](https://i.ibb.co/Qc6C6CW/image-2022-08-11-161431380.png)
+## ![image](https://i.ibb.co/Qc6C6CW/image-2022-08-11-161431380.png)
+
 - heap sort can be seen as improvement of selection sort.
 - time complexity of heap sort is nlogn however constants hidden in it take more time than merge sort or quick sort
 - introSort is a hybrid algorithm that uses quick sort and heap sort, quicksort may go beyond nlogn and that's when it switches to heap sort. It is part of standard c++ library.
@@ -159,7 +174,8 @@ void heapSort(int arr[], int n) {
 
 ## Priority Queue
 
-- ![image](https://i.ibb.co/kDb3tWh/image-2022-08-11-163549302.png)
+## ![image](https://i.ibb.co/kDb3tWh/image-2022-08-11-163549302.png)
+
 - however priority queue does not support decreaseKey, but we don't need it much
 
 ## Sort a K-sorted array
@@ -185,18 +201,22 @@ void sortK(int arr[], int n, int k) {
 ```
 
 - Time Complexity: O(n + k\*log(k))
-- ![image](https://i.ibb.co/1GFzBpB/image-2022-08-11-173923454.png)
+
+## ![image](https://i.ibb.co/1GFzBpB/image-2022-08-11-173923454.png)
 
 ## Purchasing Max Items
 
 - given a array and sum output max number of int such that their sum is less that given sum
-- ![image](https://i.ibb.co/W5dLK1S/image-2022-08-11-174232387.png)
+
+## ![image](https://i.ibb.co/W5dLK1S/image-2022-08-11-174232387.png)
+
 - Idea: instead of sorting use heap
 - Time Complexity: making heap + popping elements = O(n) + O(res+logn)
 
 ## Print K-Largest Elements
 
-- ![image](https://i.ibb.co/b3j28fc/image-2022-08-11-183545913.png)
+## ![image](https://i.ibb.co/b3j28fc/image-2022-08-11-183545913.png)
+
 - method 1: use maxHeap Time Complexity: O(n) + O(k\*logn)
 - method 2: use minHeap- store first k elements in min heap, start traversing from k+1 elem in array then if (cur < pq.top()) replaceTopFromCur
 
@@ -283,7 +303,8 @@ vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
 }
 ```
 
-- ![image](https://i.ibb.co/WHZVJxb/image-2022-08-14-174542410.png)
+## ![image](https://i.ibb.co/WHZVJxb/image-2022-08-14-174542410.png)
+
 - Time Complexity: O(n*k*(log(k)))
 
 ## Median of Stream

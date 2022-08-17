@@ -11,7 +11,7 @@
 - directed graph has 2 degree's in and out-degree
 - if you sum all indegres/indegres you get no edges
 - max no of edges = |V|\*(|V|-1), max is when there is a complete graph
-- ![image](https://user-images.githubusercontent.com/69719072/169046721-121b83ef-2479-4053-814c-6f8a48fa9496.png)
+## ![image](https://user-images.githubusercontent.com/69719072/169046721-121b83ef-2479-4053-814c-6f8a48fa9496.png)
 
 # Graph Representation
 
@@ -19,20 +19,20 @@
 
 - we use adjacency matrix to represent graphs
 - undirected graph always form symmetric matrix
-- ![image](https://user-images.githubusercontent.com/69719072/169057720-12041da1-f3cc-44fd-a0d8-cad7c3e85d3c.png)
+## ![image](https://user-images.githubusercontent.com/69719072/169057720-12041da1-f3cc-44fd-a0d8-cad7c3e85d3c.png)
 - we can use additional data structure if given vertices are not integers(eg. city's names) like array or dictionary
-- ![image](https://user-images.githubusercontent.com/69719072/169058753-cfac7fbf-76c1-4388-8ce0-f75a0a8660af.png)
+## ![image](https://user-images.githubusercontent.com/69719072/169058753-cfac7fbf-76c1-4388-8ce0-f75a0a8660af.png)
 
 ## Adjacency list
 
 - it only stores which vertices are connected
 - saves space and makes operation [finding all adjacent vertex] faster
 - we can use dynamic sized array's or linked list as a list
-- ![image](https://user-images.githubusercontent.com/69719072/169060145-b90c539e-aa13-4d5b-9bc4-e0d520fb7d0e.png)
+## ![image](https://user-images.githubusercontent.com/69719072/169060145-b90c539e-aa13-4d5b-9bc4-e0d520fb7d0e.png)
 
 ### Complexity Analysis
 
-- ![image](https://user-images.githubusercontent.com/69719072/169061965-228a11b2-cb90-41f4-a057-1a8fd3898671.png)
+## ![image](https://user-images.githubusercontent.com/69719072/169061965-228a11b2-cb90-41f4-a057-1a8fd3898671.png)
 
 ### Implementation
 
@@ -65,8 +65,8 @@ int main () {
 ## Source is given
 
 - given a undirected graph and a source vertex 's' print bfs
-- ![image](https://user-images.githubusercontent.com/69719072/169513126-e3df8f77-d2b3-4848-bcdd-814962022068.png)
-- ![image](https://user-images.githubusercontent.com/69719072/169513252-cfe98c45-8959-402c-a2d0-a591d0951b75.png)
+## ![image](https://user-images.githubusercontent.com/69719072/169513126-e3df8f77-d2b3-4848-bcdd-814962022068.png)
+## ![image](https://user-images.githubusercontent.com/69719072/169513252-cfe98c45-8959-402c-a2d0-a591d0951b75.png)
 - visited means the node have been added to the queue, not printed
 
 ```
@@ -293,7 +293,7 @@ for(int i = 0; i < v; i++)
 ## Detect Cycle in an directed graph
 
 - solution for undirected graph won't work
-- ![image](https://i.ibb.co/kQz04BM/image-2022-05-31-191027667.png)
+## ![image](https://i.ibb.co/kQz04BM/image-2022-05-31-191027667.png)
 
 ```
 void DFSRec(vector<int> adj[], int s, bool visited[], bool recSt[]) {
@@ -330,8 +330,8 @@ return false;
 - output: topological order of the graph
 - topological order: vertices are visited in the order of their finishing times
 - graph can have multiple topological orders
-- ![image](https://i.ibb.co/1Ygkz0P/image-2022-05-31-191730435.png)
-- ![image](https://i.ibb.co/8YSRY5b/image-2022-05-31-191826926.png)
+## ![image](https://i.ibb.co/1Ygkz0P/image-2022-05-31-191730435.png)
+## ![image](https://i.ibb.co/8YSRY5b/image-2022-05-31-191826926.png)
 
 ### BFS Based Solution (Kahn's Algo)
 
@@ -377,7 +377,7 @@ while (!q.empty()) {
 return count != v;
 ```
 
-- ![image](https://i.ibb.co/gPktxg4/image-2022-05-31-194636870.png)
+## ![image](https://i.ibb.co/gPktxg4/image-2022-05-31-194636870.png)
 
 ## Topological Sorting using DFS
 
@@ -403,24 +403,24 @@ DFS(u, st)
 
 - greedy algorithm
 - given an arrangement of computers as weighted and connected undirected graph.
-- ![image](https://i.ibb.co/WVwbw3V/image-2022-06-02-090234687.png)
+## ![image](https://i.ibb.co/WVwbw3V/image-2022-06-02-090234687.png)
 - Minimize the total wire length and make sure that all computer are connected to each other may be through intermediate computers.
 - Prim's algo maintains two sets one in the MST and one not in MST.
 - cut the graph between MST set and not MST set
 - pick minimum edge from the set of edges that are slashed from graph cutting
 - then pick edge with min. weight edge and corresponding vertex to MST set
-- ![image](https://i.ibb.co/KqkMx4B/image-2022-06-09-105923626.png)
-- ![image](https://i.ibb.co/ZhvgZyf/image-2022-06-09-110132964.png)
+## ![image](https://i.ibb.co/KqkMx4B/image-2022-06-09-105923626.png)
+## ![image](https://i.ibb.co/ZhvgZyf/image-2022-06-09-110132964.png)
 
 ### Implementation
 
 - [Reference](https://www.youtube.com/watch?v=eNml2e_dB1w&list=PL0SWhLkCGuU8IwrL9nxGiwQ-3Hy4ijFRh&index=19)
-- ![image](https://i.ibb.co/dg2rYrd/image-2022-06-09-110847510.png)
+## ![image](https://i.ibb.co/dg2rYrd/image-2022-06-09-110847510.png)
 - for set of MST set we maintain boolean array
 - for implementing cutting of graph and checking for min edge we maintain a key array which is initialized with infinity
 - key array updates with minimum edge distance with
 -
-- ![image](https://i.ibb.co/1z1Rbn2/image-2022-06-09-114131592.png)
+## ![image](https://i.ibb.co/1z1Rbn2/image-2022-06-09-114131592.png)
 
 ```
 int primMST(vector<int> graph[], int V) {
@@ -486,7 +486,7 @@ void Prims(int v) {
 - given a weighted undirected graph and a source vertex s, find shortest path from s to all other vertices in the graph.
 - somewhat like prims's algo
 - manage an array 'key' initialized with and pick vertex
-- ![image](https://i.ibb.co/Nrx1VVS/image-2022-06-09-134617278.png)
+## ![image](https://i.ibb.co/Nrx1VVS/image-2022-06-09-134617278.png)
 
 ### Facts
 
@@ -514,7 +514,7 @@ while (pq is not empty) {
 
 ### Code
 
-- ![image](https://i.ibb.co/RPH4kRB/image-2022-06-16-092854014.png)
+## ![image](https://i.ibb.co/RPH4kRB/image-2022-06-16-092854014.png)
 
 ```
 int[] dijkstra(int graph[][], int V, int s) {
@@ -549,7 +549,7 @@ int[] dijkstra(int graph[][], int V, int s) {
 ### Strongly Connected Components
 
 - strongly connected components are components of graph if all vertices under that component can be reachable to each other
-- ![image](https://i.ibb.co/4FG4HZb/image-2022-06-16-094449765.png)
+## ![image](https://i.ibb.co/4FG4HZb/image-2022-06-16-094449765.png)
 - there is a source component that starts the graph (everything is reachable from source) and sink component that ends the graph
 - there can be multiple sink components
 - let there be 2 vertices v and u such that v is reachable from u but opposite is not true (u is source, v is sink), then dfs of v should happen before dfs of u
@@ -595,7 +595,7 @@ dfs(u, st)
 - relax all edges v-1 times: because for a simple path without loops we would have at most v-1 edges in the path therefore it will guarantee that we generate shortest path
 - consider a line graph with following order of relaxing operation
 - it would take v-1 time to relax V<sup>n-1</sup> - V<sup>n</sup> edge
-- ![image](https://i.ibb.co/1TgJnd0/image-2022-06-16-175651785.png)
+## ![image](https://i.ibb.co/1TgJnd0/image-2022-06-16-175651785.png)
 
 ```
 d[v] = {INT_MAX, INT_MAX, INT_MAX, ..., INT_MAX};
@@ -605,7 +605,7 @@ for _ = 0 to V-1
     dist[v] = min(dist[v], dist[u] + weight of edge) // relax
 ```
 
-- ![image](https://i.ibb.co/LhTvBLV/image-2022-06-16-175244342.png)
+## ![image](https://i.ibb.co/LhTvBLV/image-2022-06-16-175244342.png)
 - O(VE)
 
 ### Negative weight Cycle
@@ -628,7 +628,7 @@ for every edge (u, v)
 
 - given a connected undirected graph, find all articulation points
 - articulation points: these are vertices upon removal of which and their associated edges number of connected components increase more than 1
-- ![image](https://i.ibb.co/qDy4CFH/image-2022-06-16-181040900.png)
+## ![image](https://i.ibb.co/qDy4CFH/image-2022-06-16-181040900.png)
 
 ### Applications
 
@@ -638,7 +638,7 @@ for every edge (u, v)
 
 - we use dfs to find articulation points
 - convert the graph as a tree by dfs traversing from a source to every edge, if we find some node has edge to one of the ancestors of the tree then we call it back-edge(dashed edge)
-- ![image](https://i.ibb.co/Lx1WmPF/image-2022-06-16-182227834.png)
+## ![image](https://i.ibb.co/Lx1WmPF/image-2022-06-16-182227834.png)
 - now there are 2 rules to find articulation points
 - Rule 1: If root of the formed tree has 2 children then the root is articulation point
 - Rule 2: if there is non-root node such that it's low value is greater than or equal to the discovery time of that node then the node is articulation point
@@ -662,7 +662,7 @@ u - v
 low[v] > disc[u]
 ```
 
-- ![image](https://i.ibb.co/QChJZrX/image-2022-06-21-083758929.png)
+## ![image](https://i.ibb.co/QChJZrX/image-2022-06-21-083758929.png)
 
 ## Tarjan's Algorithm for Strongly Connected Components
 
@@ -673,13 +673,13 @@ low[v] > disc[u]
 - it is based on concepts of articulation points and bridges
 - while making the tree with back-edge we don't pop the vertices from stack after when their all children are visited like previous instead
 - if all adjacent of a vertex u are done with recursive and disc[u] = low[u], then print this vertex and all other vertices in the stack
-- ![image](https://i.ibb.co/8Dtx4sF/image-2022-06-21-102808040.png)
+## ![image](https://i.ibb.co/8Dtx4sF/image-2022-06-21-102808040.png)
 
 ### with cross edge
 
 - above we assumed there is no cross edge
 - cross edge: two vertices are connected by an edge but not by a back-edge
-- ![image](https://i.ibb.co/xDG9LLw/image-2022-06-21-103326829.png)
+## ![image](https://i.ibb.co/xDG9LLw/image-2022-06-21-103326829.png)
 - if there is a cross edge then on dfs we won't update the low value of the vertex based on cross edge
 
 ## Kruskal's Algorithm for Minimum Spanning Tree
