@@ -10,5 +10,7 @@
 - it is not cache friendly, nodes are stored in different memory locations
 - we don't need to recycle the memory, we can add or delete nodes
 - example:
-![image](https://i.ibb.co/Hqzmj2H/image-2022-08-17-091708056.png)
+
+## ![image](https://i.ibb.co/Hqzmj2H/image-2022-08-17-091708056.png)
+
 - sad
