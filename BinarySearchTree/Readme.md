@@ -229,10 +229,28 @@ Node* ceil(Node *root, int x) {
 
 ## types of self balancing BST
 
-### AVL Tree
+## AVL Tree
 
 - it is a BST (for every node, left subtree is smaller and right greater)
 - it is balanced(for every node, difference between left and right heights does not succeed by 1)
+
+### Insertion in AVL Trees
+
+## ![image](https://i.ibb.co/p2hrjyn/image-2022-08-18-171508260.png)
+
+- perform normal BST insert
+- Traverse all ancestors of the newly inserted node from the node to root
+- if find an unbalanced node, check for any of the below cases.
+- 1 Left Left [Single Rotation]
+- 2 Right Right [Single Rotation]
+- 3 Left Right [Double Rotation]
+- 4 Right Left [Double Rotation]
+
+## ![image](https://i.ibb.co/YDbn0Vc/image-2022-08-18-183330686.png)
+
+### Deletion in AVL Trees
+
+- same as insertion, except after said rotation is done travel to ancestors to fix them through rotations again
 
 ### Red Black Tree
 
