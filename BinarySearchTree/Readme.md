@@ -275,11 +275,11 @@ Node* ceil(Node *root, int x) {
 
 ## Application of BST
 
-<!-- - To maintain sorted of data(or sorted set of data)
+- To maintain sorted of data(or sorted set of data)
 - To implement doubly ended priority queue [find both max. and min in same O(1)]
-- To solve problems like: -->
+- To solve problems like:
 
-[x] 1. Count smaller/greater is a stream
-[x] 2. Floor/Ceiling/Greater/Smaller in a stream
+* 1. Count smaller/greater is a stream
+* 2. Floor/Ceiling/Greater/Smaller in a stream
 
 - Note: If we only have to deal with operations search, insert and delete or subset of those then it is recommended to use hashmap instead.
