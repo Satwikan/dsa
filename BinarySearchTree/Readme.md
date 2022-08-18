@@ -268,3 +268,16 @@ Node* ceil(Node *root, int x) {
 - Number of black nodes from every node to all of it's decedents leaves should be same
 
 ## ![image](https://i.ibb.co/3YBKcKW/image-2022-08-18-185613224.png)
+
+#### Most Imbalanced Red Black Trees
+
+## ![image](https://i.ibb.co/z8qQWrF/image-2022-08-18-185908173.png)
+
+## Application of BST
+
+- To maintain sorted of data(or sorted set of data)
+- To implement doubly ended priority queue [find both max. and min in same O(1)]
+- To solve problems like:
+  [.] 1. Count smaller/greater is a stream
+  [.] 1. Floor/Ceiling/Greater/Smaller in a stream
+- Note: If we only have to deal with operations search, insert and delete or subset of those then it is recommended to use hashmap instead.
