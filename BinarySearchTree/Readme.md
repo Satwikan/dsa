@@ -215,10 +215,25 @@ Node* ceil(Node *root, int x) {
 }
 ```
 
-## Self Balancing Binary Search Tree
+# Self Balancing Binary Search Tree
 
 - Idea: keep height O(logn)
 
 ## ![image](https://i.ibb.co/V3WJWLj/image-2022-08-17-151101188.png)
 
 ## ![image](https://i.ibb.co/jVkcTpd/image-2022-08-17-150948044.png)
+
+- if we already will have all keys in advance then we can make perfectly balanced BST
+
+## ![image](https://i.ibb.co/Pjf7W64/image-2022-08-18-165334818.png)
+
+## types of self balancing BST
+
+### AVL Tree
+
+- it is a BST (for every node, left subtree is smaller and right greater)
+- it is balanced(for every node, difference between left and right heights does not succeed by 1)
+
+### Red Black Tree
+
+- it is used more than AVL trees
