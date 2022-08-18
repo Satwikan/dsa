@@ -255,3 +255,16 @@ Node* ceil(Node *root, int x) {
 ### Red Black Tree
 
 - it is used more than AVL trees
+- map,set in cpp and java both uses Red Black Tree
+- rotations occur less frequently here, because rules are less strict here
+- here height may became large than AVL Trees
+- so when we require large amount search operations as compared to insertion or deletion operations, AVL Trees are used otherwise Red Black Trees are preferred.
+
+#### Rules
+
+- Every node is either Red or Black
+- Root is always black
+- No two consecutive Reds
+- Number of black nodes from every node to all of it's decedents leaves should be same
+
+## ![image](https://i.ibb.co/3YBKcKW/image-2022-08-18-185613224.png)
