@@ -283,3 +283,12 @@ Node* ceil(Node *root, int x) {
 > 2. Floor/Ceiling/Greater/Smaller in a stream
 
 - Note: If we only have to deal with operations search, insert and delete or subset of those then it is recommended to use hashmap instead.
+
+### map STL
+
+- it uses BST
+
+## ![image](https://i.ibb.co/9n7BgV2/image-2022-08-20-173520678.png)
+
+- here m[20] will insert {20, 0} into BST
+- if you want to check if some key exists or not, use m.at(20) (Note:it will throw exception if 20 is not there)
