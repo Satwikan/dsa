@@ -43,7 +43,7 @@ bool search(Node *root, int x) {
 
 ### Iterative
 
-```
+```cpp
 bool search(Node *root, int x) {
     while (root) {
         if (root->key == x) return true;
@@ -66,7 +66,7 @@ bool search(Node *root, int x) {
 
 - if value to be inserted is already present, then return same BST.
 
-```
+```cpp
 Node *insert(Node *root, int x) {
     if (root == null) return new Node(x);
     if (root->key == x) return;
