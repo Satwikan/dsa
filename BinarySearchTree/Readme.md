@@ -14,8 +14,7 @@
 
 ## ![image](https://i.ibb.co/Hqzmj2H/image-2022-08-17-091708056.png)
 
-```
-
+```c++
 struct Node {
     int key;
     Node *left, *right;
@@ -33,7 +32,7 @@ struct Node {
 
 ### Recursive
 
-```
+```c++
 bool search(Node *root, int x) {
     if (root == null) return false;
     if (root->key > x) return search(root->left, x);
