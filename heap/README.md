@@ -120,7 +120,7 @@ void decreasing(int i, int x) {
 
 - Idea: begin with bottom-most, right-most internal node call minHeapify and decrement i, we are going bottom up because for minHeapify there is assumption that for index i to call minHeapify, it's left and right should already be heapified.
 
-```
+```cpp
 void buildHeap() {
     // parent(i) = (i-1)/2;
     // and last internal node will be parent of last node
@@ -138,7 +138,7 @@ void buildHeap() {
 - Step 1: Build a Max Heap
 - Time Complexity: O(n)
 
-```
+```cpp
 void maxHeapify(int arr[], int n, int i) {
     int largest = i, left = 2*i+1, right = 2*i+2;
     if (left < n && arr[left] > arr[largest]) largest = left;
@@ -155,7 +155,7 @@ void buildHeap(int arr, int n) {
 
 - Step 2: Repeatedly swap root with last node, reduce heap size by one heapify
 
-```
+```cpp
 void heapSort(int arr[], int n) {
     buildHeap(arr, n);
     for (int i = n-1; i >= 1; i--) {
@@ -183,7 +183,7 @@ void heapSort(int arr[], int n) {
 - given a array arr, and a number k, the array is such that an element will be present between the index i-k to i+k in the sorted array.
 - sort this array
 
-```
+```cpp
 void sortK(int arr[], int n, int k) {
     priority_queue<int, vector<int>, greater<int>> pq;
     for(int = 0; i <= k; i++) pq.push(arr[i]);
@@ -220,7 +220,7 @@ void sortK(int arr[], int n, int k) {
 - method 1: use maxHeap Time Complexity: O(n) + O(k\*logn)
 - method 2: use minHeap- store first k elements in min heap, start traversing from k+1 elem in array then if (cur < pq.top()) replaceTopFromCur
 
-```
+```cpp
 class Solution {
 public:
     int findKthLargest(vector<int>& num, int k) {
@@ -246,7 +246,7 @@ public:
 - return k closest integers to x present in arr.
 - treat this question as k-smallest elements, in which each element is abs(arr[i]-x), thereby giving us closest elements to x.
 
-```
+```cpp
 class Solution {
 public:
     int findKClosetElements(vector<int>& num, int k) {
@@ -272,7 +272,7 @@ public:
 - do as the question demands
 - to merge 2 sorted array we compare first element of both array, so for k-sorted arrays we will use heap for comparison of first element of each array
 
-```
+```cpp
 struct getIn{
     int val;
     int arrPos;
@@ -330,7 +330,7 @@ vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
 - 1st container would be maxHeap, 2nd container would be minHeap
 - Time Complexity: O(nlogn), heap is cache friendly too.
 
-```
+```cpp
 vector<float> getMedian(vector<int>& arr) {
     vector<float> res;
     int n = arr.size();
@@ -358,4 +358,3 @@ vector<float> getMedian(vector<int>& arr) {
     return res;
 }
 ```
-
