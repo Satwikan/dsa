@@ -368,3 +368,56 @@ bool isBST(Node *root, int &prev) {
     return isBST(root->right, prev);
 }
 ```
+
+## Fix a BST with two nodes Swapped
+
+- given a BST with only 2 nodes swapped, return original BST
+
+## ![image](https://i.ibb.co/FJ8s6bZ/image-2022-08-21-131446683.png)
+
+## ![image](https://i.ibb.co/tH8nz69/image-2022-08-21-131600002.png)
+
+- do in order traversal
+- we will have 2 cases (1) violation are adjacent, (2) not adjacent
+
+```cpp
+Node *prev = NULL, *first = NULL, *second = NULL;
+void fixBST(Node *root) {
+    if (root == NULL) return;
+    fixBST(root->left);
+    if (prev != NULL && root->key < prev->key) {
+        if (first == NULL) first = prev;
+        second = root;
+    }
+    prev = root;
+    first(root->right);
+}
+```
+
+## Pair with given sum in BST
+
+## ![image](https://i.ibb.co/QNkThnD/image-2022-08-21-163209947.png)
+
+## ![image](https://i.ibb.co/HK8SpJL/image-2022-08-21-171207487.png)
+
+### Method 1
+
+1. do a inorder traversal of bst store it in array
+2. use 2 pointer approach (start = 0, end = n-1, if(s+e > sum) e-- else s++)
+
+- Time Complexity: 0(n), Space: O(n)
+
+### Method 2
+
+- it returns as soon as it finds a pair rather than traversing whole and then finding pair
+- it can every be used in a regular binary tree.
+
+```cpp
+bool isPairSum(Node *root, int sum, unordered_set<int> &s) {
+    if (root == NULL) return false;
+    if (isPairSum(root->left, sum, s)) return true;
+    if (s.find(sum-root->key) != s.end()) return true;
+    s.insert(root->key);
+    return isPairSum(root->right, sum, s);
+}
+```

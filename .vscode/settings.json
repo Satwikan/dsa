@@ -3,6 +3,7 @@
         "bitonic",
         "heapified",
         "Heapify",
+        "inorder",
         "logn",
         "nlogn",
         "struct"
