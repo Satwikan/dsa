@@ -341,3 +341,4 @@ check if given Tree is BST or not
 ## ![image](https://i.ibb.co/PwcDrR5/image-2022-08-21-123331572.png)
 
 ## ![image](https://i.ibb.co/JFMnSwb/image-2022-08-21-123512067.png)
+## ![image](https://i.ibb.co/Ykw2qYz/image-2022-08-21-125145472.png)
