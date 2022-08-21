@@ -158,7 +158,7 @@ public:
 
 - my sol
 
-```
+```cpp
 Node* floor(Node *root, int x) {
     while (root) {
         if (root->key == x) return x;
@@ -177,7 +177,7 @@ Node* floor(Node *root, int x) {
 
 - sol
 
-```
+```cpp
 Node* floor(Node *root, int x) {
     Node* res = NULL;
     while (root) {
@@ -301,4 +301,3 @@ Node* ceil(Node *root, int x) {
 - use set(Self Balancing BST)
 
 ## ![image](https://i.ibb.co/CVz1JKX/image-2022-08-21-113434559.png)
-
