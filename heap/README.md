@@ -36,7 +36,7 @@
 
 - the below function is assuming only root might be in violation.
 
-```
+```cpp
 int arr[];
 int size, capacity;
 void minHeapify(int i) {
@@ -60,7 +60,7 @@ void minHeapify(int i) {
 
 ## ![image](https://i.ibb.co/z4d9hW1/image-2022-08-01-155108535.png)
 
-```
+```cpp
 int arr[];
 int size, capacity;
 int extractMin() {
@@ -87,7 +87,7 @@ int extractMin() {
 
 - Idea: compare newValue to it's parent and swap if necessary, do this until parent is smaller or root is reached.
 
-```
+```cpp
 int arr[];
 int size, capacity;
 void decreasing(int i, int x) {
