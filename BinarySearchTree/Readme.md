@@ -80,7 +80,7 @@ Node *insert(Node *root, int x) {
 
 - my recursive solution
 
-```
+```cpp
 class Solution {
 public:
     void search(TreeNode** root, int x) {
@@ -109,7 +109,7 @@ public:
 - if only one child is present, then substitute that child in that node's place.
 - if both child children are present, then add inOrderSuccessor of the node. which would be node that has value just greater than nodeToBeDeleted's value.
 
-```
+```cpp
 class Solution {
 public:
     TreeNode *getSuccessor(TreeNode *cur) {
@@ -199,7 +199,7 @@ Node* floor(Node *root, int x) {
 
 ## ![image](https://i.ibb.co/WkDg59N/image-2022-08-17-150731653.png)
 
-```
+```cpp
 Node* ceil(Node *root, int x) {
     Node* res = NULL;
     while (root) {
@@ -291,3 +291,14 @@ Node* ceil(Node *root, int x) {
 
 - here m[20] will insert {20, 0} into BST
 - if you want to check if some key exists or not, use m.at(20) (Note:it will throw exception if 20 is not there)
+
+## Ceiling on Left Side
+
+- print pre-ceiling of a given arr
+
+## ![image](https://i.ibb.co/wc5Rd5w/image-2022-08-20-182159109.png)
+
+- use set(Self Balancing BST)
+
+## ![image](https://i.ibb.co/CVz1JKX/image-2022-08-21-113434559.png)
+
