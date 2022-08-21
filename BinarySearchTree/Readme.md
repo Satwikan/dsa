@@ -301,3 +301,43 @@ Node* ceil(Node *root, int x) {
 - use set(Self Balancing BST)
 
 ## ![image](https://i.ibb.co/CVz1JKX/image-2022-08-21-113434559.png)
+
+## Find Kth smallest
+
+- define a data structure that can perform search, insert, delete and find kth smallest operations in efficient time.
+- we will use what is called augmented tree, we will add 1 extra variable in the Node that stores no of descendants in left subtree
+
+```cpp
+struct Node {
+    int key;
+    Node *left, *right;
+    int lCount;
+    Node(int x) {
+        key = x;
+        left = NULL;
+        right = NULL;
+        lCount = 0;
+    }
+}
+```
+
+## ![image](https://i.ibb.co/rdwh5yX/image-2022-08-21-122317538.png)
+
+- compare (lCount + 1) with k
+- If same, return root
+- if greater than k, go to left subtree
+- if smaller than k, go to right subtree with k = k-lCount-1 (Note: we do this because we are skipping lCount+1 descendants in left subtree)
+
+### How to maintain lCount
+
+- when traversing if you go inside left-subtree increase lCount by 1
+
+## Check for BST
+
+check if given Tree is BST or not
+
+## ![image](https://i.ibb.co/GVGsp65/image-2022-08-21-123226777.png)
+
+## ![image](https://i.ibb.co/PwcDrR5/image-2022-08-21-123331572.png)
+
+## ![image](https://i.ibb.co/JFMnSwb/image-2022-08-21-123512067.png)
