@@ -341,4 +341,30 @@ check if given Tree is BST or not
 ## ![image](https://i.ibb.co/PwcDrR5/image-2022-08-21-123331572.png)
 
 ## ![image](https://i.ibb.co/JFMnSwb/image-2022-08-21-123512067.png)
+
+optimized solution
+
 ## ![image](https://i.ibb.co/Ykw2qYz/image-2022-08-21-125145472.png)
+
+```cpp
+bool isBST(Node *root, int min, int max) {
+    if (!root) return true;
+    if (root->key < min || root->key > max) return false;
+    return isBST(root->left, min, root->key-1) && isBST(root->right, root->key+1, max);
+}
+```
+
+- Time Complexity: O(n)
+- another optimized solution (which i had thought)
+- A binary tree is a binary search tree if in-order traversal of it is in increasing order. to do this without an auxillary array use a prev variable
+
+```cpp
+// initialize prev = INT_MIN
+bool isBST(Node *root, int &prev) {
+    if (root == NULL) return true;
+    if (isBST(root->left, prev)) return true;
+    if (root->key < prev) return false;
+    prev = root->key;
+    return isBST(root->right, prev);
+}
+```
