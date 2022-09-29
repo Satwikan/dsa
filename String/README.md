@@ -3,7 +3,6 @@
 ```
 stoi(str, 0, 2);
 ```
-```
 ### check if string s2 is substring of string s2
 ```
 #include <bits/stdc++.h>
