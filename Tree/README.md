@@ -262,7 +262,7 @@ int isBalanced(node *root) {
 ## Maximum Width of Binary Tree
 - Use Level Order Traversal Line by Line
 ```
-int (node *root) {
+int MWBT(node *root) {
   Queue<node *> q;
   q.push(root);
   q.push(NULL);
