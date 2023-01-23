@@ -411,6 +411,7 @@ void fixBST(Node *root) {
 
 - it returns as soon as it finds a pair rather than traversing whole and then finding pair
 - it can every be used in a regular binary tree.
+- following only checks is pair is preset or not
 
 ```cpp
 bool isPairSum(Node *root, int sum, unordered_set<int> &s) {
@@ -421,3 +422,6 @@ bool isPairSum(Node *root, int sum, unordered_set<int> &s) {
     return isPairSum(root->right, sum, s);
 }
 ```
+
+- Time Complexity: O(n), Space: O(n)
+
